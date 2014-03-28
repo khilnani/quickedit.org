@@ -14,27 +14,27 @@ function decrypt (text, pass) {
   return decrypted;
 }
 
-function checkPasswords () {
+function passwordsMatch () {
   if( $('#password').val() == $('#password2').val() ) {
 
-    $('#passGroup').addClass("has-error");
+    $('#passGroup').removeClass("has-error");
 
     return true;
   }
 
-  $('#passGroup').removeClass("has-error");
+  $('#passGroup').addClass("has-error");
 
   return false;
 }
 
 function pageEncrypt() {
-  if ( checkPasswords() ) {
+  if ( passwordsMatch() ) {
     $('#message').val( encrypt( $('#message').val(), $('#password').val() ) );
   }
 }
 
 function pageDecrypt () {
-  if( checkPasswords() ) {  
+  if( passwordsMatch() ) {  
     $('#message').val( decrypt( $('#message').val(), $('#password').val() ) );
   }
 }
