@@ -25,21 +25,29 @@
 
 
 
-<form>
-  <fieldset>
+<form role="form">
+  <div class="form-group">
+    <label for="password">Password</label>
     <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+  </div>
+
+  <div class="form-group">
+    <label for="decrypted">Message</label>
     <textarea rows="8" id="decrypted" name="decrypted" class="form-control" placeholder="Original / Decrypted Message"></textarea>
-    
+  </div>
+
     <button id="encrypt" type="button" class="btn btn-success pull-left">Encrypt</button>
     <button id="decrypt" type="button" class="btn btn-warning pull-right">Decrypt</button>
     
+  <div class="form-group">  
+    <label for="encrypted">Encrypted Message</a>
     <textarea rows="8" id="encrypted" name="encrypted" class="form-control" placeholder="Encrypted Message"></textarea>
-  </fieldset>
+  </div>
   
   <div>
     <ul class="list-unstyled">
-      <li>Link: <a href="http://khl.io/e">http://khl.io/e</a></li>
-      <li>Code:<a href="https://github.com/postpost/encrypt">https://github.com/postpost/encrypt</a></li>
+      <li><b>Link:</b> <a href="http://khl.io/e">http://khl.io/e</a></li>
+      <li><b>Code:</b> <a href="https://github.com/postpost/encrypt">https://github.com/postpost/encrypt</a></li>
     </ul>
   </div>
   
