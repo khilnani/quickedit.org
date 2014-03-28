@@ -15,11 +15,11 @@ function decrypt (text, pass) {
 }
 
 function pageEncrypt() {
-  $('#encrypted').val( encrypt( $('#decrypted').val(), $('#password').val() ) );
+  $('#message').val( encrypt( $('#message').val(), $('#password').val() ) );
 }
 
 function pageDecrypt () {
-  $('#decrypted').val( decrypt( $('#encrypted').val(), $('#password').val() ) );
+  $('#message').val( decrypt( $('#message').val(), $('#password').val() ) );
 }
 
 $( function () {
