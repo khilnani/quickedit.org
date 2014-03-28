@@ -15,7 +15,7 @@ function decrypt (text, pass) {
 }
 
 function checkPasswords () {
-  if( $('#password'.val() == $('#password2).val() {
+  if( $('#password'.val() == $('#password2').val() ) {
 
     $('#passGroup').addClass("has-error");
 
