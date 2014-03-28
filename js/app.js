@@ -1,6 +1,4 @@
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
-
 function encrypt(text, pass) {
   //console.log('pass:' + pass + ' encrypt IN:' + text);
   var key = str_sha1(pass);  
@@ -17,14 +15,23 @@ function decrypt (text, pass) {
   return decrypted;
 }
 
+function pageEncrypt() {
+  $('#encrypted').val( encrypt( $('#decrypted').val(), $('#password').val() ) );
+}
+
+function pageDecrypt () {
+  $('#decrypted').val( decrypt( $('#encrypted').val(), $('#password').val() ) );
+}
+
 $( function () {
-  $('#encrypt').click( function () {
-    $('#encrypted').val( encrypt( $('#decrypted').val(), $('#password').val() ) );
-  });
   
-  $('#decrypt').click (function () {
-    $('#decrypted').val( decrypt( $('#encrypted').val(), $('#password').val() ) );
-  });
+  $("#encrypt").keyup( pageEncrypt );
+  
+  $('#encrypt').click( pageEncrypt );
+  
+  $('#decrypt').keyup ( pageDecrypt );
+  
+  $('#decrypt').click ( pageDecrypt );
   
   console.log('Page loaded');
 });
