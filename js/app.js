@@ -14,12 +14,29 @@ function decrypt (text, pass) {
   return decrypted;
 }
 
+function checkPasswords () {
+  if( $('#password'.val() == $('#password2).val() {
+
+    $('#passGroup').addClass("has-error");
+
+    return true;
+  }
+
+  $('#passGroup').removeClass("has-error");
+
+  return false;
+}
+
 function pageEncrypt() {
-  $('#message').val( encrypt( $('#message').val(), $('#password').val() ) );
+  if ( checkPasswords() ) {
+    $('#message').val( encrypt( $('#message').val(), $('#password').val() ) );
+  }
 }
 
 function pageDecrypt () {
-  $('#message').val( decrypt( $('#message').val(), $('#password').val() ) );
+  if( checkPasswords() ) {  
+    $('#message').val( decrypt( $('#message').val(), $('#password').val() ) );
+  }
 }
 
 $( function () {
