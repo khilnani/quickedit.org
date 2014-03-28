@@ -25,7 +25,7 @@ function pageDecrypt () {
 $( function () {
   
   $('#encrypt').click( pageEncrypt );
-  $('#decrypt').click ( pageDecrypt );
+  $('#decrypt').click( pageDecrypt );
 
   console.log('Page loaded');
 });
