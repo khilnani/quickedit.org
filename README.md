@@ -1,7 +1,7 @@
 encrypt
 =======
 
-> SHA1 and AES poweered web based text encryption for mobile and desktop.
+> SHA1 and AES powered web based text encryption for mobile and desktop.
 
 To use, go to http://postpost.io/encrypt or http://khl.io/e
 
