@@ -25,15 +25,8 @@ function pageDecrypt () {
 $( function () {
   
   $('#encrypt').click( pageEncrypt );
-  $("#encrypt").keyup( function (e) {
-      pageEncrypt();
-  } );
-  
   $('#decrypt').click ( pageDecrypt );
-  $("#decrypt").keyup( function (e) {
-      pageDecrypt();
-  } );
-  
+
   console.log('Page loaded');
 });
 
