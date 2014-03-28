@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
   
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
       
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes"/> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/> 
     <meta name="apple-mobile-web-app-capable" content="yes"/>
       
     <meta http-equiv="Pragma" content="no-cache"/>
@@ -23,32 +23,34 @@
   <body>
 
 
+  <div class="container">
 
+    <form role="form">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+      </div>
 
-<form role="form">
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
-  </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea rows="8" id="message" name="message" class="form-control" placeholder="Paste Original / Encrypted Message"></textarea>
+      </div>
 
-  <div class="form-group">
-    <label for="message">Message</label>
-    <textarea rows="8" id="message" name="message" class="form-control" placeholder="Paste Original / Encrypted Message"></textarea>
-  </div>
+    </form>
 
-</form>
+    <div class="center-block">
+      <button id="encrypt" type="button" class="btn btn-success pull-left">Encrypt</button>
+      <button id="decrypt" type="button" class="btn btn-warning pull-right">Decrypt</button>
+    </div>
 
-  <div class="center-block">
-    <button id="encrypt" type="button" class="btn btn-success pull-left">Encrypt</button>
-    <button id="decrypt" type="button" class="btn btn-warning pull-right">Decrypt</button>
-  </div>
+    <div class="center-block">
+      <ul class="list-unstyled">
+        <li><b>Link:</b> <a href="http://khl.io/e">http://khl.io/e</a></li>
+        <li><b>Code:</b> <a href="https://github.com/postpost/encrypt">https://github.com/postpost/encrypt</a></li>
+      </ul>
+    </div>
 
-  <div class="center-block">
-    <ul class="list-unstyled">
-      <li><b>Link:</b> <a href="http://khl.io/e">http://khl.io/e</a></li>
-      <li><b>Code:</b> <a href="https://github.com/postpost/encrypt">https://github.com/postpost/encrypt</a></li>
-    </ul>
-  </div>
+</div>
 
   <script src="js/utf8.js"></script>    
   <script src="js/base64.js"></script>
