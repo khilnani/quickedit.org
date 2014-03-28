@@ -1,4 +1,3 @@
-
 function encrypt(text, pass) {
   //console.log('pass:' + pass + ' encrypt IN:' + text);
   var key = str_sha1(pass);  
@@ -25,13 +24,15 @@ function pageDecrypt () {
 
 $( function () {
   
-  $("#encrypt").keyup( pageEncrypt );
-  
   $('#encrypt').click( pageEncrypt );
-  
-  $('#decrypt').keyup ( pageDecrypt );
+  $("#encrypt").keyup( function (e) {
+      pageEncrypt();
+  } );
   
   $('#decrypt').click ( pageDecrypt );
+  $("#decrypt").keyup( function (e) {
+      pageDecrypt();
+  } );
   
   console.log('Page loaded');
 });
