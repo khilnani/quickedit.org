@@ -65,16 +65,13 @@
         <button id="decrypt" type="button" class="btn btn-warning pull-right">Decrypt</button>
       </div>
   
-      <div class="row top-buffer">
+      <div class="row top-buffer well well-sm">
         
-        <h5>Suggestions?</h5>
+        <div class="pull-left"><h5>Suggestions?</h5></div>
+        <button type="button" class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#disclaimer">Disclaimer</button>
+        
         <p class="text-info">Feel free to create an issue at <a href="https://github.com/postpost/encrypt">https://github.com/postpost/encrypt</a> with suggestions or bugs.</p>
         
-        <div class="well well-sm">
-          <h5>Disclaimer</h5>
-          <p class="text-warning small"><b>This website does not store, transfer or track pass phrases or encrypted/decrypted text.</b></p>
-          <p class="text-danger small">Of course, use at your own risk. Please do not use this service for anything important, you will likely experience loss of data or inability to decrypt messages at some point. A professional hacker might be able to decrypt text encrypted by this page. If you forget your passphrase, I cannot help you decrypt your message.</p>
-        </div>
       </div>
     </div>
   </div>
@@ -96,6 +93,22 @@
       </div>
     </div>
   </div>
+  
+  <div class="modal fade" id="disclaimer" tabindex="-1" role="dialog" aria-labelledby="Disclaimer" aria-hidden="true" data-keyboard="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" id="disclaimerHeader">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title text-info" id="disclaimerLabel">Tips</h4>
+        </div>
+        <div class="modal-body">
+          <p class="text-warning small"><b>This application does not store, transfer or track pass phrases or encrypted/decrypted text.</b></p>
+          <p class="text-danger small">Use at your own risk. Please do not use this service for anything important, you will likely experience loss of data or inability to decrypt messages at some point. A professional hacker might be able to decrypt text encrypted by this page. If you forget your passphrase, I cannot help you decrypt your message.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <script src="libs/js/utf8.js"></script>    
   <script src="libs/js/base64.js"></script>
