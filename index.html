@@ -31,7 +31,10 @@
       
       <div class="row">
         <p class="text-info pull-left">SHA and AES based text encryption.</p>
-        <button type="button" class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#disclaimer">Disclaimer</button>
+        <div class="btn-group pull-right">
+        <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#info">Information</button>
+        <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#disclaimer">Disclaimer</button>
+        </div>
       </div>
   
       <div class="row">
@@ -69,12 +72,6 @@
         <button id="decrypt" type="button" class="btn btn-warning pull-right">Decrypt</button>
       </div>
   
-      <div class="row top-buffer well well-sm">
-        
-        <h5>Suggestions?</h5>
-        <p class="text-info">Feel free to create an issue at <a href="https://github.com/postpost/encrypt">https://github.com/postpost/encrypt</a> with suggestions or bugs.</p>
-        
-      </div>
     </div>
   </div>
   
@@ -95,6 +92,22 @@
       </div>
     </div>
   </div>
+  
+  <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="Information" aria-hidden="true" data-keyboard="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" id="infoHeader">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title text-info" id="infoLabel">Information</h4>
+        </div>
+        <div class="modal-body">
+          <h5>Suggestions?</h5>
+          <p class="text-info small">Feel free to create an issue at <a href="https://github.com/postpost/encrypt">https://github.com/postpost/encrypt</a> with suggestions or bugs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   
   <div class="modal fade" id="disclaimer" tabindex="-1" role="dialog" aria-labelledby="Disclaimer" aria-hidden="true" data-keyboard="true">
     <div class="modal-dialog">
