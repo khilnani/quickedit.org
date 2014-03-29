@@ -31,11 +31,21 @@ function passwordsMatch () {
   return false;
 }
 
+function onMessageChange() {
+    console.log("onMessageChange()");
+    $("#count").text( $('#message').val().length  );
+}
+
+function messageUpdated() {
+  $('#message').select();
+  onMessageChange();
+}
+
 function pageEncrypt() {
   console.log("pageEncrypt()");
   if ( passwordsMatch() ) {
     $('#message').val( encrypt( $('#message').val(), $('#password').val() ) );
-    $('#message').select();
+    messageUpdated();
   }
 }
 
@@ -43,19 +53,16 @@ function pageDecrypt() {
   console.log("pageDecrypt()");
   if( passwordsMatch() ) {  
     $('#message').val( decrypt( $('#message').val(), $('#password').val() ) );
-    $('#message').select();
+    messageUpdated();
   }
 }
 
-function onChange() {
-    console.log("onChange()");
-    $("#count").text( $('#message').val().length  );
-}
+
 
 $( function() {
   
-  $("#message").change( onChange );
-  $("#message").keyup( onChange );
+  $("#message").change( onMessageChange );
+  $("#message").keyup( onMessageChange );
   
   $('#encrypt').click( pageEncrypt );
   $('#decrypt').click( pageDecrypt );
