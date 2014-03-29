@@ -39,7 +39,7 @@ function onMessageChange() {
     
     var ht = m.height();
     m.css("height","180px");
-    var sh = m.prop("scrollHeight") + 20;
+    var sh = m.prop("scrollHeight");
     var minh = m.css("min-height").replace("px", "");
     m.css("height",Math.max(sh,minh)+"px");  
 }
