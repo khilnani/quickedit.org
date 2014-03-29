@@ -38,7 +38,7 @@ function onMessageChange() {
     $("#count").text( m.val().length  );
     
     var ht = m.height();
-    m.css("height","100px");
+    m.css("height","200px");
     var sh = m.prop("scrollHeight") + 20;
     var minh = m.css("min-height").replace("px", "");
     m.css("height",Math.max(sh,minh)+"px");  
@@ -74,6 +74,8 @@ $( function() {
   
   $('#encrypt').click( pageEncrypt );
   $('#decrypt').click( pageDecrypt );
+  
+  onMessageChange();
 
   console.log('Page loaded');
 });
