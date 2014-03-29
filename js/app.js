@@ -27,6 +27,8 @@ function passwordsMatch () {
 
   $('#passGroup').addClass("has-error");
   $('#passwordError').removeClass("hidden");
+  
+  $("html, body").animate({ scrollTop: 0 }, "slow");
 
   return false;
 }
