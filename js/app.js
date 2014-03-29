@@ -38,6 +38,8 @@ function onMessageChange() {
     $("#count").text( m.val().length  );
 
     m.autosize({ append: '\n'});
+    m.trigger('autosize.resize');
+
 
     /*
     var ht = m.height();
