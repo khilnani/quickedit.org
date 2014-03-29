@@ -22,51 +22,52 @@
 
   <body>
 
-  <div class="container">
-  
-    <div class="row">
-      <h3>postpost.io | encrypt</h3>
-      <p class="text-info">SHA and AES powered text encryption.</p>
-    </div>
-
-    <div class="row">
-      <form role="form">
-        <div class="form-group" id="passGroup">
-          <label for="password">Passphase</label>
-          <input type="password" id="password" name="password" class="form-control" placeholder="Passphase - a single word or sentence">
-          <input type="password" id="password2" name="password2" class="form-control" placeholder="Repeat please. It's important.">
-          <div class="alert alert-danger hidden" id="passwordError">The passwords do not match. I could pick one at random if you like?</div>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message</label> <span class="badge" id="count">0</span>
-          <textarea rows="8" id="message" name="message" class="form-control" placeholder="Original / Encrypted Message"></textarea>
-        </div>
-
-      </form>
-    </div>
-
-    <div class="row">
-      <button id="encrypt" type="button" class="btn btn-success pull-left">Encrypt</button>
-      <button id="decrypt" type="button" class="btn btn-warning pull-right">Decrypt</button>
-    </div>
-
-    <div class="row top-buffer">
-      <div class="well well-sm">
-        <h5>Tips</h5>
-        <ol>
-          <li class="text-info">A sentence with punctuation is better than a traditional password.
-          <li class="text-info">You can encrypt text more than once. Just click the encrypt button a few times. To decrypt, click the decrypt button multiple times till you see your original text.</li>
-          <li class="text-info">You can also, change the passphrase between multiple encryptions. However, reverse the sequence of the passwords used when decrypting.</li>
-        </ol>
+  <div class="page">
+    <div class="container">
+    
+      <div class="row">
+        <h3>postpost.io | encrypt</h3>
+        <p class="text-info">SHA and AES powered text encryption.</p>
       </div>
-      
-      <h5>Suggestions?</h5>
-      <p class="text-info">Feel free to create an issue at <a href="https://github.com/postpost/encrypt">https://github.com/postpost/encrypt</a> with suggestions or bugs.</p>
-      
+  
+      <div class="row">
+        <form role="form">
+          <div class="form-group" id="passGroup">
+            <label for="password">Passphase</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Passphase - a single word or sentence">
+            <input type="password" id="password2" name="password2" class="form-control" placeholder="Repeat please. It's important.">
+            <div class="alert alert-danger hidden" id="passwordError">The passwords do not match. I could pick one at random if you like?</div>
+          </div>
+  
+          <div class="form-group">
+            <label for="message">Message</label> <span class="badge" id="count">0</span>
+            <textarea rows="8" id="message" name="message" class="form-control" placeholder="Original / Encrypted Message"></textarea>
+          </div>
+  
+        </form>
+      </div>
+  
+      <div class="row">
+        <button id="encrypt" type="button" class="btn btn-success pull-left">Encrypt</button>
+        <button id="decrypt" type="button" class="btn btn-warning pull-right">Decrypt</button>
+      </div>
+  
+      <div class="row top-buffer">
+        <div class="well well-sm">
+          <h5>Tips</h5>
+          <ol>
+            <li class="text-info">A sentence with punctuation is better than a traditional password.
+            <li class="text-info">You can encrypt text more than once. Just click the encrypt button a few times. To decrypt, click the decrypt button multiple times till you see your original text.</li>
+            <li class="text-info">You can also, change the passphrase between multiple encryptions. However, reverse the sequence of the passwords used when decrypting.</li>
+          </ol>
+        </div>
+        
+        <h5>Suggestions?</h5>
+        <p class="text-info">Feel free to create an issue at <a href="https://github.com/postpost/encrypt">https://github.com/postpost/encrypt</a> with suggestions or bugs.</p>
+        
+      </div>
     </div>
-
-</div>
+  </div>
 
   <script src="libs/js/utf8.js"></script>    
   <script src="libs/js/base64.js"></script>
