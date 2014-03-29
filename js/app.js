@@ -39,7 +39,7 @@ function pageEncrypt() {
   }
 }
 
-function pageDecrypt () {
+function pageDecrypt() {
   console.log("pageDecrypt()");
   if( passwordsMatch() ) {  
     $('#message').val( decrypt( $('#message').val(), $('#password').val() ) );
@@ -47,12 +47,15 @@ function pageDecrypt () {
   }
 }
 
-$( function () {
+function onChange() {
+    console.log("onChange()");
+    $("#count").text( $('#message').val().length  );
+}
+
+$( function() {
   
-  $("#message").change(function() {
-    console.log("#message.change()");
-    $("#count").val( $('#message').val().length  );
-  });
+  $("#message").change( onChange );
+  $("#message").keyup( onChange );
   
   $('#encrypt').click( pageEncrypt );
   $('#decrypt').click( pageDecrypt );
