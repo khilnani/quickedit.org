@@ -1,5 +1,4 @@
 
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 /*  Utf8 class: encode / decode between multi-byte Unicode characters and UTF-8 multiple          */
 /*              single-byte character encoding (c) Chris Veness 2002-2011                         */
