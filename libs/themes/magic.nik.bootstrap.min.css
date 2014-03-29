@@ -1,4 +1,3 @@
-
 html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
 body{margin:0}
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
@@ -42,7 +41,7 @@ td,th{padding:0}
 @media print{*{text-shadow:none !important;color:#000 !important;background:transparent !important;box-shadow:none !important} a,a:visited{text-decoration:underline} a[href]:after{content:" (" attr(href) ")"} abbr[title]:after{content:" (" attr(title) ")"} a[href^="javascript:"]:after,a[href^="#"]:after{content:""} pre,blockquote{border:1px solid #999;page-break-inside:avoid} thead{display:table-header-group} tr,img{page-break-inside:avoid} img{max-width:100% !important} p,h2,h3{orphans:3;widows:3} h2,h3{page-break-after:avoid} select{background:#fff !important} .navbar{display:none} .table td,.table th{background-color:#fff !important} .btn>.caret,.dropup>.btn>.caret{border-top-color:#000 !important} .label{border:1px solid #000} .table{border-collapse:collapse !important} .table-bordered th,.table-bordered td{border:1px solid #ddd !important}}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 *:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 html{font-size:62.5%;-webkit-tap-highlight-color:rgba(0,0,0,0)}
-body{font-family:Open Sans;font-size:12px;line-height:1.428571429;color:#333;background-color:#eee}
+body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:12px;line-height:1.428571429;color:#333;background-color:#eee}
 input,button,select,textarea{font-family:inherit;font-size:inherit;line-height:inherit}
 a{color:#61707d;text-decoration:none}a:hover,a:focus{color:#404952;text-decoration:underline}
 a:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}
@@ -54,7 +53,7 @@ img{vertical-align:middle}
 .img-circle{border-radius:50%}
 hr{margin-top:17px;margin-bottom:17px;border:0;border-top:1px solid #eee}
 .sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);border:0}
-h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:Open Sans;font-weight:500;line-height:1.1;color:inherit}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small,.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small,h1 .small,h2 .small,h3 .small,h4 .small,h5 .small,h6 .small,.h1 .small,.h2 .small,.h3 .small,.h4 .small,.h5 .small,.h6 .small{font-weight:normal;line-height:1;color:#aaa}
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:500;line-height:1.1;color:inherit}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small,.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small,h1 .small,h2 .small,h3 .small,h4 .small,h5 .small,h6 .small,.h1 .small,.h2 .small,.h3 .small,.h4 .small,.h5 .small,.h6 .small{font-weight:normal;line-height:1;color:#aaa}
 h1,.h1,h2,.h2,h3,.h3{margin-top:17px;margin-bottom:8.5px}h1 small,.h1 small,h2 small,.h2 small,h3 small,.h3 small,h1 .small,.h1 .small,h2 .small,.h2 .small,h3 .small,.h3 .small{font-size:65%}
 h4,.h4,h5,.h5,h6,.h6{margin-top:8.5px;margin-bottom:8.5px}h4 small,.h4 small,h5 small,.h5 small,h6 small,.h6 small,h4 .small,.h4 .small,h5 .small,.h5 .small,h6 .small,.h6 .small{font-size:75%}
 h1,.h1{font-size:31px}
