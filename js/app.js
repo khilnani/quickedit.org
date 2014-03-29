@@ -45,6 +45,10 @@ function pageDecrypt () {
 
 $( function () {
   
+  $("#message" ).change(function() {
+    $("#count").val( $('#message').val().length  );
+  });
+  
   $('#encrypt').click( pageEncrypt );
   $('#decrypt').click( pageDecrypt );
 
