@@ -24,12 +24,8 @@
   <div class="container">
   
     <div class="row">
-      <p>
-        <ul class="list-unstyled">
-          <li><h3>postpost.io | encrypt</h3></li>
-          <li class="text-info">SHA and AES powered text encryption.</li>
-        </ul>
-    </p>
+      <h3>postpost.io | encrypt</h3>
+      <small>SHA and AES powered text encryption.</small>
     </div>
 
     <div class="row">
@@ -38,10 +34,11 @@
           <label for="password">Passphase</label>
           <input type="password" id="password" name="password" class="form-control" placeholder="Passphase - a single word or sentence">
           <input type="password" id="password2" name="password2" class="form-control" placeholder="Repeat please. It's important.">
+          <div class="alert alert-danger">The passwords do not match. I could pick one at random if you like?</div>
         </div>
 
         <div class="form-group">
-          <label for="message">Message</label>
+          <label for="message">Message</label> <span class="badge">42</span>
           <textarea rows="8" id="message" name="message" class="form-control" placeholder="Original / Encrypted Message"></textarea>
         </div>
 
@@ -54,18 +51,18 @@
     </div>
 
     <div class="row">
-      <p>
+      <div class="panel">
         <h5>Tips</h5>
         <ol>
           <li class="text-info">A sentence with punctuation is better than a traditional password.
           <li class="text-info">You can encrypt text more than once. Just click the encrypt button a few times. To decrypt, do the same till you see your original text!!!</li>
           <li class="text-info">You can also, change the passphrase between multiple encryptions. However, reverse the sequence of the passwords used when decrypting.</li>
         </ol>
-      </p>
-      <p>
+      </div>
+      <div class="panel">
         <h5>Suggestions?</h5>
-        <span class="text-success">Feel free to create an issue at <a href="https://github.com/postpost/encrypt">https://github.com/postpost/encrypt</a> with suggestions or bugs.</span>
-      </p>
+        <span class="text-warning">Feel free to create an issue at <a href="https://github.com/postpost/encrypt">https://github.com/postpost/encrypt</a> with suggestions or bugs.</span>
+      </div>
     </div>
 
 </div>
