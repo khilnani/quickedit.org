@@ -30,12 +30,14 @@ function passwordsMatch () {
 function pageEncrypt() {
   if ( passwordsMatch() ) {
     $('#message').val( encrypt( $('#message').val(), $('#password').val() ) );
+    $('#message').select();
   }
 }
 
 function pageDecrypt () {
   if( passwordsMatch() ) {  
     $('#message').val( decrypt( $('#message').val(), $('#password').val() ) );
+    $('#message').select();
   }
 }
 
