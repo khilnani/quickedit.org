@@ -34,14 +34,24 @@
         <form role="form">
           <div class="form-group" id="passGroup">
             <label for="password">Passphase</label>
-            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#tips">Tips</button>
+            <button type="button" class="btn btn-info btn-xs pull-right" data-toggle="modal" data-target="#tips">Tips</button>
             <input type="password" id="password" name="password" class="form-control" placeholder="Passphase - a single word or sentence">
             <input type="password" id="password2" name="password2" class="form-control" placeholder="Repeat please. It's important.">
             <div class="alert alert-danger hidden" id="passwordError">The passwords do not match. I could pick one at random if you like?</div>
           </div>
   
-          <div class="form-group">
+          <div class="form-group pull-right">
             <label for="message">Message</label> <span class="badge" id="count">0</span>
+            <div class="btn-group">
+              <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown">
+                Save <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Save</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Current</a></li>
+              </ul>
+          </div>
             <textarea rows="8" id="message" name="message" class="form-control" placeholder="Original / Encrypted Message"></textarea>
           </div>
   
