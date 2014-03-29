@@ -36,12 +36,16 @@ function onMessageChange() {
     var m = $('#message');
     
     $("#count").text( m.val().length  );
-    
+
+    m.autosize({ append: '\n'});
+
+    /*
     var ht = m.height();
     m.css("height","180px");
     var sh = m.prop("scrollHeight");
     var minh = m.css("min-height").replace("px", "");
-    m.css("height",Math.max(sh,minh)+"px");  
+    m.css("height",Math.max(sh,minh)+"px");
+    */
 }
 
 function messageUpdated() {
@@ -76,8 +80,6 @@ $( function() {
   $('#decrypt').click( pageDecrypt );
   
   onMessageChange();
-  //$('#message').autosize();
 
   console.log('Page loaded');
 });
-
