@@ -15,6 +15,8 @@ function decrypt (text, pass) {
 }
 
 function passwordsMatch () {
+  console.log("passwordsMatch()");
+  
   if( $('#password').val() == $('#password2').val() ) {
 
     $('#passGroup').removeClass("has-error");
@@ -30,6 +32,7 @@ function passwordsMatch () {
 }
 
 function pageEncrypt() {
+  console.log("pageEncrypt()");
   if ( passwordsMatch() ) {
     $('#message').val( encrypt( $('#message').val(), $('#password').val() ) );
     $('#message').select();
@@ -37,6 +40,7 @@ function pageEncrypt() {
 }
 
 function pageDecrypt () {
+  console.log("pageDecrypt()");
   if( passwordsMatch() ) {  
     $('#message').val( decrypt( $('#message').val(), $('#password').val() ) );
     $('#message').select();
@@ -45,7 +49,8 @@ function pageDecrypt () {
 
 $( function () {
   
-  $("#message" ).change(function() {
+  $("#message").change(function() {
+    console.log("#message.change()");
     $("#count").val( $('#message').val().length  );
   });
   
