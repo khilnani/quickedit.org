@@ -14,7 +14,11 @@ function decrypt (text, pass) {
   return decrypted;
 }
 
-function passwordsMatch () {
+function backToTop() {
+  $("html, body").animate({ scrollTop: 0 }, "slow");
+}
+
+function passwordsMatch() {
   console.log("passwordsMatch()");
   
   if( $('#password').val() == $('#password2').val() ) {
@@ -28,7 +32,7 @@ function passwordsMatch () {
   $('#passGroup').addClass("has-error");
   $('#passwordError').removeClass("hidden");
   
-  $("html, body").animate({ scrollTop: 0 }, "slow");
+  backToTop();
 
   return false;
 }
@@ -73,6 +77,9 @@ $( function() {
   
   $('#encrypt').click( pageEncrypt );
   $('#decrypt').click( pageDecrypt );
+  
+  $('#backToTop').click( backToTop );
+  
   
   onMessageChange();
 
