@@ -33,7 +33,15 @@ function passwordsMatch () {
 
 function onMessageChange() {
     console.log("onMessageChange()");
-    $("#count").text( $('#message').val().length  );
+    var m = $('#message');
+    
+    $("#count").text( m.val().length  );
+    
+    var ht = m.height();
+    m.css("height","60px");
+    var sh = m.prop("scrollHeight");
+    var minh = m.css("min-height").replace("px", "");
+    m.css("height",Math.max(sh,minh)+"px");  
 }
 
 function messageUpdated() {
