@@ -38,10 +38,10 @@ function onMessageChange() {
     $("#count").text( m.val().length  );
     
     var ht = m.height();
-    m.css("height","180px");
+    m.css("height","160px");
     var sh = m.prop("scrollHeight");
     var minh = m.css("min-height").replace("px", "");
-    m.css("height",Math.max(sh,minh)+"px");  
+    m.css("height",(Math.max(sh,minh) + 20)+"px");  
 }
 
 function messageUpdated() {
