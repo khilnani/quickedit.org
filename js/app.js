@@ -18,11 +18,13 @@ function passwordsMatch () {
   if( $('#password').val() == $('#password2').val() ) {
 
     $('#passGroup').removeClass("has-error");
+    $('#passwordError').addClass("hidden");
 
     return true;
   }
 
   $('#passGroup').addClass("has-error");
+  $('#passwordError').addClass("show");
 
   return false;
 }
