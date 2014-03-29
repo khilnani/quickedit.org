@@ -24,7 +24,7 @@ function passwordsMatch () {
   }
 
   $('#passGroup').addClass("has-error");
-  $('#passwordError').addClass("show");
+  $('#passwordError').removeClass("hidden");
 
   return false;
 }
