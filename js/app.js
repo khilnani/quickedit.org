@@ -37,14 +37,11 @@ function onMessageChange() {
     
     $("#count").text( m.val().length  );
     
-    
-    /*
     var ht = m.height();
     m.css("height","180px");
     var sh = m.prop("scrollHeight") + 20;
     var minh = m.css("min-height").replace("px", "");
     m.css("height",Math.max(sh,minh)+"px");  
-    */
 }
 
 function messageUpdated() {
@@ -79,7 +76,7 @@ $( function() {
   $('#decrypt').click( pageDecrypt );
   
   onMessageChange();
-  $('#message').autosize();
+  //$('#message').autosize();
 
   console.log('Page loaded');
 });
