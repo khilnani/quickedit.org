@@ -5,3 +5,9 @@
 .page {
   padding: 0 15px 0 15px;
 }
+
+#message {
+  -webkit-transition: height 0.2s;
+  -moz-transition: height 0.2s;
+  transition: height 0.2s;
+}
