@@ -1,0 +1,8 @@
+{
+    "lib": {
+        "www": {
+            "id": "phonegap",
+            "version": "3.4.0"
+        }
+    }
+}
