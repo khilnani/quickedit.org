@@ -1,4 +1,4 @@
 [submodule "www"]
 	path = www
 	url = https://github.com/khilnani/quickencrypt.git
-  branch = gh-pages
+	branch = gh-pages
