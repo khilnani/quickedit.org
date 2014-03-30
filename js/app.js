@@ -79,6 +79,7 @@ $( function() {
   $('#decrypt').click( pageDecrypt );
   
   $('#backToTop').click( backToTop );
+  $('#reset').click( onMessageChange );
   
   
   onMessageChange();
