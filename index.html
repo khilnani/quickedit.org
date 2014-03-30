@@ -13,8 +13,8 @@
     <meta http-equiv="Expires" content="-1"/>
     <meta http-equiv="Cache-Control" content="no-cache"/>
 
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <link rel="apple-touch-icon" href="images/icon-128x128.png"/>
     <link rel="apple-touch-icon" sizes="72x72" href="res/icon/ios/icon-72.png" />
@@ -25,7 +25,9 @@
     <link rel="stylesheet" href="css/styles.css"/>
 
     <title>QuickEncrypt</title>
-    <meta name="description" content="SHA and AES powered web based text encryption." />
+    <meta name="description" content="Passphrase based text encryptionthat uses 256bit AES encryption with SHA hash keys forthe web and iOS iPhone/iPad." />
+    <meta name="keywords" content="encryption, cryptography, secure, encode, password, encrypt, decrypt, aes" />
+    
   </head>
 
   <body>
@@ -50,8 +52,8 @@
             <label for="password">Passphase</label>
             <button type="button" class="btn btn-info btn-xs pull-right" data-toggle="modal" data-target="#tips">Tips</button>
 
-            <input type="password" id="password" name="password" class="form-control" placeholder="Passphase - a single word or sentence">
-            <input type="password" id="password2" name="password2" class="form-control" placeholder="Repeat please. It's important.">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Passphrase - a single word or sentence">
+            <input type="password" id="password2" name="password2" class="form-control" placeholder="Repeat please. It's important">
             <div class="alert alert-danger hidden" id="passwordError">The passwords do not match. I could pick one at random if you like?</div>
           </div>
         </div>
@@ -81,7 +83,7 @@
         </div>
         <div class="row">
           <div class="form-group">
-            <textarea rows="8" id="message" name="message" class="form-control" placeholder="Original / encrypted message"></textarea>
+            <textarea rows="8" id="message" name="message" class="form-control" placeholder="Plain text message to encrypt, or encrypted message to decrypt goes here"></textarea>
           </div>
         </div>
         <div class="row">
@@ -102,7 +104,7 @@
         <div class="modal-body">
           <p class="text-info">A few suggestions.</p>
           <ol>
-            <li>A sentence with punctuation is better than a traditional password.
+            <li>A sentence with punctuation is better than a traditional passphrase or password.
             <li>You can encrypt text more than once. Just click the encrypt button a few times. To decrypt, click the decrypt button multiple times till you see your original text.</li>
             <li>You could change the passphrase between multiple encryptions. Reverse the sequence of the passphases when decrypting.</li>
           </ol>
