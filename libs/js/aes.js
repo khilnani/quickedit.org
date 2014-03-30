@@ -1,5 +1,6 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 /*  AES implementation in JavaScript (c) Chris Veness 2005-2011                                   */
+/*  Attribution 3.0 Unported (CC BY 3.0) - http://creativecommons.org/licenses/by/3.0/            */
 /*   - see http://csrc.nist.gov/publications/PubsFIPS.html#197                                    */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 
