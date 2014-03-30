@@ -52,6 +52,11 @@ function messageUpdated() {
   onMessageChange();
 }
 
+function clearMessage() {
+  $('#message').val('');
+  onMessageChange();
+}
+
 function pageEncrypt() {
   console.log("pageEncrypt()");
   if ( passwordsMatch() ) {
@@ -79,7 +84,7 @@ $( function() {
   $('#decrypt').click( pageDecrypt );
   
   $('#backToTop').click( backToTop );
-  $('#reset').click( onMessageChange );
+  $('#reset').click( clearMessage );
   
   
   onMessageChange();
