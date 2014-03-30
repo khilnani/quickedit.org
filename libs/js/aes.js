@@ -100,6 +100,7 @@ Aes.mixColumns = function(s, Nb) {   // combine bytes of each col of state S [§
     for (var i=0; i<4; i++) {
       a[i] = s[i][c];
       b[i] = s[i][c]&0x80 ? s[i][c]<<1 ^ 0x011b : s[i][c]<<1;
+
     }
     // a[n] ^ b[n] is a•{03} in GF(2^8)
     s[0][c] = b[0] ^ a[1] ^ b[1] ^ a[2] ^ a[3]; // 2*a0 + 3*a1 + a2 + a3
@@ -160,9 +161,9 @@ Aes.rCon = [ [0x00, 0x00, 0x00, 0x00],
              [0x1b, 0x00, 0x00, 0x00],
              [0x36, 0x00, 0x00, 0x00] ]; 
 
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
-/*  AES Counter-mode implementation in JavaScript (c) Chris Veness 2005-2011                      */
+/*  AES Counter-mode implementation in JavaScript (c) Chris Veness 2005-2012                      */
 /*   - see http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf                       */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 
