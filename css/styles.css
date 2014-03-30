@@ -11,6 +11,11 @@
   top: -5px;
 }
 
+.shift-dn-5 {
+  position: relative; 
+  top: 5px;
+}
+
 #message {
   -webkit-transition: height 0.2s;
   -moz-transition: height 0.2s;
