@@ -10,6 +10,5 @@ To build the iOS app, make sure you have PhonGap, Cordova and XCode installed. T
 - Checkout the repo
 - Switch to the master branch - `git checkout master`
 - Init the submodule - `git submodule update --init`
-- Create the platforms dir - `mkdir platforms`
 - Add the iOS platform - `cordova platforms add ios`
 - Build and Run - `phonegap run ios`
