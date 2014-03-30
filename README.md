@@ -3,7 +3,7 @@ encrypt
 
 > SHA1 and AES powered web based text encryption for mobile and desktop.
 
-To use, go to http://khilnani.github.io/encrypt/
+To use, go to http://quickencrypt.io
 
 Thanks to code by
 
