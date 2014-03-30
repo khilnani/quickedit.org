@@ -37,16 +37,16 @@
     
       <div class="row">
         <h3>Quick Encrypt</h3> 
-      </div>
-      
-      <div class="row">
-        <p class="text-primary pull-left small">Passphrase based text encryption.</p>
         <div class="btn-group pull-right">
           <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#about">About</button>
           <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#help"><span class="glyphicon glyphicon-question-sign"></span></button>
         </div>
       </div>
-  
+
+      <div class="row">
+        <p class="text-primary pull-left small">Passphrase based 256bit AES text encryption.</p>
+      </div>
+
       <form role="form">
         <div class="row">
           <div class="form-group" id="passGroup">
@@ -102,10 +102,10 @@
         </div>
         <div class="modal-body">
         
-          <p><i>Quick Encrypt</i> is a passphrase based simple text encryption application that uses the AES 256bit encryption. 
+          <p><span class="text-primary">Quick Encrypt</span> is a passphrase based simple text encryption application that uses the AES 256bit encryption. 
           Passphrases and unencrypted text are neither stored, nor sent to any website.</p>
           
-          <h5 class="text-primary">Usage</h5>
+          <h4 class="text-primary">Usage</h4>
           <dl class="list-inline">
             <dt>Passphrase</dt>
               <dl>
@@ -124,7 +124,7 @@
               </dl>
           </dl>
           
-          <h5 class="text-primary">A few suggestions</h5>
+          <h4 class="text-primary">A few suggestions</h4>
           <ol>
             <li>You can encrypt text more than once. Just click the encrypt button a few times. To decrypt, click the decrypt button multiple times till you see your original text.</li>
             <li>You could change the passphrase between multiple encryptions. Reverse the sequence of the passphases when decrypting.</li>
@@ -139,24 +139,22 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title text-primary">About</h4>
+          <h4 class="modal-title text-primary">About Quick Encrypt</h4>
         </div>
         <div class="modal-body">
-        
-          <h5 class="text-primary">Quick Encrypt</h5>
           <p>
-          A passphrase based simple text encryption application that uses the AES 256bit encryption with SHA hash keys.
+          <span class="text-primary">Quick Encrypt</span> is a passphrase based simple text encryption application that uses the AES 256bit encryption with SHA hash keys.
           Content may be encrypted multiple times, with different passphrases, adding multiple layers of encryption.
           Passphrases and unencrypted text are neither stored, nor sent to any website.
           </p>
         
-          <h5 class="text-primary">Web Application and iOS App</h5>
+          <h4 class="text-primary">Web Application and iOS App</h4>
           <p>The web application at <a target="_blank" href="http://postpost.io/encrypt">http://postpost.io/encrypt</a> is fully compatible with the <i>self-contained</i> <a target="_blank" href="https://itunes.apple.com/us/app/quickencrypt/id851439884?ls=1&mt=8">iOS version available in the iTunes Store</a>.</p>
           
-          <h5 class="text-primary">Suggestions?</h5>
+          <h4 class="text-primary">Suggestions?</h4>
           <p>Feel free to email <a href="mailto:info@postpost.io">info@postpost.io</a> with suggestions or bugs.</p>
           
-          <h5 class="text-primary">Copyright</h5>
+          <h4 class="text-primary">Copyright</h4>
           <p>All code copyright Nik Khilnani unless stated otherwise below:
             <ol>
               <li><a target="_blank" href="http://www.movable-type.co.uk/scripts/aes.html">AES</a> and <a target="_blank" href="http://www.movable-type.co.uk/scripts/sha256.html">SHA256</a> libraries released by Chris Veness under the <a target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported (CC BY 3.0)</a> License.</li>
@@ -166,7 +164,7 @@
           </p>
           
           <div class="well well-sm top-buffer">
-          <h5>Disclaimer</h5>
+          <h4>Disclaimer</h4>
             <p class="text-warning small"><b>This application does not store, transfer or track passphrases or encrypted/decrypted text.</b></p>
             <p class="text-danger small">Use at your own risk. Please keep in mind that you may experience loss of data or inability to decrypt messages in some cases. A professional hacker might be able to decrypt text encrypted by this page. If you forget your passphrase, we will be unable to help you decrypt your message.</p>
           </div>
