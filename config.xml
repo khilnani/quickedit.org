@@ -3,16 +3,16 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.postpost.encrypt"
+        id        = "com.khilnani.encrypt"
         version   = "1.0.0">
 
-    <name>PostPost Encrypt</name>
+    <name>QuickEncrypt</name>
 
     <description>
       A simple text encryption application.
     </description>
 
-    <author href="http://postpost.io" email="info@postpost.io">
+    <author href="http://postpost.io" email="nik@khilnani.org">
         Nik Khilnani
     </author>
 
