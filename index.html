@@ -43,6 +43,7 @@
         <p class="text-primary pull-left small">SHA and AES based text encryption.</p>
         <div class="btn-group pull-right">
           <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#about">About</button>
+          <button type="button" class="btn btn-info btn-xs pull-right" data-toggle="modal" data-target="#help"><span class="glyphicon glyphicon-question-sign"></span></button>
         </div>
       </div>
   
@@ -50,8 +51,6 @@
         <div class="row">
           <div class="form-group" id="passGroup">
             <label for="password">Passphase</label>
-            <button type="button" class="btn btn-info btn-xs pull-right" data-toggle="modal" data-target="#tips"><span class="glyphicon glyphicon-question-sign"></span> Tips</button>
-
             <input type="password" id="password" name="password" class="form-control" placeholder="Passphrase - a single word or sentence">
             <input type="password" id="password2" name="password2" class="form-control" placeholder="Repeat please. It's important">
             <div class="alert alert-danger hidden" id="passwordError">The passwords do not match. I could pick one at random if you like?</div>
@@ -94,17 +93,41 @@
     </div>
   </div>
   
-  <div class="modal fade" id="tips" tabindex="-1" role="dialog" aria-labelledby="Tips" aria-hidden="true" data-keyboard="true">
+  <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="Help" aria-hidden="true" data-keyboard="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header" id="tipsHeader">
+        <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title text-primary" id="tipsLabel"><span class="glyphicon glyphicon-question-sign"></span> Tips</h4>
+          <h4 class="modal-title text-primary"><span class="glyphicon glyphicon-question-sign"></span> Help</h4>
         </div>
         <div class="modal-body">
-          <p class="text-info">A few suggestions.</p>
+        
+          <p><b>Quick Encrypt</b> is a passphrase based simple text encryption application that uses the AES 256bit encryption with SHA hash keys. 
+          Content may be encrypted multiple times, with different passphrases, adding multiple layers of encryption.
+          Passphrases and unencrypted are neither stored, nor sent to any website.</p>
+          
+          <h5 class="text-primary">Usage</h5>
+          <dl class="dl-horizontal">
+            <dt>Passphrase</dt>
+              <dl>
+              This is the password or phrase you would use to decrypt the text you encrypt. 
+              To help ensure the passphrase does not contain a typo, we ask for passphrase confirmation.
+              A sentence with punctuation is better than a traditional passphrase or password.
+              </dl>
+            <dt>Message</dt>
+              <dl>
+              This text field should contain the plain text you desire to encrypt, or the encrypted text you want to decrypt.
+              </dl>
+            <dt>Encrypt / Decrypt</dt>
+              <dl>
+              Based on the task you would like to perform, this butons will encrypt or decrypt your text. 
+              If the two passphrases do not match, encryption or decryption will not occur and you will see an warning message.
+              </dl>
+          </dl>
+          
+          <h5 class="text-primary">A few suggestions</h5>
           <ol>
-            <li>A sentence with punctuation is better than a traditional passphrase or password.
+            <li>
             <li>You can encrypt text more than once. Just click the encrypt button a few times. To decrypt, click the decrypt button multiple times till you see your original text.</li>
             <li>You could change the passphrase between multiple encryptions. Reverse the sequence of the passphases when decrypting.</li>
           </ol>
@@ -121,6 +144,10 @@
           <h4 class="modal-title text-primary">About</h4>
         </div>
         <div class="modal-body">
+          <p>A passphrase based simple text encryption application that uses the AES 256bit encryption with SHA hash keys.</p>
+          <p>Content may be encrypted multiple times, with different passphrases, adding multiple layers of encryption. </p>
+          <p>Passphrases and unencrypted are neither stored, nor sent to any website.</p>
+        
           <h5 class="text-primary">Web Application and iOS App</h5>
           <p>The web application at <a target="_blank" href="http://postpost.io/encrypt">http://postpost.io/encrypt</a> is fully compatible with the <i>self-contained</i> <a target="_blank" href="https://itunes.apple.com/us/app/quickencrypt/id851439884?ls=1&mt=8">iOS version available in the iTunes Store</a>.</p>
           
