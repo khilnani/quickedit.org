@@ -1,5 +1,5 @@
-quickencrypt
-=======
+quick encrypt
+================
 
 > SHA1 and AES powered web based text encryption for mobile and desktop.
 
