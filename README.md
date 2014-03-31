@@ -3,9 +3,12 @@ quick encrypt
 
 > SHA1 and AES powered web based text encryption for mobile and desktop.
 
-Please take a look at the `gh-pages` branch for website source code.
+To use, go to http://quickencrypt.io
+
 
 ## Developer Notes
+
+_Please take a look at the `gh-pages` branch for website source code._
 
 To build the iOS app, make sure you have PhonGap, Cordova and XCode installed. Then:
 
