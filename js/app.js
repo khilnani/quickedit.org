@@ -89,7 +89,6 @@ $( function() {
   
   onMessageChange();
   
-  $('.page').show();
   $('#splashscreen').fadeOut('slow')
 
   console.log('Page loaded');
