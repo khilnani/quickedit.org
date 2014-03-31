@@ -4,12 +4,13 @@
   width: 100%;
   z-index: 99;
   background-color: #EEEEEE;
-}
-
-#splashimage {
   display: table;
   vertical-align: middle;
   text-align: center;
+}
+
+#splashimage {
+
 }
 
 .top-buffer {
