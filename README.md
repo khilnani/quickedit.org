@@ -5,6 +5,8 @@ quickencrypt
 
 Please take a look at the `gh-pages` branch for website source code.
 
+## Developer Notes
+
 To build the iOS app, make sure you have PhonGap, Cordova and XCode installed. Then:
 
 - Checkout the repo
