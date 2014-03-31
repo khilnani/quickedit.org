@@ -7,11 +7,11 @@
   display: table;
   vertical-align: middle;
   text-align: center;
-  height: auto;
 }
 
 #splashimage {
-
+  position: absolute;
+  top: 40%;
 }
 
 .top-buffer {
