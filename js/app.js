@@ -92,7 +92,7 @@ $( function() {
   $('#splashscreen').delay( 1000 ).fadeOut('slow');
   
   
-  options = {
+  dbChooseOptions = {
     success: function(files) {
       // name, link, bytes, icon, thumbnailLink
       $('#message').load( files[0].link, function () {
@@ -107,9 +107,10 @@ $( function() {
     extensions: ['.md', '.txt', '.markdown', '.rsa'],
   };
   
-  var button = Dropbox.createChooseButton(options);
-  var button = Dropbox.createChooseButton(options);
-  document.getElementById("contentLinks").appendChild(button);
+  $('#dbChooseFile').click( function () {
+    if( Dropbox.isBrowserSupported() ) 
+      Dropbox.choose( dbChooseOptions ); 
+  });
 
   console.log('Page loaded');
 });
