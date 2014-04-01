@@ -152,8 +152,10 @@ $( function() {
       Dropbox.choose( dbChooseOptions ); 
   });
   
-  // Dropbox.save("http://google.com", "google.txt");
-  
+  $('#dbSaveFile').click( function () {
+    if( Dropbox.isBrowserSupported() ) 
+      Dropbox.save("http://google.com", "google.txt");
+  });
 
   console.log('Page loaded');
 });
