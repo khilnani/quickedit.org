@@ -94,9 +94,10 @@ $( function() {
   
   options = {
     success: function(files) {
-        // name, link, bytes, icon, thumbnailLink
-        console.log('Loading:' + files[0].link)
-        $('#message').load( files[0].link );
+      // name, link, bytes, icon, thumbnailLink
+      $('#message').load( files[0].link, function () {
+        onMessageChange();
+      });
     },
     cancel: function() {
 
