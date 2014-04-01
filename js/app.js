@@ -91,31 +91,6 @@ $( function() {
   
   $('#splashscreen').delay( 1000 ).fadeOut('slow');
   
-  var client = new Dropbox.Client({ key: "b0c8844a331ce724298a" });
-  
-  $('#dbChooseFile').click( function () {
-    client.authenticate(function(error, client) {
-      if (error) {
-        alert( error );
-        return;
-      }
-     
-      var fn = prompt("File path");
-      if(fn) {
-        client.readFile(fn, function(error, data) {
-          if (error) {
-            return alert(error);
-          }
-          $('#message').val( data );
-          onMessageChange();
-        });
-      }
-    });
-  });
-
-  
-/*
-
   dbChooseOptions = {
     success: function(files) {
       // name, link, bytes, icon, thumbnailLink
@@ -135,7 +110,6 @@ $( function() {
     if( Dropbox.isBrowserSupported() ) 
       Dropbox.choose( dbChooseOptions ); 
   });
-*/
 
   console.log('Page loaded');
 });
