@@ -97,7 +97,7 @@ $( function() {
   $('#decrypt').click( pageDecrypt );
   
   $('#backToTop').click( backToTop );
-  $('#reset').click( clearMessage );
+  $('#clearMessage').click( clearMessage );
   
   
   onMessageChange();
