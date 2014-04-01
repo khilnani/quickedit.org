@@ -104,35 +104,7 @@ $( function() {
   
   $('#splashscreen').delay( 1000 ).fadeOut('slow');
   
-/*
-  var client = new Dropbox.Client({ key: "dzdofhi3xrasyw8" });
-  client.authDriver(new Dropbox.AuthDriver.Popup({
-    receiverUrl: "https://quickencrypt.io/oauth/dropbox.html"}));
-  
-  $('#dbChooseFile').click( function () {
-    client.authenticate(function(error, client) {
-      if (error) {
-        alert( error );
-        return;
-      }
-     
-      var fn = prompt("File path");
-      if(fn) {
-        client.readFile(fn, function(error, data) {
-          if (error) {
-            return alert(error);
-          }
-          $('#message').val( data );
-          onMessageChange();
-        });
-      }
-    });
-  });
-
-  
-*/
-
-  dbChooseOptions = {
+  var dbChooseOptions = {
     success: function(files) {
       // name, link, bytes, icon, thumbnailLink
       $('#message').load( files[0].link, function () {
