@@ -66,8 +66,12 @@ function messageUpdated() {
 }
 
 function clearMessage() {
-  $('#message').val('');
-  onMessageChange();
+  bootbox.confirm("Clear message?", function(result) {
+    if(result == true) {
+      $('#message').val('');
+      onMessageChange();
+    }
+  });
 }
 
 function pageEncrypt() {
