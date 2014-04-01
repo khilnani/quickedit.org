@@ -151,6 +151,9 @@ $( function() {
     if( Dropbox.isBrowserSupported() ) 
       Dropbox.choose( dbChooseOptions ); 
   });
+  
+  // Dropbox.save("http://google.com", "google.txt");
+  
 
   console.log('Page loaded');
 });
