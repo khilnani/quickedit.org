@@ -96,7 +96,7 @@ $( function() {
     success: function(files) {
         // name, link, bytes, icon, thumbnailLink
         alert("Here's the file link: " + files[0].link)
-        ${'#message').val ( files[0].bytes );
+        $('#message').val( files[0].bytes );
     },
     cancel: function() {
 
