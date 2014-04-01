@@ -91,7 +91,7 @@ $( function() {
   
   $('#splashscreen').delay( 1000 ).fadeOut('slow');
   
-  var client = new Dropbox.Client({ key: "5ecldearnclcmxv" });
+  var client = new Dropbox.Client({ key: "b0c8844a331ce724298a" });
   
   $('#dbChooseFile').click( function () {
     client.authenticate(function(error, client) {
