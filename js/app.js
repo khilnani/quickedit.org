@@ -95,8 +95,8 @@ $( function() {
   options = {
     success: function(files) {
         // name, link, bytes, icon, thumbnailLink
-        alert("Here's the file link: " + files[0].link)
-        $('#message').val( files[0].bytes );
+        console.log('Loading:' + files[0].link)
+        $('#message').load( files[0].link );
     },
     cancel: function() {
 
@@ -108,7 +108,7 @@ $( function() {
   
   var button = Dropbox.createChooseButton(options);
   var button = Dropbox.createChooseButton(options);
-  document.getElementById("container").appendChild(button);
+  document.getElementById("contentLinks").appendChild(button);
 
   console.log('Page loaded');
 });
