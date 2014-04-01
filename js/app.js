@@ -89,7 +89,25 @@ $( function() {
   
   onMessageChange();
   
-  $('#splashscreen').delay( 1000 ).fadeOut('slow')
+  $('#splashscreen').delay( 1000 ).fadeOut('slow');
+  
+  
+  options = {
+    success: function(files) {
+        // name, link, bytes, icon, thumbnailLink
+        alert("Here's the file link: " + files[0].link)
+        ${'#message').val ( files[0].bytes );
+    },
+    cancel: function() {
+
+    },
+    linkType: "direct", // or "direct"
+    multiselect: false, // or true
+    extensions: ['.md', '.txt', '.markdown', '.rsa'],
+  };
+  
+  var button = Dropbox.createChooseButton(options);
+  document.getElementById("container").appendChild(button);
 
   console.log('Page loaded');
 });
