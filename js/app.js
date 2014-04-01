@@ -1,3 +1,16 @@
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
 function encrypt(text, pass) {
   //console.log('pass:' + pass + ' encrypt IN:' + text);
   var key = Sha256.hash(pass);  
@@ -92,6 +105,8 @@ $( function() {
   $('#splashscreen').delay( 1000 ).fadeOut('slow');
   
   var client = new Dropbox.Client({ key: "dzdofhi3xrasyw8" });
+  client.authDriver(new Dropbox.AuthDriver.Popup({
+    receiverUrl: "https://quickencrypt.io/oauth/dropbox.html"}));
   
   $('#dbChooseFile').click( function () {
     client.authenticate(function(error, client) {
