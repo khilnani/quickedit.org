@@ -104,6 +104,7 @@ $( function() {
   
   $('#splashscreen').delay( 1000 ).fadeOut('slow');
   
+/*
   var client = new Dropbox.Client({ key: "dzdofhi3xrasyw8" });
   client.authDriver(new Dropbox.AuthDriver.Popup({
     receiverUrl: "https://quickencrypt.io/oauth/dropbox.html"}));
@@ -129,7 +130,7 @@ $( function() {
   });
 
   
-/*
+*/
 
   dbChooseOptions = {
     success: function(files) {
@@ -150,7 +151,6 @@ $( function() {
     if( Dropbox.isBrowserSupported() ) 
       Dropbox.choose( dbChooseOptions ); 
   });
-*/
 
   console.log('Page loaded');
 });
