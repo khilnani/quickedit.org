@@ -107,7 +107,7 @@ $( function() {
   };
   
   var button = Dropbox.createChooseButton(options);
-  document.getElementById("container").appendChild(button);
+  $('container').append(button);
 
   console.log('Page loaded');
 });
