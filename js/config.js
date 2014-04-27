@@ -1,7 +1,10 @@
 
 define('config',[], function(){
+  
+  console.log('config.');
+  
   require.config({
-    baseUrl: '/'
+    baseUrl: './'
   });
   return {
     "paths": {
@@ -10,20 +13,27 @@ define('config',[], function(){
       "backbone": "libs/backbone/backbone-1.1.2.min",
       "sha256": "libs/movabletype/sha256",
       "aes": "libs/movabletype/aes",
-      "autosize": "libs/jquery/jquery.autosize.min",
+      "jquery.autosize": "libs/jquery/plugins/jquery.autosize.min",
       "bootstrap": "libs/bootstrap/3.1.1/js/bootstrap.min",
       "bootbox": "libs/bootbox/bootbox.min",
       "add2home": "libs/add2home/add2home",
       "dropboxjs": "libs/dropbox/dropbox-0.10.2",
+      
       "bootstrap.mods": "js/mods/bootstrap.mods",
-      "utils": "js/global/utils",
+
+      "console": "js/globals/console",
+      "utils": "js/globals/utils",
+
       "dropbox": "js/dropbox",
       "dropins": "js/dropins",
       "core": "js/core",
     },
     "shim": {
-      "jquery": ["console.setup"],
-      "backbone": ["underscore", "jquery"]
+      "jquery": ["console"],
+      "jquery.autosize": ["jquery"],
+      "backbone": ["underscore", "jquery"],
+      "bootstrap": ["jquery"],
+      "bootstrap.mods": ["bootstrap"]
     }
   };
 });

@@ -11,4 +11,7 @@ function getUrlVars()
     return vars;
 }
 
-console.log('Utils loaded');
+define("utils", function(){
+	console.log('utils.js');
+});
+

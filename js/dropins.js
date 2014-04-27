@@ -1,4 +1,4 @@
-$( function() {
+require(["jquery"], function ($) {
   
   var dbChooseOptions = {
     success: function(files) {

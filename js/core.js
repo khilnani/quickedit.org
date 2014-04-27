@@ -78,22 +78,23 @@ function pageDecrypt() {
 }
 
 
+require("core", function(){
 
-$( function() {
-  
-  $("#message").change( onMessageChange );
-  $("#message").keyup( onMessageChange );
-  
-  $('#encrypt').click( pageEncrypt );
-  $('#decrypt').click( pageDecrypt );
-  
-  $('#backToTop').click( backToTop );
-  $('#clearMessage').click( clearMessage );
-  
-  
-  onMessageChange();
-  
-  $('#splashscreen').delay( 1000 ).fadeOut('slow');
-
-  console.log('Core loaded');
+	console.log('core.');
+	
+	$("#message").change( onMessageChange );
+	$("#message").keyup( onMessageChange );
+	
+	$('#encrypt').click( pageEncrypt );
+	$('#decrypt').click( pageDecrypt );
+	
+	$('#backToTop').click( backToTop );
+	$('#clearMessage').click( clearMessage );
+	
+	
+	onMessageChange();
+	
+	$('#splashscreen').delay( 1000 ).fadeOut('slow');
+	
 });
+
