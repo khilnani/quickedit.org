@@ -101,7 +101,7 @@ require(['require-config'], function(config) {
 		],
 		function() {
 		
-			console.log("Main()");
+			console.log("main()");
 			
 			$("#message").change( onMessageChange );
 			$("#message").keyup( onMessageChange );
