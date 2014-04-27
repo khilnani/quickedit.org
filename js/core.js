@@ -108,5 +108,5 @@ $( function() {
   
   $('#splashscreen').delay( 1000 ).fadeOut('slow');
 
-  console.log('App loaded');
+  console.log('Core loaded');
 });
