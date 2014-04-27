@@ -10,3 +10,5 @@ function getUrlVars()
     }
     return vars;
 }
+
+console.log('Utils loaded');
