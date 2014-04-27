@@ -25,5 +25,5 @@ require(["jquery"], function ($) {
       Dropbox.save("http://google.com", "google.txt");
   });
 
-  console.log('Dropins loaded');
+  console.log('dropins.');
 });
