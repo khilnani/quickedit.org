@@ -82,40 +82,40 @@ function pageDecrypt() {
 
 require(['require-config'], function(config) {
 
-	console.log("main.");
-
-	require.config(config);
-
-	require(
-		[
-			'jquery',
-			'jquery.autosize',
-			'sha256',
-			'aes',
-			'bootstrap',
-			'bootstrap.mods',
-			'bootbox',
-			'add2home',
-			'globals/utils',
-			'dropins'
-		],
-		function() {
-		
-			console.log("main()");
-			
-			$("#message").change( onMessageChange );
-			$("#message").keyup( onMessageChange );
-			
-			$('#encrypt').click( pageEncrypt );
-			$('#decrypt').click( pageDecrypt );
-			
-			$('#backToTop').click( backToTop );
-			$('#clearMessage').click( clearMessage );
-			
-			
-			onMessageChange();
-			
-			$('#splashscreen').delay( 1000 ).fadeOut('slow');
-		}
-	);
+  console.log("main.");
+  
+  require.config(config);
+  
+  require(
+    [
+      'jquery',
+      'jquery.autosize',
+      'sha256',
+      'aes',
+      'bootstrap',
+      'bootstrap.mods',
+      'bootbox',
+      'add2home',
+      'globals/utils',
+      'dropins'
+    ],
+    function() {
+    
+      console.log("main()");
+      
+      $("#message").change( onMessageChange );
+      $("#message").keyup( onMessageChange );
+      
+      $('#encrypt').click( pageEncrypt );
+      $('#decrypt').click( pageDecrypt );
+      
+      $('#backToTop').click( backToTop );
+      $('#clearMessage').click( clearMessage );
+      
+      
+      onMessageChange();
+      
+      $('#splashscreen').delay( 1000 ).fadeOut('slow');
+    }
+  );
 });
