@@ -1,5 +1,7 @@
 require(["jquery"], function ($) {
   
+  console.log('dropins.');
+  
   var dbChooseOptions = {
     success: function(files) {
       // name, link, bytes, icon, thumbnailLink
@@ -25,5 +27,4 @@ require(["jquery"], function ($) {
       Dropbox.save("http://google.com", "google.txt");
   });
 
-  console.log('dropins.');
 });
