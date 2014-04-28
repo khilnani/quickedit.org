@@ -1,4 +1,3 @@
-
 define('require-config',[], function(){
   
   console.log('require-config.');
@@ -10,7 +9,7 @@ define('require-config',[], function(){
   return {
     "paths": {
       "jquery": "libs/jquery/jquery-2.1.0.min",
-      "underscore": "libs/underscore/underscore-1.6.0.min",
+      "underscore": "libs/underscore/underscore.min",
       "backbone": "libs/backbone/backbone-1.1.2.min",
       "sha256": "libs/movabletype/sha256",
       "aes": "libs/movabletype/aes",
