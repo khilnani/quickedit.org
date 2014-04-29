@@ -96,8 +96,7 @@ function($, _, BaseView, EventBus, bootbox) {
       
       BaseView.prototype.initialize.call(this, options);
       this.onMessageChange();
-      $('#splashscreen').delay( 1000 ).fadeOut('slow');
-      
+
       EventBus.on('main:message:updated', function(){
         console.log('main:message:updated');
         $('#message').select();
