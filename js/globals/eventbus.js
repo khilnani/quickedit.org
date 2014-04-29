@@ -4,25 +4,20 @@ define(['underscore', 'backbone'], function(_, Backbone) {
   console.log('EventBus.');
 
   var EventBus = _.extend({}, Backbone.Events);
+  
+  EventBus.sub = function(event, callback, context) {
+    this.on(event, callback, context);
+  },
+  
+  EventBus.unsub = function(event, callback, context) {
+    this.off(event, callback, context);
+  },
 
-  EventBus.attach = function(events, context) {
-    _.each(events, _.bind(function(callback, eventName) {
-      this.on(eventName, callback, context);
-    }, this));
-  };
-
-  EventBus.unattach = function(events, context) {
-    _.each(events, _.bind(function(callback, eventName) {
-      this.off(eventName, callback, context);
-    }, this));
-  };
-
-  var _trigger = EventBus.trigger;
-  EventBus.trigger = function(events) {
+  EventBus.pub = function(events) {
     try {
-      _trigger.apply(EventBus, arguments);
+      this.trigger.apply(EventBus, arguments);
     } catch(ex) {
-      console.error('EventBus ERROR: events: ' + events + ' exception: ', (ex.stack || ex.stacktrace || ex.message));
+      console.error('EventBus Publish ERROR: events: ' + events + ' exception: ', (ex.stack || ex.stacktrace || ex.message));
     }
     return EventBus;
   };
