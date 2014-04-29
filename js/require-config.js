@@ -1,4 +1,5 @@
-define('require-config',[], function(){
+define('require-config',[], 
+  function(){
   
   console.log('require-config.');
   
