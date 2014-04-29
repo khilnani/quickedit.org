@@ -55,9 +55,7 @@ function($, _, BaseView, EventBus, bootbox) {
     onMessageChange: function () {
       console.log("onMessageChange()");
       var m = $('#message');
-    
-      $("#count").text( m.val().length  );
-
+      $("#count").text( m.val().length );
       m.autosize({ append: '\n'});
       m.trigger('autosize.resize');
 
