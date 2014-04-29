@@ -8,7 +8,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
   var _trigger = EventBus.trigger;
   EventBus.trigger = function(events) {
     try {
-      console.log('EventBus.trigger: ' + JSON.stringify(arguments));
+      console.log('EventBus.trigger: ' + JSON.stringify(Array.prototype.slice.call(arguments)) );
       _trigger.apply(EventBus, arguments);
     } catch(ex) {
       console.error('EventBus.trigger ERROR: events: ' + events + ' exception: ', (ex.stack || ex.stacktrace || ex.message));
