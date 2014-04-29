@@ -12,7 +12,6 @@ function($, _, Backbone, Utils, EventBus) {
     initialize: function(options) {
       console.log("BaseView()");
       
-      this.DEBUG = Utils.DEBUG;
       this.options = $.extend(true, {}, BaseView.prototype.options, options);
       
       if(this.model) {
