@@ -15,7 +15,9 @@ function($, _, Backbone, Utils, EventBus) {
       this.DEBUG = Utils.DEBUG;
       this.options = $.extend(true, {}, BaseView.prototype.options, options);
       
-      this.listenTo(this.model, "change", this.render);
+      if(this.model) {
+        this.listenTo(this.model, "change", this.render);
+      }
     },
     
     destroy: function() {    
