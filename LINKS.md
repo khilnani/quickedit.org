@@ -1,4 +1,3 @@
-
 Cryptography
 
 - Chris Veness: http://www.movable-type.co.uk/scripts/aes.html
@@ -11,3 +10,4 @@ Development
 - http://lostechies.com/derickbailey/2011/07/19/references-routing-and-the-event-aggregator-coordinating-views-in-backbone-js/
 - http://jsfiddle.net/dysf/2C4S9/
 - https://github.com/dropbox/dropbox-js/tree/stable/src
+- https://developers.google.com/chrome-developer-tools/docs/console-api
