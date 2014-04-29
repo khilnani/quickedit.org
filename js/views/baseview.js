@@ -7,19 +7,15 @@ function($, _, Backbone, Utils, EventBus) {
   var BaseView = Backbone.View.extend({
   
     utils: Utils,
-    
-    options: {
-    },
+    options: {},
   
     initialize: function(options) {
-    
       console.log("BaseView()");
       
       this.DEBUG = Utils.DEBUG;
       this.options = $.extend(true, {}, BaseView.prototype.options, options);
       
       EventBus.attach(this.eventBus, this);
-      
       //this.listenTo(this.model, "change", this.render);
     },
     
@@ -30,16 +26,11 @@ function($, _, Backbone, Utils, EventBus) {
     },
     
     template: function(data) {
-    
     },
     
     render: function() {
       //this.$el.html(this.template(this.model.attributes));
     }
-  
   });
-  
   return BaseView;
-
-
 });
