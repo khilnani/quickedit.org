@@ -1,5 +1,5 @@
 define('require-config',[], function() {
-  
+  "use strict";
   console.log('require-config.');
   
   require.config({
