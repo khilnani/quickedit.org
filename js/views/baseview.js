@@ -15,12 +15,10 @@ function($, _, Backbone, Utils, EventBus) {
       this.DEBUG = Utils.DEBUG;
       this.options = $.extend(true, {}, BaseView.prototype.options, options);
       
-      EventBus.attach(this.eventBus, this);
       this.listenTo(this.model, "change", this.render);
     },
     
     destroy: function() {    
-      EventBus.unattach(this.eventBus, this);
       this.unbind();
       this.remove();
       delete this.$el;
