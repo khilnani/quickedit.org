@@ -1,5 +1,5 @@
 define(['jquery', 'underscore', 'backbone', 'globals/utils', 'globals/eventbus', 'jquery.autosize', 'bootstrap', 'bootstrap.mods', 'bootbox'], 
-  function($, _, Backbone, Utils, EventBus) {
+function($, _, Backbone, Utils, EventBus) {
   "use strict";
   
   console.log("BaseView.");
