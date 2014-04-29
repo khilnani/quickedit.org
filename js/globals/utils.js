@@ -1,4 +1,4 @@
-define(['jquery', 'underscore'], function($, _){
+define(['jquery', 'underscore'], function($, _) {
   'use strict';
   
   console.log('Utils.');
