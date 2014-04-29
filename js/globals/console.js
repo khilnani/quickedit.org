@@ -1,6 +1,3 @@
-/**
- * Avoid console errors (IE doesn't create a console object if the debugger isn't open).
- */
 (function(){
     if(!window.console || !window.console.log) {
         var console = {};
