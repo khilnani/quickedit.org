@@ -1,5 +1,4 @@
-require(['require-config'], 
-  function(config) {
+require(['require-config'], function(config) {
 
   console.log("main.");
   require.config(config);
