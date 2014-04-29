@@ -15,7 +15,7 @@ function decrypt (text, pass) {
 }
 
 
-define(['jquery', 'underscore', 'views/baseview', 'globals/eventbus', 'bootbox', 'add2home', 'dropins'], function($, _, BaseView, EventBus, bootbox) {
+define(['jquery', 'underscore', 'views/baseview', 'globals/eventbus', 'bootbox', 'add2home', 'dropins', 'sha256', 'aes'], function($, _, BaseView, EventBus, bootbox) {
   "use strict";
   
   console.log("MainView.");
