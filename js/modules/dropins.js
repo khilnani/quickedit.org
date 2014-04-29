@@ -1,5 +1,6 @@
 require(["jquery"], function ($) {
   "use strict";
+  
   console.log('dropins.');
   
   var dbChooseOptions = {
