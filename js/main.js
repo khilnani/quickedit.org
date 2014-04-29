@@ -1,5 +1,5 @@
 require(['require-config'], function(config) {
-
+  "use strict";
   console.log("main.");
   require.config(config);
   
