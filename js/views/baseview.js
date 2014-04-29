@@ -21,8 +21,10 @@ function($, _, Backbone, Utils, EventBus) {
     
     destroy: function() {    
       EventBus.unattach(this.eventBus, this);
-      this.$el.remove();
+      this.unbind();
       this.remove();
+      delete this.$el;
+      delete this.el;
     },
     
     render: function() {
