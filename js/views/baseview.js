@@ -16,16 +16,13 @@ function($, _, Backbone, Utils, EventBus) {
       this.options = $.extend(true, {}, BaseView.prototype.options, options);
       
       EventBus.attach(this.eventBus, this);
-      //this.listenTo(this.model, "change", this.render);
+      this.listenTo(this.model, "change", this.render);
     },
     
     destroy: function() {    
       EventBus.unattach(this.eventBus, this);
       this.$el.remove();
       this.remove();
-    },
-    
-    template: function(data) {
     },
     
     render: function() {
