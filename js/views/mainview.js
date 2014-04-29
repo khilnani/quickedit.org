@@ -94,13 +94,10 @@ function($, _, BaseView, EventBus, bootbox) {
     },
   
     initialize: function(options) {
-    
       console.log("MainView()");
       
       BaseView.prototype.initialize.call(this, options);
-            
       this.onMessageChange();
-      
       $('#splashscreen').delay( 1000 ).fadeOut('slow');
       
       EventBus.on('main:message:updated', function(){
@@ -108,7 +105,6 @@ function($, _, BaseView, EventBus, bootbox) {
         $('#message').select();
         this.onMessageChange();
       }, this);
-      
     },
     
     destroy: function() {
