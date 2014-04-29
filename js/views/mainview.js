@@ -111,7 +111,6 @@ function($, _, BaseView, EventBus, bootbox) {
       EventBus.off('main:message:updated');
       BaseView.prototype.destroy.call(this);
     }
-    
   });
   return MainView;
 });
