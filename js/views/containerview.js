@@ -26,14 +26,14 @@ function($, _, BaseView, EventBus, bootbox) {
     el: $('#container'),
     
     events: {
-      "change #password": "passwordsMatch",
-      "change #password2": "passwordsMatch",
+      "keyup #password": "passwordsMatch",
+      "keyup #password2": "passwordsMatch",
       
       "click #encrypt": "encryptMessage",
       "click #decrypt": "decryptMessage",
       
       "click #message": "onMessageChange",
-      "change #message": "onMessageChange",
+      "keyup #message": "onMessageChange",
       "click #clearMessage": "clearMessage",
       
       "click #backToTop": "backToTop",
