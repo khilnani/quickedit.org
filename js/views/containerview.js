@@ -1,20 +1,3 @@
-function encrypt(text, pass) {
-  //console.log('pass:' + pass + ' encrypt IN:' + text);
-  var key = Sha256.hash(pass);  
-  var encrypted = Aes.Ctr.encrypt(text, key, 256);
-  //console.log('encrypt OUT:' + encrypted);
-  return encrypted;
-}
-
-function decrypt (text, pass) {
-  //console.log('pass:' + pass + ' decrypt IN:' + text);
-  var key = Sha256.hash(pass);  
-  var decrypted = Aes.Ctr.decrypt(text, key, 256);
-  //console.log('decrypt OUT:' + decrypted);
-  return decrypted;
-}
-
-
 define(['jquery', 'underscore', 'views/baseview', 'globals/eventbus', 'bootbox', 'add2home', 'modules/dropins', 'sha256', 'aes'], 
 function($, _, BaseView, EventBus, bootbox) {
   "use strict";
@@ -39,10 +22,27 @@ function($, _, BaseView, EventBus, bootbox) {
       "click #backToTop": "backToTop",
     },
     
+    
+    encrypt: function (text, pass) {
+      //console.log('pass:' + pass + ' encrypt IN:' + text);
+      var key = Sha256.hash(pass);  
+      var encrypted = Aes.Ctr.encrypt(text, key, 256);
+      //console.log('encrypt OUT:' + encrypted);
+      return encrypted;
+    },
+    
+    decrypt: function (text, pass) {
+      //console.log('pass:' + pass + ' decrypt IN:' + text);
+      var key = Sha256.hash(pass);  
+      var decrypted = Aes.Ctr.decrypt(text, key, 256);
+      //console.log('decrypt OUT:' + decrypted);
+      return decrypted;
+    },
+    
     encryptMessage: function() {
       console.log("encryptMessage()");
       if ( this.passwordsMatch() ) {
-        $('#message').val( encrypt( $('#message').val(), $('#password').val() ) );
+        $('#message').val( this.encrypt( $('#message').val(), $('#password').val() ) );
         EventBus.trigger('message:updated');
       }
     },
@@ -50,7 +50,7 @@ function($, _, BaseView, EventBus, bootbox) {
     decryptMessage: function () {
       console.log("decryptMessage()");
       if( this.passwordsMatch() ) {  
-        $('#message').val( decrypt( $('#message').val(), $('#password').val() ) );
+        $('#message').val( this.decrypt( $('#message').val(), $('#password').val() ) );
         EventBus.trigger('message:updated');
       }
     },
