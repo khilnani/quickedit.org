@@ -15,8 +15,8 @@ function($, _, BaseView, EventBus, bootbox) {
       "click #encrypt": "encryptMessage",
       "click #decrypt": "decryptMessage",
       
-      "click #message": "onMessageChange",
-      "keyup #message": "onMessageChange",
+      "click #message": "refreshMessage",
+      "keyup #message": "refreshMessage",
       "click #clearMessage": "clearMessage",
       
       "click #backToTop": "backToTop",
@@ -55,8 +55,8 @@ function($, _, BaseView, EventBus, bootbox) {
       }
     },
     
-    onMessageChange: function () {
-      console.log("onMessageChange()");
+    refreshMessage: function () {
+      console.log("refreshMessage()");
       var m = $('#message');
       $("#count").text( m.val().length );
       m.autosize({ append: '\n'});
@@ -98,12 +98,13 @@ function($, _, BaseView, EventBus, bootbox) {
       console.log("ContainerView()");
       
       BaseView.prototype.initialize.call(this, options);
-      this.onMessageChange();
+      
+      this.refreshMessage();
 
       EventBus.on('message:updated', function(){
         console.log('message:updated');
         $('#message').select();
-        this.onMessageChange();
+        this.refreshMessage();
       }, this);
     },
     
