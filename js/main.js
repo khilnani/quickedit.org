@@ -4,9 +4,9 @@ require(['require-config'], function(config) {
   console.log("main.");
   require.config(config);
   
-  require(['views/mainview'], function(MainView) {
+  require(['views/containerview'], function(ContainerView) {
       console.log("main()");
-      var mainView = new MainView();
+      var containerView = new ContainerView();
       $('#splashscreen').delay( 1000 ).fadeOut('slow');
     }
   );
