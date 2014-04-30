@@ -26,8 +26,11 @@ function($, _, BaseView, EventBus, bootbox) {
     el: $('#container'),
     
     events: {
-      "click #encrypt": "pageEncrypt",
-      "click #decrypt": "pageDecrypt",
+      "change #password": "passwordsMatch",
+      "change #password2": "passwordsMatch",
+      
+      "click #encrypt": "encryptMessage",
+      "click #decrypt": "decryptMessage",
       
       "click #message": "onMessageChange",
       "change #message": "onMessageChange",
@@ -36,16 +39,16 @@ function($, _, BaseView, EventBus, bootbox) {
       "click #backToTop": "backToTop",
     },
     
-    pageEncrypt: function() {
-      console.log("pageEncrypt()");
+    encryptMessage: function() {
+      console.log("encryptMessage()");
       if ( this.passwordsMatch() ) {
         $('#message').val( encrypt( $('#message').val(), $('#password').val() ) );
         EventBus.trigger('message:updated');
       }
     },
     
-    pageDecrypt: function () {
-      console.log("pageDecrypt()");
+    decryptMessage: function () {
+      console.log("decryptMessage()");
       if( this.passwordsMatch() ) {  
         $('#message').val( decrypt( $('#message').val(), $('#password').val() ) );
         EventBus.trigger('message:updated');
