@@ -19,9 +19,9 @@ define(['jquery', 'underscore', 'views/baseview', 'globals/eventbus', 'bootbox',
 function($, _, BaseView, EventBus, bootbox) {
   "use strict";
   
-  console.log("MainView.");
+  console.log("ContainerView.");
   
-  var MainView = BaseView.extend({
+  var ContainerView = BaseView.extend({
   
     el: $('#container'),
     
@@ -40,7 +40,7 @@ function($, _, BaseView, EventBus, bootbox) {
       console.log("pageEncrypt()");
       if ( this.passwordsMatch() ) {
         $('#message').val( encrypt( $('#message').val(), $('#password').val() ) );
-        EventBus.trigger('main:message:updated');
+        EventBus.trigger('message:updated');
       }
     },
     
@@ -48,7 +48,7 @@ function($, _, BaseView, EventBus, bootbox) {
       console.log("pageDecrypt()");
       if( this.passwordsMatch() ) {  
         $('#message').val( decrypt( $('#message').val(), $('#password').val() ) );
-        EventBus.trigger('main:message:updated');
+        EventBus.trigger('message:updated');
       }
     },
     
@@ -92,22 +92,22 @@ function($, _, BaseView, EventBus, bootbox) {
     },
   
     initialize: function(options) {
-      console.log("MainView()");
+      console.log("ContainerView()");
       
       BaseView.prototype.initialize.call(this, options);
       this.onMessageChange();
 
-      EventBus.on('main:message:updated', function(){
-        console.log('main:message:updated');
+      EventBus.on('message:updated', function(){
+        console.log('message:updated');
         $('#message').select();
         this.onMessageChange();
       }, this);
     },
     
     destroy: function() {
-      EventBus.off('main:message:updated');
+      EventBus.off('message:updated');
       BaseView.prototype.destroy.call(this);
     }
   });
-  return MainView;
+  return ContainerView;
 });
