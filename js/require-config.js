@@ -16,6 +16,7 @@ define('require-config',[], function() {
       "aes": "libs/movabletype/aes",
       "jquery.autosize": "libs/jquery/plugins/jquery.autosize.min",
       "bootstrap": "libs/bootstrap/bootstrap-3.1.1.min",
+      "bootstrap.min.css": "./../css/themes/magic.nik.bootstrap.min.css",
       "bootbox": "libs/bootbox/bootbox.min",
       "add2home": "libs/add2home/add2home",
       "dropbox": "libs/dropbox/dropbox-0.10.2",
