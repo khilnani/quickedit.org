@@ -4,8 +4,6 @@ function($, _, BaseView, EventBus, bootbox, css) {
   
   console.log("ContainerView.");
   
-  this.setCSS( css );
-  
   var ContainerView = BaseView.extend({
   
     el: $('#container'),
@@ -98,6 +96,8 @@ function($, _, BaseView, EventBus, bootbox, css) {
   
     initialize: function(options) {
       console.log("ContainerView()");
+      
+      this.setCSS( css );
       
       BaseView.prototype.initialize.call(this, options);
       
