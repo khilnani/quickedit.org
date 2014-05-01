@@ -2,7 +2,9 @@ define(['jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'te
 function($, _, BaseView, EventBus, bootbox, css) {
   "use strict";
   
-  console.log("ContainerView." + css);
+  console.log("ContainerView.");
+  
+  this.setCSS( css );
   
   var ContainerView = BaseView.extend({
   
@@ -106,6 +108,11 @@ function($, _, BaseView, EventBus, bootbox, css) {
         $('#message').select();
         this.refreshMessage();
       }, this);
+    },
+    
+    setCSS: function(css) {
+      var style = $('<style>\n'+ css +'\n</style>');
+      el.prepend(style);
     },
     
     destroy: function() {
