@@ -20,6 +20,7 @@ define('require-config',[], function() {
       "backbone": "libs/backbone/backbone-1.1.2.min",
       "sha256": "libs/movabletype/sha256",
       "aes": "libs/movabletype/aes",
+      "add2home": "libs/add2home/add2home",
       "dropbox": "libs/dropbox/dropbox-0.10.2",
     },
     "shim": {
