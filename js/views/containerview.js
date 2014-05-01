@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'views/baseview', 'globals/eventbus', 'bootbox', 'text!css/themes/magic.nik.bootstrap.min.css','add2home', 'modules/dropins', 'sha256', 'aes'], 
+define(['jquery', 'underscore', 'views/baseview', 'globals/eventbus', 'bootbox', 'text!../css/themes/magic.nik.bootstrap.min.css','add2home', 'modules/dropins', 'sha256', 'aes'], 
 function($, _, BaseView, EventBus, bootbox, css) {
   "use strict";
   
