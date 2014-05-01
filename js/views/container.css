@@ -1,0 +1,42 @@
+#splashscreen {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  background-color: #dedede;
+  display: table;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#splashimage {
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.top-buffer {
+  margin-top: 15px; 
+}
+
+.page {
+  padding: 0 15px 15px 15px;
+}
+
+.shift-up-5 {
+  position: relative; 
+  top: -5px;
+}
+
+.shift-dn-5 {
+  position: relative; 
+  top: 5px;
+}
+
+#message {
+  -webkit-transition: height 0.2s;
+  -moz-transition: height 0.2s;
+  transition: height 0.2s;
+  padding: 10px;
+}
