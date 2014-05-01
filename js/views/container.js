@@ -97,8 +97,6 @@ function($, _, BaseView, EventBus, bootbox, css) {
     initialize: function(options) {
       console.log("ContainerView()");
       
-      this.setCSS( css );
-      
       BaseView.prototype.initialize.call(this, options);
       
       this.refreshMessage();
@@ -108,11 +106,6 @@ function($, _, BaseView, EventBus, bootbox, css) {
         $('#message').select();
         this.refreshMessage();
       }, this);
-    },
-    
-    setCSS: function(css) {
-      var style = $('<style>\n'+ css +'\n</style>');
-      this.el.prepend(style);
     },
     
     destroy: function() {
