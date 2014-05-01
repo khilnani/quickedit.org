@@ -1,8 +1,8 @@
-define(['jquery', 'underscore', 'views/baseview', 'globals/eventbus', 'bootbox', 'add2home', 'modules/dropins', 'sha256', 'aes'], 
-function($, _, BaseView, EventBus, bootbox) {
+define(['jquery', 'underscore', 'views/baseview', 'globals/eventbus', 'bootbox', 'text!css/themes/magic.nik.bootstrap.min.css','add2home', 'modules/dropins', 'sha256', 'aes'], 
+function($, _, BaseView, EventBus, bootbox, css) {
   "use strict";
   
-  console.log("ContainerView.");
+  console.log("ContainerView." + css);
   
   var ContainerView = BaseView.extend({
   
