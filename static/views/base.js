@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'globals/utils', 'globals/eventbus', 'jquery.autosize', 'bootstrap', 'bootstrap.mods', 'css!mods/bootstrap.mods.css', 'bootbox'], 
+define(['jquery', 'underscore', 'backbone', 'globals/utils', 'globals/eventbus', 'jquery.autosize', 'bootstrap', 'mods/bootstrap.mods', 'css!mods/bootstrap.mods.css', 'bootbox'], 
 function($, _, Backbone, Utils, EventBus) {
   "use strict";
   
