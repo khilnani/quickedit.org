@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'css!views/container.css','add2home', 'modules/dropins', 'sha256', 'aes'], 
-function($, _, BaseView, EventBus, bootbox, css) {
+define(['jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox','add2home', 'libs/add2home/add2home.css', 'modules/dropins', 'sha256', 'aes'], 
+function($, _, BaseView, EventBus, bootbox) {
   "use strict";
   
   console.log("ContainerView.");
