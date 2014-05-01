@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox','add2home', 'libs/add2home/add2home.css', 'modules/dropins', 'sha256', 'aes'], 
+define(['jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox','add2home', 'css!libs/add2home/add2home.css', 'modules/dropins', 'sha256', 'aes'], 
 function($, _, BaseView, EventBus, bootbox) {
   "use strict";
   
