@@ -1,4 +1,4 @@
-require(['require-config', 'css!themes/magic.nik.bootstrap.min.css'], function(config) {
+require(['require-config'], function(config) {
   "use strict";
   
   console.log("main.");
