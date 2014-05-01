@@ -112,7 +112,7 @@ function($, _, BaseView, EventBus, bootbox, css) {
     
     setCSS: function(css) {
       var style = $('<style>\n'+ css +'\n</style>');
-      el.prepend(style);
+      this.el.prepend(style);
     },
     
     destroy: function() {
