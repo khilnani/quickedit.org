@@ -4,7 +4,7 @@ define('require-config',[], function() {
   console.log('require-config.');
   
   require.config({
-    baseUrl: './js'
+    baseUrl: './static'
   });
   
   return {
