@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'add2home', 'css!libs/add2home/add2home.css', 'modules/dropins', 'sha256', 'aes'], 
-function($, _, BaseView, EventBus, bootbox) {
+define(['jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 'add2home', 'css!libs/add2home/add2home.css', 'sha256', 'aes'], 
+function($, _, BaseView, EventBus, bootbox, CloudStore) {
   "use strict";
   
   console.log("ContainerView.");
@@ -19,9 +19,34 @@ function($, _, BaseView, EventBus, bootbox) {
       "keyup #message": "refreshMessage",
       "click #clearMessage": "clearMessage",
       
-      "click #backToTop": "backToTop",
+      "click #dbChooseFile": "loadFile",
+      "click #dbSaveFile": "saveFile",
+      
+      "click #backToTop": "backToTop"
     },
     
+    loadFile: function () {
+      console.group("loadFile");
+      var promise = CloudStore.loadFile();
+      promise.done( function( text ) {
+        $('#message').val( text );
+        EventBus.trigger('message:updated');
+        console.groupEnd();
+      });
+    },
+    
+    saveFile: function () {
+      console.group("saveFile");
+      var promise = CloudStore.saveFile( $('#message').val() );
+      promise.done( function( ) {
+        console.log("saved.");
+        console.groupEnd();
+      });
+      promise.fail( function( ) {
+        console.log("save failed.");
+        console.groupEnd();
+      });
+    },
     
     encrypt: function (text, pass) {
       //console.log('pass:' + pass + ' encrypt IN:' + text);
@@ -40,19 +65,21 @@ function($, _, BaseView, EventBus, bootbox) {
     },
     
     encryptMessage: function() {
-      console.log("encryptMessage()");
+      console.group("encryptMessage()");
       if ( this.passwordsMatch() ) {
         $('#message').val( this.encrypt( $('#message').val(), $('#password').val() ) );
         EventBus.trigger('message:updated');
       }
+      console.groupEnd();
     },
     
     decryptMessage: function () {
-      console.log("decryptMessage()");
+      console.group("decryptMessage()");
       if( this.passwordsMatch() ) {  
         $('#message').val( this.decrypt( $('#message').val(), $('#password').val() ) );
         EventBus.trigger('message:updated');
       }
+      console.groupEnd();
     },
     
     refreshMessage: function () {
@@ -61,7 +88,6 @@ function($, _, BaseView, EventBus, bootbox) {
       $("#count").text( m.val().length );
       m.autosize({ append: '\n'});
       m.trigger('autosize.resize');
-
     },
     
     clearMessage: function () {
