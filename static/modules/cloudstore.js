@@ -9,21 +9,22 @@ define(['jquery', 'bootbox', 'dropbox'], function ($, bootbox) {
       var deferred = $.Deferred();
       
       CloudStore.client.authenticate( function( error, data ) {
-        console.log("CloudStore/authenticate: error: " + error);
+        console.log("CloudStore.loadFile/authenticate: error: " + error);
         if(error) {
           deferred.reject();
         } else {
           CloudStore.client.getAccountInfo( function( error, userInfo ) {
-            console.log("CloudStore/getAccountInfo: error: " + error);
+            console.log("CloudStore.loadFile/getAccountInfo: error: " + error);
             if(error) {
               deferred.reject();
             } else {
-              console.log("userInfo.name:" + userInfo.name );
+              console.log("CloudStore.loadFile userInfo.name:" + userInfo.name );
               deferred.resolve( userInfo.name );
             }
           })
         }
       });
+      console.log("CloudStore.loadFile return deferred");
       return deferred;
     },
     
