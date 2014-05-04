@@ -10,6 +10,11 @@ define(['jquery', 'bootbox', 'dropbox'], function ($, bootbox) {
       
       this.client.authenticate( function( error, data ) {
         console.log("CloudStore/authenticate: error: " + error);
+        if(error) {
+          deferred.reject();
+        } else {
+          alert( this );
+        }
       });
       
       deferred.resolve( 'test' );
