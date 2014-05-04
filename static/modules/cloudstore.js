@@ -8,12 +8,19 @@ define(['jquery', 'bootbox', 'dropbox'], function ($, bootbox) {
       console.log("CloudStore.loadFile");
       var deferred = $.Deferred();
       
-      this.client.authenticate( function( error, data ) {
+      CloudStore.client.authenticate( function( error, data ) {
         console.log("CloudStore/authenticate: error: " + error);
         if(error) {
           deferred.reject();
         } else {
-          alert( CloudStore.client );
+          CloudStore.client.getAccountInfo( function( error, userInfo ) {
+            console.log("CloudStore/getAccountInfo: error: " + error);
+            if(error) {
+              deferred.reject();
+            } else {
+              console.log("userInfo.name:" + userInfo.name );
+            }
+          })
         }
       });
       
