@@ -2,7 +2,7 @@ define(['jquery', 'bootbox', 'dropbox'], function ($, bootbox) {
   
   console.log('CloudStore.');
   
-  var CloudStore = {  
+  window.CloudStore = {  
   
     loadFile: function () {
       console.log("CloudStore.loadFile");
@@ -13,7 +13,7 @@ define(['jquery', 'bootbox', 'dropbox'], function ($, bootbox) {
         if(error) {
           deferred.reject();
         } else {
-          alert( this );
+          alert( CloudStore.client );
         }
       });
       
@@ -30,9 +30,9 @@ define(['jquery', 'bootbox', 'dropbox'], function ($, bootbox) {
   };
   
   var Dropbox = window.Dropbox;  
-  CloudStore.client = new Dropbox.Client({ key: "dzdofhi3xrasyw8" });
-  CloudStore.client.authDriver(new Dropbox.AuthDriver.Popup({receiverUrl: "https://quickencrypt.org/oauth/dropbox.html"}));
+  window.CloudStore.client = new Dropbox.Client({ key: "dzdofhi3xrasyw8" });
+  window.CloudStore.client.authDriver(new Dropbox.AuthDriver.Popup({receiverUrl: "https://quickencrypt.org/oauth/dropbox.html"}));
   
-  return CloudStore;
+  return window.CloudStore;
 
 });
