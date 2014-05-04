@@ -1,4 +1,4 @@
-define(['jquery', 'bootbox', 'dropbox'], function ($, bootbox) {
+define(['jquery', 'underscore', 'backbone', 'bootbox', 'dropbox'], function ($, _, Backbone, bootbox) {
   
   console.log('CloudStore.');
   
@@ -37,6 +37,9 @@ define(['jquery', 'bootbox', 'dropbox'], function ($, bootbox) {
           CloudStore.deferred.reject();
         } else {
           console.log("CloudStore.readDir entries: " +  entries.length );
+          _.each( entries, function (item) {
+            console.log(item);
+          });
           CloudStore.deferred.resolve( entries.length );
         }
       });
