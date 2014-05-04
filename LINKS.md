@@ -11,3 +11,5 @@ Development
 - http://jsfiddle.net/dysf/2C4S9/
 - https://github.com/dropbox/dropbox-js/tree/stable/src
 - https://developers.google.com/chrome-developer-tools/docs/console-api
+- http://www.digicert.com/help/
+- http://wiki.centos.org/HowTos/Https
