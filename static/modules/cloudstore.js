@@ -19,12 +19,11 @@ define(['jquery', 'bootbox', 'dropbox'], function ($, bootbox) {
               deferred.reject();
             } else {
               console.log("userInfo.name:" + userInfo.name );
+              deferred.resolve( userInfo.name );
             }
           })
         }
       });
-      
-      deferred.resolve( 'test' );
       return deferred;
     },
     
