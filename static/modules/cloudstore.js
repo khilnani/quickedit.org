@@ -18,6 +18,7 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox
       console.log("CloudStore.render: " + mode);
       
       var deferred = $.Deferred();
+      var dropboxView = new DropboxView();
       
       var Dropbox = window.Dropbox;
       var client = new Dropbox.Client({ key: "dzdofhi3xrasyw8" });
@@ -28,7 +29,6 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox
         if(error) {
           deferred.reject();
         } else {
-          var dropboxView = new DropboxView();
           dropboxView.readDir(client, deferred, mode);
         }
       });
