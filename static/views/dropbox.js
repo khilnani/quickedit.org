@@ -112,6 +112,7 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
       this.client = undefined;
       this.mode = undefined;
       BaseView.prototype.destroy.call(this);
+      delete this;
     } 
   });
 
@@ -144,7 +145,7 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
     },
 
     initialize: function (options) {
-      console.log('DropboxItemView()');
+      //console.log('DropboxItemView()');
       this.parent = options.parent;
       BaseView.prototype.initialize.call(this, options);
     },
