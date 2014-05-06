@@ -106,7 +106,7 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
       this.deferred = undefined;
       this.client = undefined;
       this.mode = undefined;
-    }
+    },
 
     initialize: function (options) {
       console.log('DropboxView()');
