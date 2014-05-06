@@ -22,7 +22,7 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox
       
       var Dropbox = window.Dropbox;
       var client = new Dropbox.Client({ key: "dzdofhi3xrasyw8" });
-      client.authDriver(new Dropbox.AuthDriver.Popup({receiverUrl: "https://quickencrypt.org/oauth/dropbox.html"}));
+      client.authDriver(new Dropbox.AuthDriver.Popup({rememberUser: false, receiverUrl: "https://quickencrypt.org/oauth/dropbox.html"}));
       
       client.authenticate( function( error, data ) {
         console.log("CloudStore.render/authenticate: error: " + error);
