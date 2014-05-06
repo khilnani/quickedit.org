@@ -10,7 +10,7 @@ function($, _, Backbone, Utils, EventBus) {
     options: {},
   
     initialize: function(options) {
-      console.log("BaseView()");
+      //console.log("BaseView()");
       
       this.options = $.extend(true, {}, BaseView.prototype.options, options);
       
