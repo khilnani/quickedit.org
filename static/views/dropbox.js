@@ -99,20 +99,25 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
       
       return this.el;
     },
-
-    initialize: function (options) {
-      console.log('DropboxView(): ' + this.location );
-      BaseView.prototype.initialize.call(this, options);
-    },
-
-    destroy: function () {
-      console.log('DropboxView.destroy()');
+    
+    reset: function () {
+      console.log('DropboxView.reset()');
       this.location = [];
       this.deferred = undefined;
       this.client = undefined;
       this.mode = undefined;
+    }
+
+    initialize: function (options) {
+      console.log('DropboxView()');
+      BaseView.prototype.initialize.call(this, options);
+      this.reset();
+    },
+
+    destroy: function () {
+      console.log('DropboxView.destroy()');
+      this.reset();
       BaseView.prototype.destroy.call(this);
-      delete this;
     } 
   });
 
