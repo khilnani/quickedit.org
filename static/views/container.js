@@ -102,6 +102,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore) {
         if(result == true) {
           $('#message').val('');
           $('#message').trigger('change'); 
+          EventBus.trigger('message:updated');
         }
       });
     },
