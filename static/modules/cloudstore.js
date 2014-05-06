@@ -2,11 +2,7 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox
   
   console.log('CloudStore.');
   
-  var CloudStore = window.CloudStore = {  
-
-    currentDir: '/',
-    deferred: undefined,
-    client: undefined,
+  var CloudStore = {  
 
     readFile: function () {
       console.log("CloudStore.readFile");
@@ -20,26 +16,27 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox
     
     render: function (mode) {
       console.log("CloudStore.render: " + mode);
-      this.deferred = $.Deferred();
       
-      CloudStore.client.authenticate( function( error, data ) {
+      var deferred = $.Deferred();
+      
+      var Dropbox = window.Dropbox;
+      var client = new Dropbox.Client({ key: "dzdofhi3xrasyw8" });
+      client.authDriver(new Dropbox.AuthDriver.Popup({receiverUrl: "https://quickencrypt.org/oauth/dropbox.html"}));
+      
+      client.authenticate( function( error, data ) {
         console.log("CloudStore.render/authenticate: error: " + error);
         if(error) {
-          CloudStore.deferred.reject();
+          deferred.reject();
         } else {
           var dropboxView = new DropboxView();
-          dropboxView.readDir(CloudStore.client, CloudStore.deferred, mode);
+          dropboxView.readDir(client, deferred, mode);
         }
       });
       
       console.log("CloudStore.render return deferred");
-      return this.deferred;
+      return deferred;
     }
   };
-  
-  var Dropbox = window.Dropbox;  
-  CloudStore.client = new Dropbox.Client({ key: "dzdofhi3xrasyw8" });
-  CloudStore.client.authDriver(new Dropbox.AuthDriver.Popup({receiverUrl: "https://quickencrypt.org/oauth/dropbox.html"}));
   
   return CloudStore;
 
