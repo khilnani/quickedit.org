@@ -9,7 +9,7 @@ define('require-config',[], function() {
   
   return {
     "paths": {
-      "text": "libs/require/plugins/text",
+      "txt": "libs/require/plugins/text",
       "css": "libs/require/plugins/css",
       "jquery": "libs/jquery/jquery-2.1.0.min",
       "jquery.autosize": "libs/jquery/plugins/jquery.autosize.min",

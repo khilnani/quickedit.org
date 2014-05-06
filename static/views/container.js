@@ -19,18 +19,24 @@ function($, _, BaseView, EventBus, bootbox, CloudStore) {
       "keyup #message": "refreshMessage",
       "click #clearMessage": "clearMessage",
       
-      "click #dbChooseFile": "loadFile",
+      "click #dbChooseFile": "readFile",
       "click #dbSaveFile": "saveFile",
       
       "click #backToTop": "backToTop"
     },
     
-    loadFile: function () {
-      console.group("loadFile");
-      var promise = CloudStore.loadFile();
+    readFile: function () {
+      console.group("readFile");
+      var promise = CloudStore.readFile();
+      
       promise.done( function( text ) {
+        console.log("read.");
         $('#message').val( text );
         EventBus.trigger('message:updated');
+        console.groupEnd();
+      });
+      promise.fail( function( ) {
+        console.log("read failed.");
         console.groupEnd();
       });
     },
@@ -38,6 +44,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore) {
     saveFile: function () {
       console.group("saveFile");
       var promise = CloudStore.saveFile( $('#message').val() );
+      
       promise.done( function( ) {
         console.log("saved.");
         console.groupEnd();

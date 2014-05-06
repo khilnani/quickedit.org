@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'bootbox', 'dropbox'], function ($, _, Backbone, bootbox) {
+define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox'], function ($, _, Backbone, bootbox, DropboxView) {
   
   console.log('CloudStore.');
   
@@ -6,43 +6,34 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'dropbox'], function ($, 
 
     currentDir: '/',
     deferred: undefined,
+    client: undefined,
 
-    loadFile: function () {
-      console.log("CloudStore.loadFile");
-      CloudStore.deferred = $.Deferred();
-      
-      CloudStore.client.authenticate( function( error, data ) {
-        console.log("CloudStore.loadFile/authenticate: error: " + error);
-        if(error) {
-          CloudStore.deferred.reject();
-        } else {
-          CloudStore.readDir();
-        }
-      });
-      console.log("CloudStore.loadFile return deferred");
-      return CloudStore.deferred;
+    readFile: function () {
+      console.log("CloudStore.readFile");
+      return this.render('read');
     },
     
-    saveFile: function (text) {
+    saveFile: function () {
       console.log("CloudStore.saveFile");
-      CloudStore.deferred = $.Deferred();
-      CloudStore.deferred.resolve();
-      return CloudStore.deferred;
+      return this.render('save');
     },
-
-    readDir: function () {
-      CloudStore.client.readdir( CloudStore.currentDir, function( error, entries ) {
-        console.log("CloudStore.readDir/readdir: '" + CloudStore.currentDir + "' error: " + error);
+    
+    render: function (mode) {
+      console.log("CloudStore.render: " + mode);
+      this.deferred = $.Deferred();
+      
+      CloudStore.client.authenticate( function( error, data ) {
+        console.log("CloudStore.render/authenticate: error: " + error);
         if(error) {
           CloudStore.deferred.reject();
         } else {
-          console.log("CloudStore.readDir entries: " +  entries.length );
-          _.each( entries, function (item) {
-            console.log(item);
-          });
-          CloudStore.deferred.resolve( entries.length );
+          var dropboxView = new DropboxView();
+          dropboxView.readDir(CloudStore.client, CloudStore.deferred, mode);
         }
       });
+      
+      console.log("CloudStore.render return deferred");
+      return this.deferred;
     }
   };
   
