@@ -99,7 +99,12 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
       
       return this.el;
     },
-        
+
+    initialize: function (options) {
+      console.log('DropboxView(): ' + this.location );
+      BaseView.prototype.initialize.call(this, options);
+    },
+
     destroy: function () {
       console.log('DropboxView.destroy()');
       this.location = [];
@@ -112,8 +117,9 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
 
   var DropboxItemView = BaseView.extend({
     
-    tagName  : 'li',
+    tagName: 'li',
     parent: undefined,
+    template: _.template( tmpl ),
 
     events: {
       "click .dplink": "click"
@@ -138,17 +144,13 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
     },
 
     initialize: function (options) {
-      
+      console.log('DropboxItemView()');
       this.parent = options.parent;
-      
       BaseView.prototype.initialize.call(this, options);
-        EventBus.on('', function () {
-      }, this);
-      
-      this.template = _.template( tmpl );
     },
 
     destroy: function () {
+      console.log('DropboxItemView.destroy()');
       BaseView.prototype.destroy.call(this);
     }
     
