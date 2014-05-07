@@ -21,8 +21,12 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox
     
     logout: function () {
       console.log("CloudStore.logout()");
-      this.client.signOut(_.bind( function() { 
-        this.refreshStatus();
+      bootbox.confirm("Logout?", _.bind(function(result) {
+        if(result == true) {
+          this.client.signOut(_.bind( function() { 
+            this.refreshStatus();
+          }, this));
+        }
       }, this));
     },
     
