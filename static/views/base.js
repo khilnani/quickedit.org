@@ -21,10 +21,6 @@ function($, _, Backbone, Utils, EventBus) {
     
     destroy: function() {
       console.log('BaseView.destroy()');
-      
-      if( this.beforeClose ) {
-        this.beforeClose();
-      }
       this.unbind();
       this.remove();
       delete this.$el;

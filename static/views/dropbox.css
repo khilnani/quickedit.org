@@ -1,1 +1,7 @@
-// css
+#dropboxDialogBody li {
+  list-style-type: none;
+}
+
+#dropboxDialogBody .dplink {
+  cursor: pointer;
+}

@@ -57,7 +57,7 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox
         if(error) {
           deferred.reject();
         } else {
-          dropboxView.readDir(this.client, deferred, mode);
+          dropboxView.show(this.client, deferred, mode);
         }
         this.refreshStatus();
       }, this));

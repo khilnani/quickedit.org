@@ -36,24 +36,13 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
       
       this.client.readFile( this.location.join('/'), _.bind(function (error, data) {
         this.deferred.resolve( data );
-        this.destroy();
+        this.hide();
       }, this) );
     },
     
     back: function () {
       console.log('DropboxView.back');
       this.location.pop();
-      
-      this.refresh();
-    },
-
-    readDir: function (client, deferred, mode) {
-      console.log('DropboxView.readDir: ' + mode);
-      
-      this.client = client;
-      this.deferred = deferred;
-      this.mode = mode;
-      
       this.refresh();
     },
     
@@ -69,21 +58,22 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
           var files = [];
           
           if( this.location.length > 0) {
-            files.push({name: '..', type: 'back'});
+            files.push({name: '', type: 'back'});
           }
-          _.each( entries_stat, function (item) {
+          _.each( entries_stat, _.bind(function (item) {
             if(item.isFolder)
             {
-              files.push({name: item.name, type: 'dir'});
+              files.push({name: item.name, type: 'dir', mode: this.mode});
             } else {
-              files.push({name: item.name, type: 'file'})
+              files.push({name: item.name, type: 'file', mode: this.mode});
             }
             
             console.log(item);
-          });
+          }, this));
           
           this.collection = new DropboxFiles(files);
-          $(document.body).append( this.render() );
+          
+          $('#dropboxDialogBody').append( this.render() );
         }
       }, this) );
     },
@@ -100,6 +90,23 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
       return this.el;
     },
     
+    show: function (client, deferred, mode) {
+      console.log('DropboxView.show: ' + mode);
+      
+      this.client = client;
+      this.deferred = deferred;
+      this.mode = mode;
+      
+      $('#dropbox').modal( 'show' );
+      
+      this.refresh();
+    },
+    
+    hide: function () {
+      console.log('DropboxView.hide()');
+      $('#dropbox').modal('hide');
+    },
+    
     reset: function () {
       console.log('DropboxView.reset()');
       this.location = [];
@@ -111,12 +118,22 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
     initialize: function (options) {
       console.log('DropboxView()');
       BaseView.prototype.initialize.call(this, options);
+      
       this.reset();
+      
+      // hide() triggers this, it should not call hide
+      $('#dropbox').on('hide.bs.modal', _.bind(function (e) {
+        console.log('DropboxView:onModalClose');
+        $('#dropbox').off();
+        this.destroy();
+      },this) );
     },
 
     destroy: function () {
       console.log('DropboxView.destroy()');
+      
       this.reset();
+      
       BaseView.prototype.destroy.call(this);
     } 
   });
