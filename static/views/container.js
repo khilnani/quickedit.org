@@ -22,7 +22,13 @@ function($, _, BaseView, EventBus, bootbox, CloudStore) {
       "click #dbChooseFile": "readFile",
       "click #dbSaveFile": "saveFile",
       
-      "click #backToTop": "backToTop"
+      "click #backToTop": "backToTop",
+      
+      "click #logout": "logout"
+    },
+    
+    logout: function () {
+      CloudStore.logout();
     },
     
     readFile: function () {

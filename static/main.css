@@ -16,6 +16,14 @@
   top: 0; left: 0; bottom: 0; right: 0;
 }
 
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: inherit;
+}
+
 .top-buffer {
   margin-top: 15px; 
 }
