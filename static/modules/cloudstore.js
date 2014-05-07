@@ -45,12 +45,12 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox
       return this.render('read');
     },
     
-    saveFile: function () {
+    saveFile: function ( fileData ) {
       console.log("CloudStore.saveFile");
-      return this.render('save');
+      return this.render('save', fileData);
     },
     
-    render: function (mode) {
+    render: function (mode, fileData) {
       console.log("CloudStore.render: " + mode);
       
       var deferred = $.Deferred();
@@ -61,7 +61,7 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox
         if(error) {
           deferred.reject();
         } else {
-          dropboxView.show(this.client, deferred, mode);
+          dropboxView.show(this.client, deferred, mode, fileData);
         }
         this.refreshStatus();
       }, this));

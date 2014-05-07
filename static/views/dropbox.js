@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'views/base', 'globals/eventbus', 'txt!views/dropbox.html', 'css!views/dropbox.css', 'dropbox'], 
-function($, _, Backbone, BaseView, EventBus, tmpl, css) {
+define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/base', 'globals/eventbus', 'txt!views/dropbox.html', 'css!views/dropbox.css', 'dropbox'], 
+function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, css) {
   "use strict";
 
   console.log("DropboxView.");
@@ -21,6 +21,7 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
     deferred: undefined,
     client: undefined,
     mode: undefined,
+    fileData: undefined,
     
     select: function ( name ) {
       console.log('DropboxView.select: ' + name);
@@ -30,7 +31,7 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
     },
     
     read: function ( name ) {
-      console.log('DropboxView.select: ' + name);
+      console.log('DropboxView.read: ' + name);
       
       this.location.push( name );
       
@@ -38,6 +39,25 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
         this.deferred.resolve( data );
         this.hide();
       }, this) );
+    },
+    
+    save: function () {
+      console.log('DropboxView.save: ' + this.location.join('/'));
+      
+      bootbox.prompt('Filename (.txt)', _.bind( function (fileName) {
+        if(fileName !== null) {
+          var filePath = this.location.join('/') + '/' + fileName + '.txt';
+          console.log('Saving to: ' + filePath);
+          this.client.writeFile(filePath, this.fileData, _.bind(function(error, stat) {
+            if(error) {
+              this.deferred.reject();
+            } else {
+              this.deferred.resolve( );
+              this.hide();
+            }
+          }, this));
+        }
+      }, this));
     },
     
     back: function () {
@@ -60,6 +80,10 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
           if( this.location.length > 0) {
             files.push({name: '', type: 'back'});
           }
+          
+          if(this.mode == 'save') {
+            files.push({name: 'Save file here', type: 'save'})
+          }
           _.each( entries_stat, _.bind(function (item) {
             if(item.isFolder)
             {
@@ -67,9 +91,9 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
             } else {
               files.push({name: item.name, type: 'file', mode: this.mode});
             }
-            
             console.log(item);
           }, this));
+          
           
           this.collection = new DropboxFiles(files);
           
@@ -90,12 +114,13 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
       return this.el;
     },
     
-    show: function (client, deferred, mode) {
+    show: function (client, deferred, mode, fileData) {
       console.log('DropboxView.show: ' + mode);
       
       this.client = client;
       this.deferred = deferred;
       this.mode = mode;
+      this.fileData = fileData;
       
       $('#dropbox').modal( 'show' );
       
@@ -156,6 +181,8 @@ function($, _, Backbone, BaseView, EventBus, tmpl, css) {
         this.parent.read( this.model.get('name') );
       } else if(this.model.get('type') == 'back') {
         this.parent.back();
+      } else if(this.model.get('type') == 'save') {
+        this.parent.save();
       } else {
         console.error('Unknown DropboxItemView type: ' + this.model.get('type'));
       }
