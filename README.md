@@ -1,7 +1,7 @@
 quick encrypt
 ================
 
-> SHA1 and AES powered web based text encryption for mobile and desktop.
+> SHA1 and AES powered web based text encryption for mobile and desktop with Dropbox integration.
 
 To use, go to http://quickencrypt.org
 
