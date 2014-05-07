@@ -91,7 +91,8 @@
           </div>
         </div>
         <div class="row">
-            <button id="backToTop" type="button" class="btn btn-info btn-xs pull-right">Back to Top</button>
+          <button id="backToTop" type="button" class="btn btn-default btn-xs pull-left" data-toggle="modal" data-target="#disclaimer">Disclaimer</button>
+          <button id="backToTop" type="button" class="btn btn-info btn-xs pull-right">Back to Top</button>
         </div>
       </form>
       
@@ -179,7 +180,32 @@
           
           <div class="well well-sm top-buffer">
           <h4>Disclaimer</h4>
-            <p class="text-warning small"><b>This application does not store, transfer or track passphrases or encrypted/decrypted text.</b></p>
+            <p class="text-danger small">Use at your own risk. Please keep in mind that you may experience loss of data or inability to decrypt messages in some cases. A professional hacker might be able to decrypt text encrypted by this page. If you forget your passphrase, we will not be able to help you decrypt your message.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="disclaimer" tabindex="-1" role="dialog" aria-labelledby="Disclaimer" aria-hidden="true" data-keyboard="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title text-primary">Disclaimer</h4>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <img src="static/images/icon-100x100.png"/> 
+          </div>
+          <p class="top-buffer">
+          <span class="text-primary">Quick Encrypt</span> is a simple passphrase based text encryption application that uses the AES 256bit encryption with SHA hash keys.
+          Content may be encrypted multiple times, with different passphrases, adding multiple layers of encryption.
+          Passphrases and unencrypted text are neither stored, nor sent to any website.
+          </p>
+          
+          <div class="well well-sm top-buffer">
+          <h4>Disclaimer</h4>
             <p class="text-danger small">Use at your own risk. Please keep in mind that you may experience loss of data or inability to decrypt messages in some cases. A professional hacker might be able to decrypt text encrypted by this page. If you forget your passphrase, we will not be able to help you decrypt your message.</p>
           </div>
         </div>
