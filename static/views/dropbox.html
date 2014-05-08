@@ -1,4 +1,4 @@
-<span class='dplink'>
+<a class='dplink' href='#'>
 <% if(type == 'file') { %>
 <span class="glyphicon glyphicon-file"></span>
 <% } else if(type == 'dir') { %>
@@ -8,6 +8,5 @@
 <% } else if(type == 'save') { %>
 <span class="glyphicon glyphicon-floppy-save"></span>
 <% } %>
-<%= name %>
-</span>
-
+</a>
+<a class='dplink' href='#'><%= name %></a>

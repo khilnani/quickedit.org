@@ -143,7 +143,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore) {
 
       EventBus.on('message:updated', function(){
         console.log('message:updated');
-        $('#message').select();
+        //$('#message').select();
         this.refreshMessage();
       }, this);
     },

@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/base', 'globals/eventbus', 'txt!views/dropbox.html', 'css!views/dropbox.css', 'dropbox'], 
-function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, css) {
+define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/base', 'globals/eventbus', 'txt!views/dropbox.html', 'txt!views/loading.html', 'css!views/dropbox.css', 'dropbox'], 
+function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
   "use strict";
 
   console.log("DropboxView.");
@@ -26,15 +26,13 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, css) {
     select: function ( name ) {
       console.log('DropboxView.select: ' + name);
       this.location.push( name );
-      
       this.refresh();
     },
     
     read: function ( name ) {
       console.log('DropboxView.read: ' + name);
-      
+      this.renderAnimated(true);
       this.location.push( name );
-      
       this.client.readFile( this.location.join('/'), _.bind(function (error, data) {
         this.deferred.resolve( data );
         this.hide();
@@ -48,6 +46,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, css) {
         if(fileName !== null) {
           var filePath = this.location.join('/') + '/' + fileName + '.txt';
           console.log('Saving to: ' + filePath);
+          this.renderAnimated(true);
           this.client.writeFile(filePath, this.fileData, _.bind(function(error, stat) {
             if(error) {
               this.deferred.reject();
@@ -68,6 +67,9 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, css) {
     
     refresh: function () {
       console.log("DropboxView.refresh: " + this.location.join('/') );
+      
+      this.renderAnimated(true);
+      
       this.client.readdir( this.location.join('/'), _.bind(function( error, entries, stat, entries_stat ) {
         console.log("DropboxView.refresh/readdir: '" + this.location.join('/') + "' isfile: " + stat.isFile + " error: " + error);
         if(error || stat.isFile) {
@@ -94,24 +96,53 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, css) {
             console.log(item);
           }, this));
           
-          
           this.collection = new DropboxFiles(files);
-          
-          $('#dropboxDialogBody').append( this.render() );
+          this.renderAnimated();
         }
       }, this) );
     },
+    
+    renderAnimated: function (loading) {
+      
+      $(this.el).fadeOut('slow').promise().done(_.bind(function() {
+        $(this.el).html('');
         
-    render: function () {
+        if(loading) {
+          this.$el.append( loadingTmpl );
+        } else {
+          this.collection.each( function(item) {
+            var itemView = new DropboxItemView({model: item, parent: this });
+            var renderHtml = itemView.render();
+            this.$el.append(renderHtml);
+          }, this);
+        }
+        
+        $('#dropbox .modal-body').append( this.el );
+        if(!loading) $('#dropbox').trigger("resize");
+        
+        $(this.el).fadeIn('slow').promise().done( function () {
+          if(!loading) $('#dropbox').trigger("resize");
+        });
+        
+      }, this));
+    },
+    
+    render: function (loading) {
       $(this.el).html('');
       
-      this.collection.each( function(item) {
-        var itemView = new DropboxItemView({model: item, parent: this });
-        var renderHtml = itemView.render();
-        this.$el.append(renderHtml);
-      }, this);
+      if(loading) {
+        this.$el.append( loadingTmpl );
+        
+      } else {
+        this.collection.each( function(item) {
+          var itemView = new DropboxItemView({model: item, parent: this });
+          var renderHtml = itemView.render();
+          this.$el.append(renderHtml);
+        }, this);
+      }
       
-      return this.el;
+      $('#dropbox .modal-body').append( this.el );
+      $('#dropbox').trigger("resize");
     },
     
     show: function (client, deferred, mode, fileData) {
@@ -156,9 +187,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, css) {
 
     destroy: function () {
       console.log('DropboxView.destroy()');
-      
       this.reset();
-      
       BaseView.prototype.destroy.call(this);
     } 
   });

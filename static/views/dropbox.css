@@ -1,7 +1,8 @@
-#dropboxDialogBody li {
+#dropbox .modal-body li {
   list-style-type: none;
+  line-height: 150%
 }
 
-#dropboxDialogBody .dplink {
+#dropbox .modal-body .dplink {
   cursor: pointer;
 }
