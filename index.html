@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="static/themes/magic.nik.bootstrap.min.css"/>
     <link rel="stylesheet" href="static/main.css"/>
 
-    <title>QuickEncrypt - Mobile optimized text encryption web application with Dropbox support</title>
+    <title>QuickEncrypt - Web based text encryption with Dropbox support</title>
     <meta name="description" content="Passphrase based 256bit text encryption web application with Dropbox support." />
     <meta name="keywords" content="encryption, cryptography, secure, encode, password, passphrase, encrypt, dropbox, decrypt, aes" />
     
@@ -35,14 +35,14 @@
   <body>
   
   <div id="splashscreen">
-    <img id="splashimage" src="static/images/icon-128x128.png"/>
+    <img id="splashimage" src="static/images/icon-128x128.png" alt="Splash page icon"/>
   </div>
 
   <div class="page">
     <div class="container" id="container">
     
       <div class="row">
-        <h3 class="pull-left"><img src="static/images/icon-36x36.png" class="shift-up-5"/> Quick Encrypt</h3> 
+        <h3 class="pull-left"><img src="static/images/icon-36x36.png" class="shift-up-5" alt="Icon"/> Quick Encrypt</h3> 
         <div class="btn-group pull-right top-buffer shift-dn-5">
           <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#about">About</button>
           <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#help">?</button>
@@ -91,7 +91,7 @@
           </div>
         </div>
         <div class="row">
-          <button id="backToTop" type="button" class="btn btn-default btn-xs pull-left" data-toggle="modal" data-target="#disclaimer">Disclaimer</button>
+          <button type="button" class="btn btn-default btn-xs pull-left" data-toggle="modal" data-target="#disclaimer">Disclaimer</button>
           <button id="backToTop" type="button" class="btn btn-info btn-xs pull-right">Back to Top</button>
         </div>
       </form>
@@ -99,7 +99,7 @@
     </div>
   </div>
   
-  <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="Help" aria-hidden="true" data-keyboard="true">
+  <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -141,7 +141,7 @@
     </div>
   </div>
   
-  <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="About" aria-hidden="true" data-keyboard="true">
+  <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -150,7 +150,7 @@
         </div>
         <div class="modal-body">
           <div class="text-center">
-            <img src="static/images/icon-100x100.png"/> 
+            <img src="static/images/icon-100x100.png" alt="Icon"/> 
           </div>
           <p class="top-buffer">
           <span class="text-primary">Quick Encrypt</span> is a simple passphrase based text encryption application that uses the AES 256bit encryption with SHA hash keys.
@@ -186,7 +186,7 @@
     </div>
   </div>
   
-  <div class="modal fade" id="disclaimer" tabindex="-1" role="dialog" aria-labelledby="Disclaimer" aria-hidden="true" data-keyboard="true">
+  <div class="modal fade" id="disclaimer" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -194,7 +194,7 @@
           <h4 class="modal-title text-primary">Disclaimer</h4>
         </div>
         <div class="modal-body">
-          <span class="text-primary">Quick Encrypt</span> is a simple passphrase based text encryption application.
+          <p><span class="text-primary">Quick Encrypt</span> is a simple passphrase based text encryption application.
           Content may be encrypted multiple times, with different passphrases, adding multiple layers of encryption.
           </p>
           
@@ -210,7 +210,7 @@
     </div>
   </div>
   
-  <div class="modal fade" id="dropbox" tabindex="-1" role="dialog" aria-labelledby="Dropbox File Browser" aria-hidden="true" data-keyboard="true">
+  <div class="modal fade" id="dropbox" tabindex="-1" role="dialog" data-keyboard="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
