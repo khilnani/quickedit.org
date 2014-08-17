@@ -42,9 +42,9 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
     save: function () {
       console.log('DropboxView.save: ' + this.location.join('/'));
       
-      bootbox.prompt('Filename (.txt)', _.bind( function (fileName) {
+      bootbox.prompt('Filename', _.bind( function (fileName) {
         if(fileName !== null) {
-          var filePath = this.location.join('/') + '/' + fileName + '.txt';
+          var filePath = this.location.join('/') + '/' + fileName;
           console.log('Saving to: ' + filePath);
           this.renderAnimated(true);
           this.client.writeFile(filePath, this.fileData, _.bind(function(error, stat) {
