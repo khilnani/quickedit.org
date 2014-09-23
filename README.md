@@ -10,3 +10,12 @@ To use, go to http://quickencrypt.org . Feel free to create defect/suggestion ti
 Please note that this branch includes both traditional web site code as well as PhoneGap/Cordova configuration files. For more info, please take a look at the `master` branch.
 
 
+### Screenshots
+
+<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ios4-1.png" width="100%" />
+
+<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ios4-2.png" width="100%" />
+
+<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ios4-3.png" width="100%" />
+
+<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ipad-2.png" width="100%" />
