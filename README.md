@@ -12,10 +12,12 @@ Please note that this branch includes both traditional web site code as well as 
 
 ### Screenshots
 
-<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ios4-1.png" width="35%" />
+#### Cordova iOS Applicaton
 
-<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ios4-2.png" width="35%" />
+<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ios4-1.png" width="30%" />
 
-<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ios4-3.png" width="35%" />
+<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ios4-2.png" width="30%" />
 
-<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ipad-2.png" width="35%" />
+<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ios4-3.png" width="30%" />
+
+<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ipad-2.png" width="30%" />
