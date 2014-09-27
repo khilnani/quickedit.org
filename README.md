@@ -20,8 +20,8 @@ Please note that this branch includes both traditional web site code as well as 
 
 #### Web Applicaton
 
-<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web1-ios.png" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web2-ios.png" width="40%" />
+<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web1-ios.jpg" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web2-ios.jpg" width="40%" />
 
-<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web3-desktop.png" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web4-dropbox.png" width="40%" />
+<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web3-desktop.jpg" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web4-dropbox.jpg" width="40%" />
 
-<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web5-encrypted.png" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web6-about.png" width="40%" />
+<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web5-encrypted.jpg" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web6-about.jpg" width="40%" />
