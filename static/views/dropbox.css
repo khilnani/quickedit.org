@@ -9,8 +9,9 @@
 
 .dropbox-view-body {
   width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
   color: #999;
+  word-wrap: break-word;
 }
 
 .dropbox-modal-footer-size {
