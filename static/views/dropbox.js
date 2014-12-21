@@ -39,6 +39,26 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
       }, this) );
     },
     
+    newdir: function () {
+      console.log('DropboxView.newdir: ' + this.location.join('/'));
+      
+      bootbox.prompt('Folder', _.bind( function (fileName) {
+        if(fileName !== null) {
+          var filePath = this.location.join('/') + '/' + fileName;
+          console.log('Creating dir: ' + filePath);
+          this.renderAnimated(true);
+          this.client.mkdir(filePath, _.bind(function(error, stat) {
+            if(error) {
+              this.deferred.reject();
+            } else {
+              this.deferred.resolve( );
+              this.refresh();
+            }
+          }, this));
+        }
+      }, this));
+    },
+
     save: function () {
       console.log('DropboxView.save: ' + this.location.join('/'));
       
@@ -85,6 +105,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
           
           if(this.mode == 'save') {
             files.push({name: 'Save file here', type: 'save'})
+            files.push({name: 'Create folder', type: 'newdir'})
           }
           _.each( entries_stat, _.bind(function (item) {
             if(item.isFolder)
@@ -210,6 +231,8 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
         this.parent.read( this.model.get('name') );
       } else if(this.model.get('type') == 'back') {
         this.parent.back();
+      } else if(this.model.get('type') == 'newdir') {
+        this.parent.newdir();
       } else if(this.model.get('type') == 'save') {
         this.parent.save();
       } else {
