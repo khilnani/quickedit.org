@@ -1,10 +1,18 @@
-<a class='dplink' href='#'>
-<% if(type == 'file') { %>
-<span class="glyphicon glyphicon-file"></span>
-<% } else if(type == 'dir') { %>
-<span class="glyphicon glyphicon-folder-close"></span>
-<% } else if(type == 'back') { %>
-<span class="glyphicon glyphicon-arrow-left"></span>
+<% if(size < 1024 * 1024) { %>
+  <a class='dropbox-item-link' href='#'>
 <% } %>
-</a>
-<a class='dplink' href='#'><%= name %></a>
+
+<% if(type == 'file') { %>
+  <span class="glyphicon glyphicon-file"></span>
+<% } else if(type == 'dir') { %>
+  <span class="glyphicon glyphicon-folder-close"></span>
+<% } else if(type == 'back') { %>
+  <span class="glyphicon glyphicon-arrow-left"></span>
+<% } %>
+
+<% if(size < 1024 * 1024) { %>
+  </a>
+  <a class='dropbox-item-link' href='#'><%= name %></a>
+<% } else { %>
+  <%= name %>
+<% } %>

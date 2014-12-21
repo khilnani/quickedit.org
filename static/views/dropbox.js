@@ -25,8 +25,8 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl, itemTmpl, loadin
     fileData: undefined,
 
     events: {
-      "click .newdirbtn": "newdir",
-      "click .savebtn": "save"
+      "click .dropbox-newdir-btn": "newdir",
+      "click .dropbox-save-btn": "save"
     },
 
     select: function ( name ) {
@@ -106,17 +106,17 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl, itemTmpl, loadin
           var files = [];
           
           if( this.location.length > 0) {
-            files.push({name: '', type: 'back'});
+            files.push({name: '', type: 'back', size: 0});
           }
           
           _.each( entries_stat, _.bind(function (item) {
             if(item.isFolder)
             {
-              files.push({name: item.name, type: 'dir', mode: this.mode});
+              files.push({name: item.name, type: 'dir', mode: this.mode, size: item.size});
             } else {
-              files.push({name: item.name, type: 'file', mode: this.mode});
+              files.push({name: item.name, type: 'file', mode: this.mode, size: item.size});
             }
-            console.log(item);
+            //console.log(item);
           }, this));
           
           this.collection = new DropboxFiles(files);
@@ -135,8 +135,8 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl, itemTmpl, loadin
           $(this.el).html( loadingTmpl );
         } else {
           $(this.el).html( this.template( { mode: this.mode, view: this } ) );
-          var container = $('.dropbox-view-body');
-          console.log(container);
+          var container = $('.dropbox-view-list');
+          //console.log(container);
           this.collection.each( function(item) {
             var itemView = new DropboxItemView({model: item, parent: this });
             var renderHtml = itemView.render();
@@ -162,7 +162,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl, itemTmpl, loadin
         $(this.el).html( loadingTmpl );
       } else {
         $(this.el).html( this.template( { mode: this.mode, view: this } ) );
-        var container = $('.dropbox-view-body');
+        var container = $('.dropbox-view-list');
         console.log(container);
         this.collection.each( function(item) {
           var itemView = new DropboxItemView({model: item, parent: this });
@@ -229,7 +229,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl, itemTmpl, loadin
     template: _.template( itemTmpl ),
 
     events: {
-      "click .dplink": "click"
+      "click .dropbox-item-link": "click"
     },
 
     click: function () {
@@ -246,6 +246,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl, itemTmpl, loadin
     },
 
     render: function () {
+//      console.log( this.model );
       this.$el.html( this.template( this.model.toJSON() ) );
       return this.el;
     },
