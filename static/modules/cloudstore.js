@@ -21,15 +21,28 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox
     
     logout: function () {
       console.log("CloudStore.logout()");
-      bootbox.confirm("Logout?", _.bind(function(result) {
-        if(result == true) {
-          this.client.signOut(_.bind( function() { 
-            this.refreshStatus();
-          }, this));
-        }
-      }, this));
+      bootbox.confirm({ 
+        title: "Logout?", 
+        message: "<p>Click OK to log out.</p>", 
+        callback: _.bind(function(result) {
+          if(result == true) {
+            this.client.signOut(_.bind( function() { 
+              this.refreshStatus();
+              this.logoutConfirm();
+            }, this));
+          }
+        }, this) 
+      });
     },
-    
+
+    logoutConfirm: function () {
+      console.log("CloudStore.logoutConfirm()");
+      bootbox.alert({ 
+        title: "Logout successful", 
+        message: "<p>You might still be logged in on Dropbox's website.</p><p class='text-danger'><em>Please click <a href='http://dropbox.com' target='_blank'>http://dropbox.com</a> and log out from Dropbox's website as well.</em></p>"
+      });
+    },
+
     refreshStatus: function () {
       console.log("CloudStore.refreshStatus: " + this.client.isAuthenticated() );
       if( this.client.isAuthenticated() ) 
