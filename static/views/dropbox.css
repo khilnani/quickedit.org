@@ -6,3 +6,9 @@
 #dropbox .modal-body .dplink {
   cursor: pointer;
 }
+
+#dropbox .modal-footer-size {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}

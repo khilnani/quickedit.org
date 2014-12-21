@@ -1,0 +1,10 @@
+<a class='dplink' href='#'>
+<% if(type == 'file') { %>
+<span class="glyphicon glyphicon-file"></span>
+<% } else if(type == 'dir') { %>
+<span class="glyphicon glyphicon-folder-close"></span>
+<% } else if(type == 'back') { %>
+<span class="glyphicon glyphicon-arrow-left"></span>
+<% } %>
+</a>
+<a class='dplink' href='#'><%= name %></a>

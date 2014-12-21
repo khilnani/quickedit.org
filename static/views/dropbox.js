@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/base', 'globals/eventbus', 'txt!views/dropbox.html', 'txt!views/loading.html', 'css!views/dropbox.css', 'dropbox'], 
-function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
+define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/base', 'globals/eventbus', 'txt!views/dropbox.html', 'txt!views/dropboxItem.html', 'txt!views/loading.html', 'css!views/dropbox.css', 'dropbox'], 
+function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl, itemTmpl, loadingTmpl) {
   "use strict";
 
   console.log("DropboxView.");
@@ -15,14 +15,20 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
   
   var DropboxView = BaseView.extend({
     
-    tageName: 'ul',
+    tageName: undefined,
+    template: _.template( bodyTmpl ),
     location: [],
     
     deferred: undefined,
     client: undefined,
     mode: undefined,
     fileData: undefined,
-    
+
+    events: {
+      "click .newdirbtn": "newdir",
+      "click .savebtn": "save"
+    },
+
     select: function ( name ) {
       console.log('DropboxView.select: ' + name);
       this.location.push( name );
@@ -42,7 +48,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
     newdir: function () {
       console.log('DropboxView.newdir: ' + this.location.join('/'));
       
-      bootbox.prompt('Folder', _.bind( function (fileName) {
+      bootbox.prompt('Create Folder', _.bind( function (fileName) {
         if(fileName !== null) {
           var filePath = this.location.join('/') + '/' + fileName;
           console.log('Creating dir: ' + filePath);
@@ -103,10 +109,6 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
             files.push({name: '', type: 'back'});
           }
           
-          if(this.mode == 'save') {
-            files.push({name: 'Save file here', type: 'save'})
-            files.push({name: 'Create folder', type: 'newdir'})
-          }
           _.each( entries_stat, _.bind(function (item) {
             if(item.isFolder)
             {
@@ -124,17 +126,21 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
     },
     
     renderAnimated: function (loading) {
+      console.log('DropboxView.renderAnimated')
       
       $(this.el).fadeOut('slow').promise().done(_.bind(function() {
         $(this.el).html('');
         
         if(loading) {
-          this.$el.append( loadingTmpl );
+          $(this.el).html( loadingTmpl );
         } else {
+          $(this.el).html( this.template( { mode: this.mode, view: this } ) );
+          var container = $('.dropbox-view-body');
+          console.log(container);
           this.collection.each( function(item) {
             var itemView = new DropboxItemView({model: item, parent: this });
             var renderHtml = itemView.render();
-            this.$el.append(renderHtml);
+            container.append(renderHtml);
           }, this);
         }
         
@@ -149,16 +155,19 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
     },
     
     render: function (loading) {
+      console.log('DropboxView.render')
       $(this.el).html('');
       
       if(loading) {
-        this.$el.append( loadingTmpl );
-        
+        $(this.el).html( loadingTmpl );
       } else {
+        $(this.el).html( this.template( { mode: this.mode, view: this } ) );
+        var container = $('.dropbox-view-body');
+        console.log(container);
         this.collection.each( function(item) {
           var itemView = new DropboxItemView({model: item, parent: this });
           var renderHtml = itemView.render();
-          this.$el.append(renderHtml);
+          container.append(renderHtml);
         }, this);
       }
       
@@ -183,7 +192,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
       console.log('DropboxView.hide()');
       $('#dropbox').modal('hide');
     },
-    
+
     reset: function () {
       console.log('DropboxView.reset()');
       this.location = [];
@@ -191,7 +200,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
       this.client = undefined;
       this.mode = undefined;
     },
-
+    
     initialize: function (options) {
       console.log('DropboxView()');
       BaseView.prototype.initialize.call(this, options);
@@ -217,7 +226,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
     
     tagName: 'li',
     parent: undefined,
-    template: _.template( tmpl ),
+    template: _.template( itemTmpl ),
 
     events: {
       "click .dplink": "click"
@@ -231,10 +240,6 @@ function($, _, Backbone, bootbox, BaseView, EventBus, tmpl, loadingTmpl) {
         this.parent.read( this.model.get('name') );
       } else if(this.model.get('type') == 'back') {
         this.parent.back();
-      } else if(this.model.get('type') == 'newdir') {
-        this.parent.newdir();
-      } else if(this.model.get('type') == 'save') {
-        this.parent.save();
       } else {
         console.error('Unknown DropboxItemView type: ' + this.model.get('type'));
       }

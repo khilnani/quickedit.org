@@ -1,14 +1,14 @@
-<a class='dplink' href='#'>
-<% if(type == 'file') { %>
-<span class="glyphicon glyphicon-file"></span>
-<% } else if(type == 'dir') { %>
-<span class="glyphicon glyphicon-folder-close"></span>
-<% } else if(type == 'back') { %>
-<span class="glyphicon glyphicon-arrow-left"></span>
-<% } else if(type == 'save') { %>
-<span class="glyphicon glyphicon-floppy-save"></span>
-<% } else if(type == 'newdir') { %>
-<span class="glyphicon glyphicon-plus"></span>
+<div>
+  <ul class="list-unstyled dropbox-view-body">
+  </ul>
+</div>
+<% if(mode == 'save') { %>
+  <div class="modal-footer modal-footer-size">
+    <div class="pull-left">
+      <button type="button" class="btn btn-primary newdirbtn">Create folder</button>
+    </div>
+    <div class="pull-right">
+      <button type="button" class="btn btn-primary savebtn">Save here</button>
+    </div>
+  </div>
 <% } %>
-</a>
-<a class='dplink' href='#'><%= name %></a>
