@@ -106,7 +106,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl, itemTmpl, loadin
           var files = [];
           
           if( this.location.length > 0) {
-            files.push({name: '', type: 'back', size: 0});
+            files.push({name: '', type: 'back', mode: this.mode, size: 0});
           }
           
           _.each( entries_stat, _.bind(function (item) {
