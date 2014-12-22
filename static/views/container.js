@@ -142,12 +142,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
       
       BaseView.prototype.initialize.call(this, options);
       
-      console.log('ace: ' + window.ace);
-      
       this.message = window.ace.edit("message");
-      this.message.setTheme("ace/theme/monokai");
-      this.message.getSession().setMode("ace/mode/javascript");
-      
       this.refreshMessage();
 
       EventBus.on('message:updated', function(){
