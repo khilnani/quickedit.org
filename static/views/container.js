@@ -9,7 +9,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
   var ContainerView = BaseView.extend({
   
     el: $('#container'),
-    message: ace.edit("message"),
+    message: undefined,
     
     events: {
       "keyup #password": "passwordsMatch",
@@ -142,6 +142,9 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
       
       BaseView.prototype.initialize.call(this, options);
       
+      console.log('ace: ' + ace);
+      
+      this.message = ace.edit("message");
       this.message.setTheme("ace/theme/monokai");
       this.message.getSession().setMode("ace/mode/javascript");
       
