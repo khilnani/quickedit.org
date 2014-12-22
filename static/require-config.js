@@ -22,7 +22,7 @@ define('require-config',[], function() {
       "aes": "libs/movabletype/aes",
       "add2home": "libs/add2home/add2home",
       "dropbox": "libs/dropbox/dropbox-0.10.2",
-      "ace": "libs/ace/ace-1.1.3",
+      "ace": "//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js",
     },
     "shim": {
       "jquery": ["globals/console"],
