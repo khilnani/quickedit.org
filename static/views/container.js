@@ -143,7 +143,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
       
       this.message = window.ace.edit("message");
       this.message.setOptions({
-         minLines: 6,
+         minLines: 10,
          maxLines: 1000
       });
       this.refreshMessage();
