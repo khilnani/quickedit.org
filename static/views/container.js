@@ -142,7 +142,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
       BaseView.prototype.initialize.call(this, options);
       
       this.message = window.ace.edit("message");
-      This.message.setOptions({
+      this.message.setOptions({
          minLines: 6,
          maxLines: 1000
       });
