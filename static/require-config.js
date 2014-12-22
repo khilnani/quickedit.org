@@ -22,13 +22,14 @@ define('require-config',[], function() {
       "aes": "libs/movabletype/aes",
       "add2home": "libs/add2home/add2home",
       "dropbox": "libs/dropbox/dropbox-0.10.2",
+      "ace": "libs/ace/ace-1.1.3.js",
     },
     "shim": {
       "jquery": ["globals/console"],
       "jquery.autosize": ["jquery"],
       "backbone": ["underscore", "jquery"],
       "bootstrap": ["jquery"],
-      "bootstrap.mods": ["bootstrap"]
+      "bootstrap.mods": ["bootstrap"],
     }
   };
 });
