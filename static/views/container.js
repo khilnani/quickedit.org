@@ -101,11 +101,8 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
     
     refreshMessage: function () {
       console.log("refreshMessage()");
-    
       $("#count").text( this.message.getValue().length );
-      var lines = this.message.getLength();
       this.message.resize();
-      m.trigger('autosize.resize');
     },
     
     clearMessage: function () {
