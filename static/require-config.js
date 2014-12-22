@@ -30,6 +30,7 @@ define('require-config',[], function() {
       "backbone": ["underscore", "jquery"],
       "bootstrap": ["jquery"],
       "bootstrap.mods": ["bootstrap"],
+      "ace": ["jquery"],
     }
   };
 });
