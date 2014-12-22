@@ -9,7 +9,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
   var ContainerView = BaseView.extend({
   
     el: $('#container'),
-    message = ace.edit("message"),
+    message: ace.edit("message"),
     
     events: {
       "keyup #password": "passwordsMatch",
