@@ -37,10 +37,11 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
     readFile: function () {
       console.group("readFile");
       var promise = CloudStore.readFile();
+      var message = this.message;
       
       promise.done( function( text ) {
         console.log("read.");
-        $('#message').val( text );
+        message.setValue( text );
         EventBus.trigger('message:updated');
         console.groupEnd();
       });
@@ -52,7 +53,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
     
     saveFile: function () {
       console.group("saveFile");
-      var promise = CloudStore.saveFile( $('#message').val() );
+      var promise = CloudStore.saveFile( this.message.getValue() );
       
       promise.done( function( ) {
         console.log("saved.");
@@ -83,7 +84,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
     encryptMessage: function() {
       console.group("encryptMessage()");
       if ( this.passwordsMatch() ) {
-        $('#message').val( this.encrypt( $('#message').val(), $('#password').val() ) );
+        this.message.setValue( this.encrypt( this.message.getValue(), $('#password').val() ) );
         EventBus.trigger('message:updated');
       }
       console.groupEnd();
@@ -92,7 +93,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
     decryptMessage: function () {
       console.group("decryptMessage()");
       if( this.passwordsMatch() ) {  
-        $('#message').val( this.decrypt( $('#message').val(), $('#password').val() ) );
+        this.message.setValue( this.decrypt( this.message.getValue(), $('#password').val() ) );
         EventBus.trigger('message:updated');
       }
       console.groupEnd();
@@ -100,17 +101,18 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
     
     refreshMessage: function () {
       console.log("refreshMessage()");
-      var m = $('#message');
-      $("#count").text( m.val().length );
-      m.autosize({ append: '\n'});
+    
+      $("#count").text( this.message.getValue().length );
+      var lines = this.message.getLength();
+      this.message.resize();
       m.trigger('autosize.resize');
     },
     
     clearMessage: function () {
+      var message = this.message;
       bootbox.confirm("Clear message?", function(result) {
         if(result == true) {
-          $('#message').val('');
-          $('#message').trigger('change'); 
+          message.setValue('');
           EventBus.trigger('message:updated');
         }
       });
