@@ -1,5 +1,7 @@
-define(['jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 'add2home', 'css!libs/add2home/add2home.css', 'sha256', 'aes'], 
-function($, _, BaseView, EventBus, bootbox, CloudStore) {
+define([
+  'jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 'ace', 
+  'add2home', 'css!libs/add2home/add2home.css', 'sha256', 'aes'], 
+function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
   "use strict";
   
   console.log("ContainerView.");
@@ -7,6 +9,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore) {
   var ContainerView = BaseView.extend({
   
     el: $('#container'),
+    message = ace.edit("message"),
     
     events: {
       "keyup #password": "passwordsMatch",
@@ -138,6 +141,9 @@ function($, _, BaseView, EventBus, bootbox, CloudStore) {
       console.log("ContainerView()");
       
       BaseView.prototype.initialize.call(this, options);
+      
+      this.message.setTheme("ace/theme/monokai");
+      this.message.getSession().setMode("ace/mode/javascript");
       
       this.refreshMessage();
 
