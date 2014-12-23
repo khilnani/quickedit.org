@@ -23,6 +23,7 @@ define('require-config',[], function() {
       "add2home": "libs/add2home/add2home",
       "dropbox": "libs/dropbox/dropbox-0.10.2",
       "ace": "//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace",
+      "codemirror": "libs/codemirror/codemirror-4.8.0",
     },
     "shim": {
       "jquery": ["globals/console"],
@@ -31,6 +32,7 @@ define('require-config',[], function() {
       "bootstrap": ["jquery"],
       "bootstrap.mods": ["bootstrap"],
       "ace": ["jquery"],
+      "codemirror": ["jquery"],
     }
   };
 });
