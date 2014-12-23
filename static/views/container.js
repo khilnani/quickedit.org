@@ -102,7 +102,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
     refreshMessage: function () {
       console.log("refreshMessage()");
       $("#count").text( this.message.getValue().length );
-      this.message.adjustWrapLimit()
+      this.message.renderer.adjustWrapLimit()
       this.message.resize();
     },
     
