@@ -1,7 +1,7 @@
 define([
-  'jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 'ace', 
+  'jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 'ace', 'codemirror'
   'add2home', 'css!libs/add2home/add2home.css', 'sha256', 'aes'], 
-function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
+function($, _, BaseView, EventBus, bootbox, CloudStore, ace, codemirror) {
   "use strict";
   
   console.log("ContainerView.");
@@ -159,6 +159,13 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
       //   minLines: 10,
       //   maxLines: 1000
       //});
+      
+      var editor = CodeMirror.fromTextArea(document.getElementById("message"), {
+        lineNumbers: true,
+        styleActiveLine: true,
+        matchBrackets: true
+      });
+  
       this.refreshMessage();
 
       EventBus.on('message:updated', function(){
