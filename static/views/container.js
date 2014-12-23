@@ -41,7 +41,8 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
       
       promise.done( function( text ) {
         console.log("read.");
-        message.setValue( text );
+        $('#message').val( text )
+        //message.setValue( text );
         EventBus.trigger('message:updated');
         console.groupEnd();
       });
@@ -53,7 +54,9 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
     
     saveFile: function () {
       console.group("saveFile");
-      var promise = CloudStore.saveFile( this.message.getValue() );
+
+      //var promise = CloudStore.saveFile( this.message.getValue() );
+      var promise = CloudStore.saveFile( $('#message').val() );
       
       promise.done( function( ) {
         console.log("saved.");
@@ -84,7 +87,8 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
     encryptMessage: function() {
       console.group("encryptMessage()");
       if ( this.passwordsMatch() ) {
-        this.message.setValue( this.encrypt( this.message.getValue(), $('#password').val() ) );
+        $('#message').val( this.encrypt( $('#message').val(), $('#password').val() ) );
+        //this.message.setValue( this.encrypt( this.message.getValue(), $('#password').val() ) );
         EventBus.trigger('message:updated');
       }
       console.groupEnd();
@@ -93,7 +97,8 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
     decryptMessage: function () {
       console.group("decryptMessage()");
       if( this.passwordsMatch() ) {  
-        this.message.setValue( this.decrypt( this.message.getValue(), $('#password').val() ) );
+        $('#message').val( this.decrypt( $('#message').val(), $('#password').val() ) );
+        //this.message.setValue( this.decrypt( this.message.getValue(), $('#password').val() ) );
         EventBus.trigger('message:updated');
       }
       console.groupEnd();
@@ -101,16 +106,23 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace) {
     
     refreshMessage: function () {
       console.log("refreshMessage()");
-      $("#count").text( this.message.getValue().length );
-      this.message.renderer.adjustWrapLimit()
-      this.message.resize();
+      
+      var m = $('#message');
+      $("#count").text( m.val().length );
+      m.autosize({ append: '\n'});
+
+      //$("#count").text( this.message.getValue().length );
+      //this.message.renderer.adjustWrapLimit()
+      //this.message.resize();
     },
     
     clearMessage: function () {
       var message = this.message;
       bootbox.confirm("Clear message?", function(result) {
         if(result == true) {
-          message.setValue('');
+          $('#message').val('');
+          $('#message').trigger('change');
+          //message.setValue('');
           EventBus.trigger('message:updated');
         }
       });
