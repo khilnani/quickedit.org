@@ -86,6 +86,11 @@ function($, _, localStorage, Utils, BaseView, EventBus, bootbox, CloudStore, Cod
     logout: function () {
       CloudStore.logout();
     },
+    
+    _clearMessage: function () {
+      console.log('_clearMessage()');
+      $('#message').val('\n\n\n\n\n\n\n');
+    },
 
     displayFileInfo: function (location, fileName) {
       this.currentFolder = location;
@@ -182,7 +187,7 @@ function($, _, localStorage, Utils, BaseView, EventBus, bootbox, CloudStore, Cod
       bootbox.confirm("Clear message?", function(result) {
         if(result == true) {
           self.displayFileInfo();
-          $('#message').val('');
+          self._clearMessage();
           $('#message').trigger('change');
           EventBus.trigger('message:updated');
         }
@@ -257,6 +262,7 @@ function($, _, localStorage, Utils, BaseView, EventBus, bootbox, CloudStore, Cod
       if( ! Utils.isMobile() ) {
         console.log('Initializing CodeMirror.');
         
+        this._clearMessage();
         $('.desktop').removeClass('hidden');
         
         this.editor = CodeMirror.fromTextArea(document.getElementById("message"), {
