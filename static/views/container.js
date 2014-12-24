@@ -1,5 +1,5 @@
 define([
-  'jquery', 'underscore', 'globals/utils', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 
+  'jquery', 'underscore', 'globals/localstorage','globals/utils', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 
   'libs/codemirror/lib/codemirror', 
   
   'css!libs/codemirror-mods/codemirror.css',
@@ -48,7 +48,7 @@ define([
   'libs/codemirror/keymap/vim', 'libs/codemirror/addon/display/placeholder',
   'libs/codemirror/addon/edit/matchbrackets', 'libs/codemirror/addon/search/searchcursor', 'libs/codemirror/addon/dialog/dialog',
   'add2home', 'css!libs/add2home/add2home.css', 'sha256', 'aes'], 
-function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
+function($, _, localStorage, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
   "use strict";
   
   console.log("ContainerView.");
@@ -229,6 +229,9 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
         mode = id;
       }
       this.editor.setOption('mode', mode);
+      localStorage.setItem('mode_id', id);
+      localStorage.setItem('mode_value', mode);
+      localStorage.setItem('mode_label', $(event.target).html());
     },
     
     selectTheme: function (event) {
@@ -236,6 +239,8 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       console.log("selectTheme(): " + id);
       $('#cm-select-theme-btn').html( $(event.target).html() );
       this.editor.setOption('theme', id);
+      localStorage.setItem('theme_value', id);
+      localStorage.setItem('theme_label', $(event.target).html());
     },
   
     initialize: function(options) {
@@ -269,6 +274,21 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
         this.editor.on('keypress', function(editor, e) {
           //console.log(e.keyCode);
         });
+        
+        var mode_value = localStorage.getItem('mode_value');
+        var mode_label = localStorage.getItem('mode_label');
+        if(mode_value && mode_label) {
+          this.editor.setOption('mode', mode_value);
+          $('#cm-select-mode-btn').html( mode_label );
+        }
+        
+        var theme_value = localStorage.getItem('theme_value');
+        var theme_label = localStorage.detItem('theme_label');
+        if (theme_value && theme_label) {
+          this.editor.setOption('theme', theme_value);
+          $('#cm-select-theme-btn').html( theme_label );
+        }
+        
       }
   
       this.refreshMessage();
