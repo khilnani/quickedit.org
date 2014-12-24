@@ -1,6 +1,6 @@
 define([
   'jquery', 'underscore', 'globals/localstorage','globals/utils', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 
-  'libs/codemirror/lib/codemirror.min', 
+  'libs/codemirror/lib/codemirror', 
   
   'css!libs/codemirror-mods/codemirror.css',
   'css!libs/codemirror/theme/eclipse.css',
