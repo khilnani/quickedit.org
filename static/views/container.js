@@ -49,8 +49,8 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       var promise = CloudStore.readFile();
       var message = this.message;
       
-      promise.done( function( text ) {
-        console.log("read.");
+      promise.done( function( text, location, fileName ) {
+        console.log("read: " + location.join('/') + ', ' + fileName);
         $('#message').val( text )
         //message.setValue( text );
         EventBus.trigger('message:updated');
@@ -63,13 +63,13 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
     },
     
     saveFile: function () {
-      console.group("saveFile");
+      console.log("saveFile");
 
       //var promise = CloudStore.saveFile( this.message.getValue() );
       var promise = CloudStore.saveFile( $('#message').val() );
       
       promise.done( function( ) {
-        console.log("saved.");
+        console.log("saved: " + location.join('/') + ', ' + fileName);
         console.groupEnd();
       });
       promise.fail( function( ) {
