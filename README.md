@@ -9,8 +9,14 @@ To use, go to http://quickencrypt.org . Feel free to create defect/suggestion ti
 
 - Integrated the CodeMirror editor that supports themes, syntax highlighting and editor modes (eg Vim).
   - Available on Desktop browsers only. Mobile support has a wierd double cursor issue.
-- Editor preferences are now saved in the browser and retained across browser sessions. 
-  - *Note* - Message/file content is not saved in the browser.
+  - Editor preferences are now saved in the browser and retained across browser sessions. 
+    - *Note* - Message/file content is not saved in the browser.
+- Improved Dropbox file browsing experience:
+  - File browser remembers last directory a file was opened from (within the current session).
+  - Editor displays the file path for a file opened or saved to via Dropbox.
+  - Overwriting files is now supported - click a file name to get confirmation popup prior to saving.
+  - Directory creation support added.
+  - Files larger than 1mb are disabled for reading for performance reasons.
 
 See [Github Issues](https://github.com/khilnani/quickencrypt/issues?q=is%3Aissue+is%3Aclosed) for more info.
 
