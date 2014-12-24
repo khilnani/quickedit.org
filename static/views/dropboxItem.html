@@ -1,4 +1,4 @@
-<% if(size < 1024 * 1024 && (mode=='read' || type!='file')) { %>
+<% if(size < 1024 * 1024) { %>
   <a class='dropbox-item-link' href='#'>
 <% } %>
 
@@ -10,7 +10,7 @@
   <span class="glyphicon glyphicon-arrow-left"></span>
 <% } %>
 
-<% if(size < 1024 * 1024 && (mode=='read' || type!='file')) { %>
+<% if(size < 1024 * 1024) { %>
   </a>
   <a class='dropbox-item-link' href='#'><%= name %></a>
 <% } else { %>
