@@ -53,18 +53,18 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox
       }
     },
 
-    readFile: function () {
+    readFile: function (location) {
       console.log("CloudStore.readFile");
-      return this.render('read');
+      return this.render('read', undefined, location);
     },
     
-    saveFile: function ( fileData ) {
+    saveFile: function ( fileData , location) {
       console.log("CloudStore.saveFile");
-      return this.render('save', fileData);
+      return this.render('save', fileData, location);
     },
     
-    render: function (mode, fileData) {
-      console.log("CloudStore.render: " + mode);
+    render: function (mode, fileData, location) {
+      console.log("CloudStore.render: " + mode + ', ' + location);
       
       var deferred = $.Deferred();
       var dropboxView = new DropboxView();
@@ -74,7 +74,7 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox
         if(error) {
           deferred.reject();
         } else {
-          dropboxView.show(this.client, deferred, mode, fileData);
+          dropboxView.show(this.client, deferred, mode, fileData, location);
         }
         this.refreshStatus();
       }, this));
