@@ -27,7 +27,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl,
 
     events: {
       "click .dropbox-newdir-btn": "newdir",
-      "click .dropbox-save-btn": "save"
+      "click .dropbox-save-btn": "saveAsNew"
     },
 
     select: function ( name ) {
@@ -80,11 +80,15 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl,
       }, this));
     },
 
+    saveAsNew: function (event) {
+      this.save();
+    },
+
     save: function (existingFileName) {
       console.log('DropboxView.save: ' + this.location.join('/') + ', ' + existingFileName);
       
       if(existingFileName) {
-        bootbox.confirm('Save as: ' + existingFileName, _.bind( function (result) {
+        bootbox.confirm('Overwrite file \'<em>' + existingFileName + '</em>\' ?', _.bind( function (result) {
           if(result) {
             this.saveFile( existingFileName );
           }
@@ -195,7 +199,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl,
       this.deferred = deferred;
       this.mode = mode;
       this.fileData = fileData;
-      this.location = (location) ? [] : location;
+      this.location = (location) ? location : [];
       
       $('#dropbox').modal( 'show' );
       

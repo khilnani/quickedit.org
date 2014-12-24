@@ -15,6 +15,8 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
   var ContainerView = BaseView.extend({
   
     el: $('#container'),
+    currentFolder: undefined,
+    currentFile: undefined,
     message: undefined,
     editor: undefined,
     
@@ -43,14 +45,28 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
     logout: function () {
       CloudStore.logout();
     },
+
+    displayFileInfo: function (location, fileName) {
+      this.currentFolder = location;
+      this.currentFile = fileName;
+
+      if(this.currentFolder) {
+        var filePath = this.currentFolder.join('/') + '/' + fileName;
+        $('#filePath').html( filePath );
+      } else {
+        $('#filePath').html( 'New' );
+      }
+    },
     
     readFile: function () {
       console.group("readFile");
       var promise = CloudStore.readFile();
-      var message = this.message;
+      //var message = this.message;
+      var self = this;
       
       promise.done( function( text, location, fileName ) {
         console.log("read: " + location.join('/') + ', ' + fileName);
+        self.displayFileInfo( location, fileName);
         $('#message').val( text )
         //message.setValue( text );
         EventBus.trigger('message:updated');
@@ -66,10 +82,12 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       console.log("saveFile");
 
       //var promise = CloudStore.saveFile( this.message.getValue() );
-      var promise = CloudStore.saveFile( $('#message').val() );
+      var self = this;
+      var promise = CloudStore.saveFile( $('#message').val(), this.currentFolder );
       
       promise.done( function( location, fileName) {
         console.log("saved: " + location.join('/') + ', ' + fileName);
+        self.displayFileInfo( location, fileName);
         console.groupEnd();
       });
       promise.fail( function( ) {
@@ -128,9 +146,11 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
     },
     
     clearMessage: function () {
-      var message = this.message;
+      //var message = this.message;
+      var self = this;
       bootbox.confirm("Clear message?", function(result) {
         if(result == true) {
+          self.displayFileInfo();
           $('#message').val('');
           $('#message').trigger('change');
           //message.setValue('');
