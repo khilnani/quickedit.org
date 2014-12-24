@@ -1,5 +1,6 @@
 define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/base', 'globals/eventbus', 'txt!views/dropbox.html', 'txt!views/dropboxItem.html', 'txt!views/loading.html', 'css!views/dropbox.css', 'dropbox'], 
-function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl, itemTmpl, loadingTmpl) {
+function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl, 
+    itemTmpl, loadingTmpl) {
   "use strict";
 
   console.log("DropboxView.");
@@ -128,13 +129,13 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl, itemTmpl, loadin
     renderAnimated: function (loading) {
       console.log('DropboxView.renderAnimated')
       
-      $(this.el).fadeOut('slow').promise().done(_.bind(function() {
-        $(this.el).html('');
+      this.$el.fadeOut('slow').promise().done(_.bind(function() {
+        this.$el.html('');
         
         if(loading) {
-          $(this.el).html( loadingTmpl );
+          this.$el.html( loadingTmpl );
         } else {
-          $(this.el).html( this.template( { mode: this.mode, view: this } ) );
+          this.$el.html( this.template( { mode: this.mode, view: this } ) );
           var container = $('.dropbox-view-list');
           //console.log(container);
           this.collection.each( function(item) {
@@ -147,7 +148,7 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl, itemTmpl, loadin
         $('#dropbox .modal-body').append( this.el );
         if(!loading) $('#dropbox').trigger("resize");
         
-        $(this.el).fadeIn('slow').promise().done( function () {
+        this.$el.fadeIn('slow').promise().done( function () {
           if(!loading) $('#dropbox').trigger("resize");
         });
         
@@ -156,12 +157,12 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl, itemTmpl, loadin
     
     render: function (loading) {
       console.log('DropboxView.render')
-      $(this.el).html('');
+      this.$el.html('');
       
       if(loading) {
-        $(this.el).html( loadingTmpl );
+        this.$el.html( loadingTmpl );
       } else {
-        $(this.el).html( this.template( { mode: this.mode, view: this } ) );
+        this.$el.html( this.template( { mode: this.mode, view: this } ) );
         var container = $('.dropbox-view-list');
         console.log(container);
         this.collection.each( function(item) {
