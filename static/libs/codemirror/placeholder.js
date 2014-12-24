@@ -1,9 +1,11 @@
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: http://codemirror.net/LICENSE
 
-(function(mod) {
-    define(["libs/codemirror/codemirror-4.8.0"], mod);
-})(function(CodeMirror) {
+define(['codemirror'], 
+function(CodeMirror) {
+  "use strict";
+  console.log("placeholder.");
+  
   CodeMirror.defineOption("placeholder", "", function(cm, val, old) {
     var prev = old && old != CodeMirror.Init;
     if (val && !prev) {
@@ -50,4 +52,5 @@
   function isEmpty(cm) {
     return (cm.lineCount() === 1) && (cm.getLine(0) === "");
   }
+  
 });
