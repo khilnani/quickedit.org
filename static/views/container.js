@@ -154,6 +154,8 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
       
       BaseView.prototype.initialize.call(this, options);
       
+      var self = this;
+      
       //this.message = window.ace.edit("message");
       //this.message.setOptions({
       //   minLines: 10,
@@ -170,7 +172,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
       
       editor.on("change", function(editor, change) {
         console.log("something changed! (" + change.origin + ")");
-        ContainerView.refreshMessage();
+        self.refreshMessage();
       });
   
       this.refreshMessage();
