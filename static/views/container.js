@@ -175,9 +175,10 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       }
     },
     
-    selectMode: function (e) {
-      console.log("selectMode()");
-      console.log(e);
+    selectMode: function (event) {
+      console.log("selectMode(): " + $(event.target).data('name'));
+      console.log(event);
+      
     },
   
     initialize: function(options) {
@@ -211,8 +212,6 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
         this.editor.on('keypress', function(editor, e) {
           //console.log(e.keyCode);
         });
-        
-        $('.cm-mode').on("click", _.bind(this.selectMode, this));
       }
   
       this.refreshMessage();
