@@ -12,7 +12,6 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
     el: $('#container'),
     currentFolder: undefined,
     currentFile: undefined,
-    message: undefined,
     editor: undefined,
     
     events: {
