@@ -108,7 +108,6 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
       console.log("refreshMessage()");
       
       var m = $('#message');
-      console.log( m.val() );
       $("#count").text( m.val().length );
       m.autosize({ append: '\n'});
 
