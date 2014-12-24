@@ -186,6 +186,17 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
           editor.save();
           self.refreshMessage();
         });
+        
+        var commandDisplay = document.getElementById('command-display');
+        var keys = '';
+        CodeMirror.on(editor, 'vim-keypress', function(key) {
+          keys = keys + key;
+          commandDisplay.innerHTML = keys;
+        });
+        CodeMirror.on(editor, 'vim-command-done', function(e) {
+          keys = '';
+          commandDisplay.innerHTML = keys;
+        });
       }
   
       this.refreshMessage();
