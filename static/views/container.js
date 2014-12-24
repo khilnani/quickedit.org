@@ -4,7 +4,7 @@ define([
   
   'css!libs/codemirror-mods/codemirror.css',
   'css!libs/codemirror/theme/eclipse.css',
-  'css!libs/codemirror/theme/lesser-dark', 
+  'css!libs/codemirror/theme/lesser-dark.css', 
   'css!libs/codemirror/theme/mbo.css', 
   'css!libs/codemirror/theme/mdn-like.css', 
   'css!libs/codemirror/theme/monokai.css', 
