@@ -220,7 +220,7 @@ function($, _, localStorage, Utils, BaseView, EventBus, bootbox, CloudStore, Cod
         this.editor.setOption("keyMap","vim");
         $('#keyMapVim').html('<strong>Mode: Vim</strong>');
         localStorage.setItem('keymap_value', "vim");
-        localStorage.setItem('keymap_label', i'<strong>Mode: Vim</strong>'d);
+        localStorage.setItem('keymap_label', '<strong>Mode: Vim</strong>');
       }
     },
     
