@@ -35,6 +35,7 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       "click #logout": "logout",
       
       "click #keyMapVim": "toggleKeyMapVim"
+      "click .cm-mode": "selectMode"
       
     },
     
@@ -173,6 +174,11 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
         this.editor.setOption("keyMap","vim");
         $('#keyMapVim').html('<strong>Mode: Vim</strong>');
       }
+    },
+    
+    selectMode: function (e) {
+      console.log("selectMode()");
+      console.log(e);
     },
   
     initialize: function(options) {
