@@ -81,10 +81,14 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl,
     },
 
     save: function (existingFileName) {
-      console.log('DropboxView.save: ' + this.location.join('/'));
+      console.log('DropboxView.save: ' + this.location.join('/') + ', ' + existingFileName);
       
       if(existingFileName) {
-        this.saveFile( fileName );
+        bootbox.confirm('Save as: ' + existingFileName, _.bind( function (result) {
+          if(result) {
+            this.saveFile( existingFileName );
+          }
+        }, this));
       } else {
         bootbox.prompt('Filename', _.bind( function (fileName) {
           if(fileName !== null) {
