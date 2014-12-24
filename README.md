@@ -5,6 +5,15 @@ quick encrypt
 
 To use, go to http://quickencrypt.org . Feel free to create defect/suggestion tickets in Github.
 
+## Recent Changes
+
+- Integrated the CodeMirror editor that supports themes, syntax highlighting and editor modes such as Vim.
+  - Desktop browsers only. Mobile support has a wierd double cursor issue.
+- Editor preferences are now saved in the browser and retained across browser sessions. 
+  - Note - Message/file content is not saved in the browser.
+
+See (issues?q=is%3Aissue+is%3Aclosed)[Github Issues] for more info
+
 ## Developer Notes 
 
 Please note that this branch includes both traditional web site code as well as PhoneGap/Cordova configuration files. For more info, please take a look at the `master` branch.
