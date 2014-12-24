@@ -179,7 +179,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
           showCursorWhenSelecting: true,
           viewportMargin: Infinity,
           mode: "text/x-csrc",
-          xkeyMap: "vim"
+          keyMap: "vim"
         });
         
         editor.on("change", function(editor, change) {
@@ -188,20 +188,19 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
         });
         
         editor.on('keypress', function(editor, e) {
-          console.log(e);
+          console.log(e.keyCode);
         });
         
         var commandDisplay = document.getElementById('command-display');
         var keys = '';
         editor.on('vim-keypress', function(editor, e) {
-          console.log('vim-keypress');
-          console.log(e);
+          console.log('vim-keypress: ' + e.keyCode);
+          var key = String.fromCharCode(e.keyCode);
           keys = keys + key;
           commandDisplay.innerHTML = keys;
         });
         editor.on('vim-command-done', function(editor, e) {
           console.log('vim-command-done');
-          console.log(e);
           keys = '';
           commandDisplay.innerHTML = keys;
         });
