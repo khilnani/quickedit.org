@@ -225,7 +225,7 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
           lineWrapping: true,
           showCursorWhenSelecting: true,
           viewportMargin: Infinity,
-          mode: "text/x-csrc",
+          //mode: "text/x-csrc",
           keyMap: "default"
         });
         
