@@ -7,10 +7,10 @@ To use, go to http://quickencrypt.org . Feel free to create defect/suggestion ti
 
 ## Recent Changes
 
-- Integrated the CodeMirror editor that supports themes, syntax highlighting and editor modes such as Vim.
-  - Desktop browsers only. Mobile support has a wierd double cursor issue.
+- Integrated the CodeMirror editor that supports themes, syntax highlighting and editor modes (eg Vim).
+  - Available on Desktop browsers only. Mobile support has a wierd double cursor issue.
 - Editor preferences are now saved in the browser and retained across browser sessions. 
-  - Note - Message/file content is not saved in the browser.
+  - *Note* - Message/file content is not saved in the browser.
 
 See [Github Issues](https://github.com/khilnani/quickencrypt/issues?q=is%3Aissue+is%3Aclosed) for more info.
 
