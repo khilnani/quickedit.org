@@ -68,7 +68,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       //var promise = CloudStore.saveFile( this.message.getValue() );
       var promise = CloudStore.saveFile( $('#message').val() );
       
-      promise.done( function( ) {
+      promise.done( function( location, fileName) {
         console.log("saved: " + location.join('/') + ', ' + fileName);
         console.groupEnd();
       });
