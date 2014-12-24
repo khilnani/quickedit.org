@@ -184,8 +184,13 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
 
       var self = this;
       
-      if( ! isiOS() ) {
+      if( isiOS() ) {
+        $('#keyMapVim').hide();
+      } else {
         console.log('Initializing CodeMirror.');
+        
+        $('#keyMapVim').show();
+        
         this.editor = CodeMirror.fromTextArea(document.getElementById("message"), {
           lineNumbers: true,
           styleActiveLine: true,
