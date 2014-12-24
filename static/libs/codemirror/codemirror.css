@@ -54,7 +54,7 @@
 .CodeMirror.cm-fat-cursor div.CodeMirror-cursor {
   width: auto;
   border: 0;
-  background: #01A9DB;
+  background: #4DC3E6;
 }
 .CodeMirror.cm-fat-cursor div.CodeMirror-cursors {
   z-index: 1;
@@ -131,7 +131,7 @@ div.CodeMirror-overwrite div.CodeMirror-cursor {}
 
 /* Default styles for common addons */
 
-div.CodeMirror span.CodeMirror-matchingbracket {color: #4DC3E6;}
+div.CodeMirror span.CodeMirror-matchingbracket {color: #01A9DB;}
 div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #CC0000;}
 .CodeMirror-matchingtag { background: rgba(255, 150, 0, .3); }
 .CodeMirror-activeline-background {background: #e8f2ff;}
