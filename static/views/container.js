@@ -161,7 +161,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
     },
     
     toggleKeyMapVim: function () {
-      if(this.editor.setOption("keyMap") == "vim") {
+      if(this.editor.getOption("keyMap") == "vim") {
         this.editor.setOption("keyMap","default");  
       } else {
         this.editor.setOption("keyMap","vim");
