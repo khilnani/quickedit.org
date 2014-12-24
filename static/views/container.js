@@ -193,13 +193,12 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
         
         var commandDisplay = document.getElementById('command-display');
         var keys = '';
-        editor.on('vim-keypress', function(editor, e) {
-          console.log('vim-keypress: ' + e.keyCode);
-          var key = String.fromCharCode(e.keyCode);
+        editor.on(editor, 'vim-keypress', function(key) {
+          console.log('vim-keypress: ' + key);
           keys = keys + key;
           commandDisplay.innerHTML = keys;
         });
-        editor.on('vim-command-done', function(editor, e) {
+        editor.on(editor, 'vim-command-done', function(e) {
           console.log('vim-command-done');
           keys = '';
           commandDisplay.innerHTML = keys;
