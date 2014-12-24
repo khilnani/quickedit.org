@@ -12,7 +12,8 @@ To use, go to http://quickencrypt.org . Feel free to create defect/suggestion ti
   - Editor preferences are now saved in the browser and retained across browser sessions. 
     - *Note* - Message/file content is not saved in the browser.
 - Improved Dropbox file browsing experience:
-  - File browser remembers last directory a file was opened from (within the current session).
+  - File browser remembers last directory a file was opened from.
+    - *Note* - Not saved across page refresh/reloads or browser sessions.
   - Editor displays the file path for a file opened or saved to via Dropbox.
   - Overwriting files is now supported - click a file name to get confirmation popup prior to saving.
   - Directory creation support added.
