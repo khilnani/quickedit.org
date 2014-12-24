@@ -29,6 +29,7 @@ define('require-config',[], function() {
       "cm.searchcursor": "libs/codemirror/searchcursor",
       "cm.dialog": "libs/codemirror/dialog",
       "cm.matchbrackets": "libs/codemirror/matchbrackets",
+      "cm.clike": "libs/codemirror/clike",
     },
     "shim": {
       "jquery": ["globals/console"],
