@@ -11,7 +11,8 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
   
   
   function isiOS() {
-    return (/iP(hone|od|ad)/.test( navigator.userAgent ));
+    //return (/iP(hone|od|ad)/.test( navigator.userAgent ));
+    return false;
   }
   
   var ContainerView = BaseView.extend({
