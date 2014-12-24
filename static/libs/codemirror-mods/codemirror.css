@@ -3,7 +3,6 @@
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
   /* font-family: monospace; */
-  min-height: 120px;
   border: 1px solid #ccc;
   height: auto;
 
