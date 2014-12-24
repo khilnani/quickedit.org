@@ -164,31 +164,43 @@ void* zmq_thread_init(void* zmq_context, int signal_fd) {
             <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#disclaimer">Disclaimer</button>
             <span class="btn-group desktop hidden">
               <button id="keyMapVim" type="button" class="btn btn-default btn-xs">Mode: Vim</button>
-              <button type="button" class="btn btn-info dropdown-toggle btn-xs" data-toggle="dropdown">
+              <button type="button" id="cm-select-mode-btn" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown">
                 Syntax
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li><a href="#" class="cm-select-mode" data-id="clike" data-mode="text/x-csrc">C</a></li>
                 <li><a href="#" class="cm-select-mode" data-id="clike" data-mode="text/x-c++src">C++</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="css">CSS</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="django">Django</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="haml">HAML</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="html">HTML</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="sql" data-mode="text/x-cassandra">Cassandra</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="css" data-mode="text/css">CSS</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="css" data-mode="text/x-less">CSS - Less</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="css" data-mode="text/x-scss">CSS - SCSS</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="django" data-mode="text/x-django">Django</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="haml" data-mode="text/x-haml">HAML</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="sql" data-mode="text/x-hive">Hive</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="xml" data-mode="text/html">HTML</a></li>
                 <li><a href="#" class="cm-select-mode" data-id="jade">Jade</a></li>
                 <li><a href="#" class="cm-select-mode" data-id="clike" data-mode="text/x-java">Java</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="javascript">JavaScript</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="markdown">Markdown</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="javascript" data-mode="text/javascript">JavaScript</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="javascript" data-mode="application/json">JavaScript - JSON</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="javascript" data-mode="application/ld+json">JavaScript - LD-JSON</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="javascript" data-mode="text/typescript">JavaScript - TypeScript</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="sql" data-mode="text/x-mariadb">MariaDB</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="markdown" data-mode="text/x-markdown">Markdown</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="sql" data-mode="text/x-mssql">MSSql</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="sql" data-mode="text/x-mysql">MySQL</a></li>
                 <li><a href="#" class="cm-select-mode" data-id="clike" data-mode="text/x-objectivec">Objective-C</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="php">Php</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="python">Python</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="ruby">Ruby</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="perl" data-mode="text/x-perl">Perl</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="php" data-mode="application/x-httpd-php">Php</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="sql" data-mode="text/x-plsql">PlSQL</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="python" data-mode="text/x-python">Python</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="ruby" data-mode="text/x-ruby">Ruby</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="sass" data-mode="text/x-sass">SASS</a></li>
                 <li><a href="#" class="cm-select-mode" data-id="clike" data-mode="text/x-scala">Scala</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="shell">Shell / Bash</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="sass">SASS</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="sql">SQL</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="xml">XML</a></li>
-                <li><a href="#" class="cm-select-mode" data-id="yaml">Yaml</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="shell" data-mode="text/x-sh">Shell / Bash</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="sql" data-mode="text/x-sql">SQL</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="xml" data-mode="application/xml">XML</a></li>
+                <li><a href="#" class="cm-select-mode" data-id="yaml" data-mode="text/x-yaml">Yaml</a></li>
               </ul>
             </div>
           </span>
