@@ -7,6 +7,10 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
   
   console.log("ContainerView.");
   
+  function isiOS() {
+    return (/iP(hone|od|ad)/.test( navigator.userAgent ));
+  }
+  
   var ContainerView = BaseView.extend({
   
     el: $('#container'),
@@ -162,20 +166,22 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
       //   minLines: 10,
       //   maxLines: 1000
       //});
-      
-      var editor = CodeMirror.fromTextArea(document.getElementById("message"), {
-        lineNumbers: true,
-        styleActiveLine: true,
-        matchBrackets: true,
-        lineWrapping: true,
-        showCursorWhenSelecting: true,
-        viewportMargin: Infinity
-      });
-      
-      editor.on("change", function(editor, change) {
-        editor.save();
-        self.refreshMessage();
-      });
+      if( ! isiOS() ) {
+        console.log('Not iOS. Initializing CodeMirror');
+        var editor = CodeMirror.fromTextArea(document.getElementById("message"), {
+          lineNumbers: true,
+          styleActiveLine: true,
+          matchBrackets: true,
+          lineWrapping: true,
+          showCursorWhenSelecting: true,
+          viewportMargin: Infinity
+        });
+        
+        editor.on("change", function(editor, change) {
+          editor.save();
+          self.refreshMessage();
+        });
+      }
   
       this.refreshMessage();
 
