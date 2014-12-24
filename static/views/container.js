@@ -101,7 +101,7 @@ function($, _, localStorage, Utils, BaseView, EventBus, bootbox, CloudStore, Cod
     
     readFile: function () {
       console.group("readFile");
-      var promise = CloudStore.readFile();
+      var promise = CloudStore.readFile( this.currentFolder );
       var self = this;
       
       promise.done( function( text, location, fileName ) {
