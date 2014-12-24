@@ -168,7 +168,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
         showCursorWhenSelecting: true
       });
       
-      cm.on("change", function(cm, change) {
+      editor.on("change", function(editor, change) {
         console.log("something changed! (" + change.origin + ")");
         this.refreshMessage();
       });
