@@ -5,6 +5,7 @@ define([
   'add2home', 'css!libs/add2home/add2home.css', 'sha256', 'aes'], 
 function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
   "use strict";
+  
   console.log("ContainerView.");
   
   var ContainerView = BaseView.extend({
