@@ -168,7 +168,8 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
         styleActiveLine: true,
         matchBrackets: true,
         lineWrapping: true,
-        showCursorWhenSelecting: true
+        showCursorWhenSelecting: true,
+        viewportMargin: Infinity
       });
       
       editor.on("change", function(editor, change) {
