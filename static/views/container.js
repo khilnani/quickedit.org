@@ -185,7 +185,7 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       if( ! Utils.isMobile() ) {
         console.log('Initializing CodeMirror.');
         
-        $('#keyMapVim').removeClass('hidden');
+        $('.desktop').removeClass('hidden');
         
         this.editor = CodeMirror.fromTextArea(document.getElementById("message"), {
           lineNumbers: true,
