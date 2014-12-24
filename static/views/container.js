@@ -115,6 +115,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
       var m = $('#message');
       $("#count").text( m.val().length );
       m.autosize({ append: '\n'});
+      m.trigger('autosize.resize');
 
       //$("#count").text( this.message.getValue().length );
       //this.message.renderer.adjustWrapLimit()
