@@ -283,7 +283,7 @@ function($, _, localStorage, Utils, BaseView, EventBus, bootbox, CloudStore, Cod
         }
         
         var theme_value = localStorage.getItem('theme_value');
-        var theme_label = localStorage.detItem('theme_label');
+        var theme_label = localStorage.getItem('theme_label');
         if (theme_value && theme_label) {
           this.editor.setOption('theme', theme_value);
           $('#cm-select-theme-btn').html( theme_label );
