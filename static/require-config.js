@@ -21,25 +21,14 @@ define('require-config',[], function() {
       "sha256": "libs/movabletype/sha256",
       "aes": "libs/movabletype/aes",
       "add2home": "libs/add2home/add2home",
-      "dropbox": "libs/dropbox/dropbox-0.10.2",
-      "ace": "//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace",
-      "codemirror": "libs/codemirror/codemirror",
-      "codemirror-4.9": "libs/codemirror-4.9/lib/codemirror",
-      "cm.placeholder": "libs/codemirror/placeholder",
-      "cm.vim": "libs/codemirror/vim",
-      "cm.searchcursor": "libs/codemirror/searchcursor",
-      "cm.dialog": "libs/codemirror/dialog",
-      "cm.matchbrackets": "libs/codemirror/matchbrackets",
-      "cm.clike": "libs/codemirror/clike",
+      "dropbox": "libs/dropbox/dropbox-0.10.2"
     },
     "shim": {
       "jquery": ["globals/console"],
       "jquery.autosize": ["jquery"],
       "backbone": ["underscore", "jquery"],
       "bootstrap": ["jquery"],
-      "bootstrap.mods": ["bootstrap"],
-      "ace": ["jquery"],
-      "codemirror": ["jquery"]
+      "bootstrap.mods": ["bootstrap"]
     }
   };
 });
