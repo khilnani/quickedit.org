@@ -2,7 +2,7 @@
 // Distributed under an MIT license: http://codemirror.net/LICENSE
 
 (function(mod) {
-    mod(require("libs/codemirror/codemirror-4.8.0"));
+    define(["libs/codemirror/codemirror-4.8.0"], mod);
 })(function(CodeMirror) {
   CodeMirror.defineOption("placeholder", "", function(cm, val, old) {
     var prev = old && old != CodeMirror.Init;
