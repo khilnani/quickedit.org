@@ -184,13 +184,14 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl,
       $('#dropbox').trigger("resize");
     },
     
-    show: function (client, deferred, mode, fileData) {
-      console.log('DropboxView.show: ' + mode);
+    show: function (client, deferred, mode, fileData, location) {
+      console.log('DropboxView.show: ' + mode + ', ' + location);
       
       this.client = client;
       this.deferred = deferred;
       this.mode = mode;
       this.fileData = fileData;
+      this.location = (location) ? [] : location;
       
       $('#dropbox').modal( 'show' );
       
@@ -247,7 +248,11 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl,
       if(this.model.get('type') == 'dir') {
         this.parent.select( this.model.get('name') );
       } else if(this.model.get('type') == 'file') {
-        this.parent.read( this.model.get('name') );
+        if( this.model.get('mode') == "save") {
+            this.parent.save( this.model.get('name') );
+        } else {
+            this.parent.read( this.model.get('name') );
+        }
       } else if(this.model.get('type') == 'back') {
         this.parent.back();
       } else {
