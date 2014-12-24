@@ -54,7 +54,7 @@
 .CodeMirror.cm-fat-cursor div.CodeMirror-cursor {
   width: auto;
   border: 0;
-  background: #7e7;
+  background: #00BFFF;
 }
 .CodeMirror.cm-fat-cursor div.CodeMirror-cursors {
   z-index: 1;
