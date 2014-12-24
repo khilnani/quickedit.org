@@ -1,8 +1,8 @@
 define([
-  'jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 'ace', 'codemirror', 'cm.vim', 'cm.clike',
+  'jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 'codemirror', 'cm.vim', 'cm.clike',
   'css!libs/codemirror/codemirror-4.8.0.css', 'cm.placeholder',
   'add2home', 'css!libs/add2home/add2home.css', 'sha256', 'aes'], 
-function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
+function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
   "use strict";
   
   console.log("ContainerView.");
