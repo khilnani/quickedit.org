@@ -178,8 +178,8 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
           lineWrapping: true,
           showCursorWhenSelecting: true,
           viewportMargin: Infinity,
-          mode: "text/x-csrc",
-          keyMap: "vim"
+          xmode: "text/x-csrc",
+          xkeyMap: "vim"
         });
         
         editor.on("change", function(editor, change) {
@@ -187,7 +187,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
           self.refreshMessage();
         });
         
-        editor.on(editor, 'keypress', function(e) {
+        editor.on('keypress', function(editor, e) {
           console.log('keypress: ' + e);
         });
         
