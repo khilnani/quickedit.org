@@ -178,7 +178,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
           lineWrapping: true,
           showCursorWhenSelecting: true,
           viewportMargin: Infinity,
-          xmode: "text/x-csrc",
+          mode: "text/x-csrc",
           xkeyMap: "vim"
         });
         
