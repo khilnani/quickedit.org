@@ -3,7 +3,10 @@
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
   /* font-family: monospace; */
-  height: 200px;
+  min-height: 200px;
+  border: 1px solid #eee;
+  height: auto;
+
 }
 
 /* PADDING */
