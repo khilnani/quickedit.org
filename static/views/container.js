@@ -176,8 +176,12 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
     },
     
     selectMode: function (event) {
+      var id = $(event.target).data('id');
       var mode = $(event.target).data('mode');
-      console.log("selectMode(): " + mode);
+      console.log("selectMode(): " + id + ', ' + mode);
+      if( ! mode ) {
+        mode = id;
+      }
       this.editor.setOption('mode', mode);
     },
   
