@@ -178,7 +178,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
       EventBus.on('message:updated', function(){
         console.log('message:updated');
         //$('#message').select();
-        this.refreshMessage();
+        ContainerView.refreshMessage();
       }, this);
     },
     
