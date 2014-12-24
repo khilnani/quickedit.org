@@ -1,10 +1,4 @@
-/* CodeMirror - Minified & Bundled
-   Generated on 12/22/2014 with http://codemirror.net/doc/compress.html
-   Version: 4.8
 
-   CodeMirror Library:
-   - codemirror.js
- */
  
 console.log("codemirror.");
 
