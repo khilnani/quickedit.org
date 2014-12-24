@@ -36,12 +36,12 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl,
       this.refresh();
     },
     
-    read: function ( name ) {
-      console.log('DropboxView.read: ' + name);
+    read: function ( fileName ) {
+      var filePath = this.location.join('/') + '/' + fileName;
+      console.log('DropboxView.read: ' + filePath);
       this.renderAnimated(true);
-      this.location.push( name );
-      this.client.readFile( this.location.join('/'), _.bind(function (error, data) {
-        this.deferred.resolve( data );
+      this.client.readFile( filePath, _.bind(function (error, data) {
+        this.deferred.resolve( data , this.location, fileName);
         this.hide();
       }, this) );
     },
@@ -66,24 +66,32 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl,
       }, this));
     },
 
-    save: function () {
-      console.log('DropboxView.save: ' + this.location.join('/'));
-      
-      bootbox.prompt('Filename', _.bind( function (fileName) {
-        if(fileName !== null) {
-          var filePath = this.location.join('/') + '/' + fileName;
-          console.log('Saving to: ' + filePath);
-          this.renderAnimated(true);
-          this.client.writeFile(filePath, this.fileData, _.bind(function(error, stat) {
-            if(error) {
-              this.deferred.reject();
-            } else {
-              this.deferred.resolve( );
-              this.hide();
-            }
-          }, this));
+    saveFile: function (fileName) {
+      var filePath = this.location.join('/') + '/' + fileName;
+      console.log('Saving to: ' + filePath);
+      this.renderAnimated(true);
+      this.client.writeFile(filePath, this.fileData, _.bind(function(error, stat) {
+        if(error) {
+          this.deferred.reject();
+        } else {
+          this.deferred.resolve(this.location, fileName);
+          this.hide();
         }
       }, this));
+    },
+
+    save: function (existingFileName) {
+      console.log('DropboxView.save: ' + this.location.join('/'));
+      
+      if(existingFileName) {
+        this.saveFile( fileName );
+      } else {
+        bootbox.prompt('Filename', _.bind( function (fileName) {
+          if(fileName !== null) {
+            this.saveFile( fileName );
+          }
+        }, this));
+      }
     },
     
     back: function () {
@@ -204,9 +212,10 @@ function($, _, Backbone, bootbox, BaseView, EventBus, bodyTmpl,
     
     initialize: function (options) {
       console.log('DropboxView()');
-      BaseView.prototype.initialize.call(this, options);
       
       this.reset();
+      BaseView.prototype.initialize.call(this, options);
+      console.log(options);
       
       // hide() triggers this, it should not call hide
       $('#dropbox').on('hide.bs.modal', _.bind(function (e) {
