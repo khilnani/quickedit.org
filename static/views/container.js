@@ -1,5 +1,5 @@
 define([
-  'jquery', 'underscore', 'modules/utils', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 
+  'jquery', 'underscore', 'globals/utils', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 
   'codemirror', 'cm.vim', 'cm.clike', 'cm.placeholder',
   //'codemirror.src', 'css!libs/codemirror/codemirror.css',
   'add2home', 'css!libs/add2home/add2home.css', 'sha256', 'aes'], 
