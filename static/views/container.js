@@ -31,11 +31,9 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       "click #dbSaveFile": "saveFile",
       
       "click #backToTop": "backToTop",
-      
       "click #logout": "logout",
       
-      "click #keyMapVim": "toggleKeyMapVim",
-      "click .cm-mode": "selectMode"
+      "click #keyMapVim": "toggleKeyMapVim"
       
     },
     
@@ -212,6 +210,8 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
         this.editor.on('keypress', function(editor, e) {
           //console.log(e.keyCode);
         });
+        
+        $('.cm-mode').on("click", _.bind(this.selectMode, this));
       }
   
       this.refreshMessage();
