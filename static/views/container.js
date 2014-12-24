@@ -188,18 +188,20 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
         });
         
         editor.on('keypress', function(editor, e) {
-          console.log('keypress: ' + e);
+          console.log(e);
         });
         
         var commandDisplay = document.getElementById('command-display');
         var keys = '';
-        editor.on(editor, 'vim-keypress', function(key) {
-          console.log('vim-keypress: ' + key);
+        editor.on('vim-keypress', function(editor, e) {
+          console.log('vim-keypress');
+          console.log(e);
           keys = keys + key;
           commandDisplay.innerHTML = keys;
         });
-        editor.on(editor, 'vim-command-done', function(e) {
-          console.log('vim-command-done: ' + e);
+        editor.on('vim-command-done', function(editor, e) {
+          console.log('vim-command-done');
+          console.log(e);
           keys = '';
           commandDisplay.innerHTML = keys;
         });
