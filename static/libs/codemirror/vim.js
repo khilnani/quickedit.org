@@ -59,7 +59,7 @@
  *  8. Set up Vim to work as a keymap for CodeMirror.
  */
 
-define(['codemirror', 'cm.searchcursor', 'cm.dialog', 'cm.matchbrackets'], 
+define(['codemirror', 'cm.searchcursor', 'cm.dialog', 'css!libs/codemirror/dialog.css','cm.matchbrackets'], 
 function(CodeMirror) {
   "use strict";
   console.log("vim.");
