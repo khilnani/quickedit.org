@@ -1,6 +1,18 @@
 define([
   'jquery', 'underscore', 'globals/utils', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 
-  'libs/codemirror/lib/codemirror', 'css!libs/codemirror-mods/codemirror.css',
+  'libs/codemirror/lib/codemirror', 
+  
+  'css!libs/codemirror-mods/codemirror.css',
+  'css!libs/codemirror/theme/eclipse.css',
+  'css!libs/codemirror/theme/lesser-dark', 
+  'css!libs/codemirror/theme/mbo.css', 
+  'css!libs/codemirror/theme/mdn-like.css', 
+  'css!libs/codemirror/theme/monokai.css', 
+  'css!libs/codemirror/theme/paraiso-dark.css', 
+  'css!libs/codemirror/theme/solarized.css', 
+  'css!libs/codemirror/theme/twilight.css', 
+  'css!libs/codemirror/theme/zenburn.css', 
+  
   'libs/codemirror/mode/coffeescript/coffeescript',
   'libs/codemirror/mode/commonlisp/commonlisp',
   'libs/codemirror/mode/clike/clike',
@@ -66,7 +78,8 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       "click #logout": "logout",
       
       "click #keyMapVim": "toggleKeyMapVim",
-      "click .cm-select-mode": "selectMode"
+      "click .cm-select-mode": "selectMode",
+      "click .cm-select-theme": "selectTheme"
       
     },
     
@@ -211,13 +224,18 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       var id = $(event.target).data('id');
       var mode = $(event.target).data('mode');
       console.log("selectMode(): " + id + ', ' + mode);
-      
       $('#cm-select-mode-btn').html( $(event.target).html() );
-      
       if( ! mode ) {
         mode = id;
       }
       this.editor.setOption('mode', mode);
+    },
+    
+    selectTheme: function (event) {
+      var id = $(event.target).data('id');
+      console.log("selectTheme(): " + id);
+      $('#cm-select-theme-btn').html( $(event.target).html() );
+      this.editor.setOption('theme', id);
     },
   
     initialize: function(options) {
