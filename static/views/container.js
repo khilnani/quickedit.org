@@ -8,7 +8,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
   console.log("ContainerView.");
   
   function isiOS() {
-    return !(/iP(hone|od|ad)/.test( navigator.userAgent ));
+    return (/iP(hone|od|ad)/.test( navigator.userAgent ));
   }
   
   var ContainerView = BaseView.extend({
@@ -167,7 +167,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
       //   maxLines: 1000
       //});
       if( ! isiOS() ) {
-        console.log('Not iOS. Initializing CodeMirror');
+        console.log('Initializing CodeMirror.');
         var editor = CodeMirror.fromTextArea(document.getElementById("message"), {
           lineNumbers: true,
           styleActiveLine: true,
