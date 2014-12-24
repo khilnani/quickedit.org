@@ -34,7 +34,7 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       
       "click #logout": "logout",
       
-      "click #keyMapVim": "toggleKeyMapVim"
+      "click #keyMapVim": "toggleKeyMapVim",
       "click .cm-mode": "selectMode"
       
     },
