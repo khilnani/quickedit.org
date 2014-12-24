@@ -214,9 +214,13 @@ function($, _, localStorage, Utils, BaseView, EventBus, bootbox, CloudStore, Cod
       if(this.editor.getOption("keyMap") == "vim") {
         this.editor.setOption("keyMap","default");  
         $('#keyMapVim').html('Mode: Vim');
+        localStorage.setItem('keymap_value', "default");
+        localStorage.setItem('keymap_label', 'Mode: Vim');
       } else {
         this.editor.setOption("keyMap","vim");
         $('#keyMapVim').html('<strong>Mode: Vim</strong>');
+        localStorage.setItem('keymap_value', "vim");
+        localStorage.setItem('keymap_label', i'<strong>Mode: Vim</strong>'d);
       }
     },
     
@@ -274,6 +278,14 @@ function($, _, localStorage, Utils, BaseView, EventBus, bootbox, CloudStore, Cod
         this.editor.on('keypress', function(editor, e) {
           //console.log(e.keyCode);
         });
+        
+        // set prior session config
+        var keymap_value = localStorage.getItem('keymap_value');
+        var keymap_label = localStorage.getItem('keymap_label');
+        if(keymap_value && keymap_label) {
+          this.editor.setOption("keyMap",keymap_value); 
+          $('#keyMapVim').html(keymap_label);
+        }
         
         var mode_value = localStorage.getItem('mode_value');
         var mode_label = localStorage.getItem('mode_label');
