@@ -15,7 +15,7 @@ console.log("codemirror.");
   if (typeof exports == "object" && typeof module == "object") // CommonJS
     module.exports = mod();
   else if (typeof define == "function" && define.amd) // AMD
-    return define([], mod);
+    return define(['css!libs/codemirror/codemirror.css'], mod);
   else // Plain browser env
     this.CodeMirror = mod();
 })(function() {
