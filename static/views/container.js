@@ -187,7 +187,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       if( ! isiOS() ) {
         console.log('Initializing CodeMirror.');
         
-        $('#keyMapVim').removeClass('hidden').fadeIn();
+        $('#keyMapVim').removeClass('hidden');
         
         this.editor = CodeMirror.fromTextArea(document.getElementById("message"), {
           lineNumbers: true,
