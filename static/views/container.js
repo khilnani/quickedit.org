@@ -163,10 +163,10 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
     toggleKeyMapVim: function () {
       if(this.editor.getOption("keyMap") == "vim") {
         this.editor.setOption("keyMap","default");  
-        $('#keyMapVim').html('Mode: default');
+        $('#keyMapVim').html('Mode: Vim');
       } else {
         this.editor.setOption("keyMap","vim");
-        $('#keyMapVim').html('Mode: Vim');
+        $('#keyMapVim').html('<strong>Mode: Vim</strong>');
       }
     },
   
