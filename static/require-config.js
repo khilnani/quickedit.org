@@ -24,6 +24,7 @@ define('require-config',[], function() {
       "dropbox": "libs/dropbox/dropbox-0.10.2",
       "ace": "//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace",
       "codemirror": "libs/codemirror/codemirror-4.8.0",
+      "cm.placeholder": "libs/codemirror/placeholder",
     },
     "shim": {
       "jquery": ["globals/console"],
