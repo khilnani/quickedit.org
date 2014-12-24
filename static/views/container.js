@@ -218,7 +218,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
         console.log('message:updated');
         
         if( ! isiOS() ) {
-          editor.setValue( $('#message').val() );
+          this.editor.setValue( $('#message').val() );
         }
         //$('#message').select();
         this.refreshMessage();
