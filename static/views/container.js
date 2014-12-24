@@ -6,6 +6,8 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
   
   console.log("ContainerView.");
   
+  
+  
   function isiOS() {
     return (/iP(hone|od|ad)/.test( navigator.userAgent ));
   }
@@ -14,6 +16,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
   
     el: $('#container'),
     message: undefined,
+    editor: undefined,
     
     events: {
       "keyup #password": "passwordsMatch",
@@ -32,6 +35,9 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       "click #backToTop": "backToTop",
       
       "click #logout": "logout"
+      
+      "click #keyMapVim": "toggleKeyMapVim"
+      
     },
     
     logout: function () {
@@ -153,6 +159,14 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
     backToTop: function () {
       $("html, body").animate({ scrollTop: 0 }, "slow");
     },
+    
+    toggleKeyMapVim: function () {
+      if(this.editor.setOption("keyMap") == "vim") {
+        this.editor.setOption("keyMap","default");  
+      } else {
+        this.editor.setOption("keyMap","vim");
+      }
+    },
   
     initialize: function(options) {
       console.log("ContainerView()");
@@ -165,12 +179,12 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       //   maxLines: 1000
       //});
       
-      var editor = undefined;
+
       var self = this;
       
       if( ! isiOS() ) {
         console.log('Initializing CodeMirror.');
-        editor = CodeMirror.fromTextArea(document.getElementById("message"), {
+        this.editor = CodeMirror.fromTextArea(document.getElementById("message"), {
           lineNumbers: true,
           styleActiveLine: true,
           matchBrackets: true,
@@ -178,15 +192,15 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
           showCursorWhenSelecting: true,
           viewportMargin: Infinity,
           mode: "text/x-csrc",
-          keyMap: "vim"
+          keyMap: "default"
         });
         
-        editor.on("change", function(editor, change) {
+        this.editor.on("change", function(editor, change) {
           editor.save();
           self.refreshMessage();
         });
         
-        editor.on('keypress', function(editor, e) {
+        this.editor.on('keypress', function(editor, e) {
           //console.log(e.keyCode);
         });
       }
