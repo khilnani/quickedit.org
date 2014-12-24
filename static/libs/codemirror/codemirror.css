@@ -54,7 +54,7 @@
 .CodeMirror.cm-fat-cursor div.CodeMirror-cursor {
   width: auto;
   border: 0;
-  background: #00BFFF;
+  background: #01A9DB;
 }
 .CodeMirror.cm-fat-cursor div.CodeMirror-cursors {
   z-index: 1;
@@ -68,19 +68,19 @@
   animation: blink 1.06s steps(1) infinite;
 }
 @-moz-keyframes blink {
-  0% { background: #7e7; }
+  0% { background: #01A9DB; }
   50% { background: none; }
-  100% { background: #7e7; }
+  100% { background: #01A9DB; }
 }
 @-webkit-keyframes blink {
-  0% { background: #7e7; }
+  0% { background: #01A9DB; }
   50% { background: none; }
-  100% { background: #7e7; }
+  100% { background: #01A9DB; }
 }
 @keyframes blink {
-  0% { background: #7e7; }
+  0% { background: #01A9DB; }
   50% { background: none; }
-  100% { background: #7e7; }
+  100% { background: #701A9DBe7; }
 }
 
 /* Can style cursor different in overwrite (non-insert) mode */
