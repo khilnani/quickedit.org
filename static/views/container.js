@@ -1,5 +1,5 @@
 define([
-  'jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 'ace', 'codemirror', 
+  'jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 'ace', 'codemirror', 'cm.vim'
   'css!libs/codemirror/codemirror-4.8.0.css', 'cm.placeholder',
   'add2home', 'css!libs/add2home/add2home.css', 'sha256', 'aes'], 
 function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
@@ -177,7 +177,9 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
           matchBrackets: true,
           lineWrapping: true,
           showCursorWhenSelecting: true,
-          viewportMargin: Infinity
+          viewportMargin: Infinity,
+          mode: "text/x-csrc",
+          keyMap: "vim"
         });
         
         editor.on("change", function(editor, change) {
