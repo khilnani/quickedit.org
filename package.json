@@ -1,0 +1,20 @@
+{
+  "name": "quickencrypt",
+  "private": true,
+  "version": "0.2.0",
+  "description": "Web based text encryption with Dropbox support",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd static && r.js -o require-build.js"
+  },
+  "author": "Nik Khilnani <nik@khilnani.org>",
+  "bugs": {
+    "url": "https://github.com/khilnani/quickencrypt/issues"
+  },
+  "homepage": "https://quickencrypt.org",
+  "devDependencies": {
+    "requirejs": "^2.1.15",
+    "uglify-js": "^2.4.16"
+  }
+}

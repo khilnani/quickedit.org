@@ -1,14 +1,12 @@
-define('require-config',[], function() {
-  "use strict";
-  
-  console.log('require-config.');
-  
-  require.config({
-    baseUrl: './static'
-  });
-  
-  return {
-    "paths": {
+({
+  baseUrl: ".",
+  findNestedDependencies: true,
+  preserveLicenseComments: false,
+  optimize: "uglify2",
+  generateSourceMaps: false,
+  name: "main",
+  out: "main.min.js",
+  "paths": {
       "txt": "libs/require/plugins/text",
       "css": "libs/require/plugins/css",
       "jquery": "libs/jquery/jquery-2.1.0.min",
@@ -24,13 +22,5 @@ define('require-config',[], function() {
       "dropbox": "libs/dropbox/dropbox-0.10.2",
 
       "css-build": "libs/require/plugins/css-build"
-    },
-    "shim": {
-      "jquery": ["globals/console"],
-      "jquery.autosize": ["jquery"],
-      "backbone": ["underscore", "jquery"],
-      "bootstrap": ["jquery"],
-      "bootstrap.mods": ["bootstrap"]
-    }
-  };
-});
+  } 
+})
