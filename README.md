@@ -12,7 +12,7 @@ To use, go to http://quickencrypt.org . Feel free to create defect/suggestion ti
 - Editor preferences are now saved in the browser and retained across browser sessions. 
   - Note - Message/file content is not saved in the browser.
 
-See [issues?q=is%3Aissue+is%3Aclosed](Github Issues) for more info
+See [Github Issues](/khilnani/quickencrypt/issues?q=is%3Aissue+is%3Aclosed) for more info
 
 ## Developer Notes 
 
