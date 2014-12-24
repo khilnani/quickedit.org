@@ -8,7 +8,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
   console.log("ContainerView.");
   
   function isiOS() {
-    return (/iP(hone|od|ad)/.test( navigator.userAgent ));
+    return !(/iP(hone|od|ad)/.test( navigator.userAgent ));
   }
   
   var ContainerView = BaseView.extend({
