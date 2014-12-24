@@ -9,7 +9,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
   
   
   function isiOS() {
-    return !(/iP(hone|od|ad)/.test( navigator.userAgent ));
+    return (/iP(hone|od|ad)/.test( navigator.userAgent ));
   }
   
   var ContainerView = BaseView.extend({
@@ -184,9 +184,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
 
       var self = this;
       
-      if( isiOS() ) {
-        $('#keyMapVim').hide();
-      } else {
+      if( ! isiOS() ) {
         console.log('Initializing CodeMirror.');
         
         $('#keyMapVim').show();
