@@ -25,7 +25,10 @@ define('require-config',[], function() {
       "ace": "//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace",
       "codemirror": "libs/codemirror/codemirror-4.8.0",
       "cm.placeholder": "libs/codemirror/placeholder",
-      "cm.vim": "libs/codemirror/vim"
+      "cm.vim": "libs/codemirror/vim",
+      "cm.searchcursor": "libs/codemirror/searchcursor",
+      "cm.dialog": "libs/codemirror/dialog",
+      "cm.matchbrackets": "libs/codemirror/matchbrackets",
     },
     "shim": {
       "jquery": ["globals/console"],
@@ -34,7 +37,7 @@ define('require-config',[], function() {
       "bootstrap": ["jquery"],
       "bootstrap.mods": ["bootstrap"],
       "ace": ["jquery"],
-      "codemirror": ["jquery"],
+      "codemirror": ["jquery"]
     }
   };
 });
