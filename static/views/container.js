@@ -176,9 +176,9 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
     },
     
     selectMode: function (event) {
-      console.log("selectMode(): " + $(event.target).data('name'));
-      console.log(event);
-      
+      var mode = $(event.target).data('mode');
+      console.log("selectMode(): " + mode);
+      this.editor.setOption('mode', mode);
     },
   
     initialize: function(options) {
