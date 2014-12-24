@@ -163,7 +163,14 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
       var editor = CodeMirror.fromTextArea(document.getElementById("message"), {
         lineNumbers: true,
         styleActiveLine: true,
-        matchBrackets: true
+        matchBrackets: true,
+        lineWrapping: true,
+        showCursorWhenSelecting: true
+      });
+      
+      cm.on("change", function(cm, change) {
+        console.log("something changed! (" + change.origin + ")");
+        this.refreshMessage();
       });
   
       this.refreshMessage();
