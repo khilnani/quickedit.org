@@ -1,16 +1,11 @@
 define([
-  'jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 
+  'jquery', 'underscore', 'modules/utils', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 
   'codemirror', 'cm.vim', 'cm.clike', 'cm.placeholder',
   //'codemirror.src', 'css!libs/codemirror/codemirror.css',
   'add2home', 'css!libs/add2home/add2home.css', 'sha256', 'aes'], 
-function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
+function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
   "use strict";
-  
   console.log("ContainerView.");
-
-  function isiOS() {
-    return (/iP(hone|od|ad)/.test( navigator.userAgent ));
-  }
   
   var ContainerView = BaseView.extend({
   
@@ -61,14 +56,12 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
     readFile: function () {
       console.group("readFile");
       var promise = CloudStore.readFile();
-      //var message = this.message;
       var self = this;
       
       promise.done( function( text, location, fileName ) {
         console.log("read: " + location.join('/') + ', ' + fileName);
         self.displayFileInfo( location, fileName);
         $('#message').val( text )
-        //message.setValue( text );
         EventBus.trigger('message:updated');
         console.groupEnd();
       });
@@ -81,7 +74,6 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
     saveFile: function () {
       console.log("saveFile");
 
-      //var promise = CloudStore.saveFile( this.message.getValue() );
       var self = this;
       var promise = CloudStore.saveFile( $('#message').val(), this.currentFolder );
       
@@ -116,7 +108,6 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       console.group("encryptMessage()");
       if ( this.passwordsMatch() ) {
         $('#message').val( this.encrypt( $('#message').val(), $('#password').val() ) );
-        //this.message.setValue( this.encrypt( this.message.getValue(), $('#password').val() ) );
         EventBus.trigger('message:updated');
       }
       console.groupEnd();
@@ -126,7 +117,6 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       console.group("decryptMessage()");
       if( this.passwordsMatch() ) {  
         $('#message').val( this.decrypt( $('#message').val(), $('#password').val() ) );
-        //this.message.setValue( this.decrypt( this.message.getValue(), $('#password').val() ) );
         EventBus.trigger('message:updated');
       }
       console.groupEnd();
@@ -139,21 +129,15 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       $("#count").text( m.val().length );
       m.autosize({ append: '\n'});
       m.trigger('autosize.resize');
-
-      //$("#count").text( this.message.getValue().length );
-      //this.message.renderer.adjustWrapLimit()
-      //this.message.resize();
     },
     
     clearMessage: function () {
-      //var message = this.message;
       var self = this;
       bootbox.confirm("Clear message?", function(result) {
         if(result == true) {
           self.displayFileInfo();
           $('#message').val('');
           $('#message').trigger('change');
-          //message.setValue('');
           EventBus.trigger('message:updated');
         }
       });
@@ -194,17 +178,10 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       console.log("ContainerView()");
       
       BaseView.prototype.initialize.call(this, options);
-      
-      //this.message = window.ace.edit("message");
-      //this.message.setOptions({
-      //   minLines: 10,
-      //   maxLines: 1000
-      //});
-      
-
+  
       var self = this;
       
-      if( ! isiOS() ) {
+      if( ! Utils.isMobile() ) {
         console.log('Initializing CodeMirror.');
         
         $('#keyMapVim').removeClass('hidden');
@@ -235,7 +212,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       EventBus.on('message:updated', function(){
         console.log('message:updated');
         
-        if( ! isiOS() ) {
+        if( ! Utils.isMobile() ) {
           this.editor.setValue( $('#message').val() );
         }
         //$('#message').select();
