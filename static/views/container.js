@@ -108,6 +108,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
       console.log("refreshMessage()");
       
       var m = $('#message');
+      console.log( m.val() );
       $("#count").text( m.val().length );
       m.autosize({ append: '\n'});
 
@@ -171,7 +172,6 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
       });
       
       editor.on("change", function(editor, change) {
-        console.log("something changed! (" + change.origin + ")");
         self.refreshMessage();
       });
   
