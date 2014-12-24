@@ -2,11 +2,6 @@
 // Distributed under an MIT license: http://codemirror.net/LICENSE
 
 (function(mod) {
-  if (typeof exports == "object" && typeof module == "object") // CommonJS
-    mod(require("libs/codemirror/codemirror-4.8.0"));
-  else if (typeof define == "function" && define.amd) // AMD
-    define(["libs/codemirror/codemirror-4.8.0"], mod);
-  else // Plain browser env
     mod(CodeMirror);
 })(function(CodeMirror) {
   CodeMirror.defineOption("placeholder", "", function(cm, val, old) {
