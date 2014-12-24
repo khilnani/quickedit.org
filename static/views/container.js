@@ -159,16 +159,18 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
       
       BaseView.prototype.initialize.call(this, options);
       
-      var self = this;
-      
       //this.message = window.ace.edit("message");
       //this.message.setOptions({
       //   minLines: 10,
       //   maxLines: 1000
       //});
+      
+      var editor = undefined;
+      var self = this;
+      
       if( ! isiOS() ) {
         console.log('Initializing CodeMirror.');
-        var editor = CodeMirror.fromTextArea(document.getElementById("message"), {
+        editor = CodeMirror.fromTextArea(document.getElementById("message"), {
           lineNumbers: true,
           styleActiveLine: true,
           matchBrackets: true,
@@ -187,6 +189,10 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
 
       EventBus.on('message:updated', function(){
         console.log('message:updated');
+        
+        if( ! isiOS() ) {
+          editor.setValue( $('#message').val() );
+        }
         //$('#message').select();
         this.refreshMessage();
       }, this);
