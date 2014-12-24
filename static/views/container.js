@@ -172,6 +172,7 @@ function($, _, BaseView, EventBus, bootbox, CloudStore, ace, CodeMirror) {
       });
       
       editor.on("change", function(editor, change) {
+        editor.save();
         self.refreshMessage();
       });
   
