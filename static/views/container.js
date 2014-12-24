@@ -1,8 +1,8 @@
 define([
   'jquery', 'underscore', 'globals/utils', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 
-  'libs/codemirror-4.9/lib/codemirror', 'css!libs/codemirror-4.9-custom/codemirror.css',
-  'libs/codemirror-4.9/keymap/vim', 'libs/codemirror-4.9/mode/clike/clike', 'libs/codemirror-4.9/addon/display/placeholder',
-  'libs/codemirror-4.9/addon/edit/matchbrackets', 'libs/codemirror-4.9/addon/search/searchcursor', 'libs/codemirror-4.9/addon/dialog/dialog',
+  'libs/codemirror/lib/codemirror', 'css!libs/codemirror-mods/codemirror.css',
+  'libs/codemirror/keymap/vim', 'libs/codemirror/mode/clike/clike', 'libs/codemirror/addon/display/placeholder',
+  'libs/codemirror/addon/edit/matchbrackets', 'libs/codemirror/addon/search/searchcursor', 'libs/codemirror/addon/dialog/dialog',
   'add2home', 'css!libs/add2home/add2home.css', 'sha256', 'aes'], 
 function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
   "use strict";
