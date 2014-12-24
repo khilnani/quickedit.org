@@ -195,6 +195,9 @@ function($, _, Utils, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
       var id = $(event.target).data('id');
       var mode = $(event.target).data('mode');
       console.log("selectMode(): " + id + ', ' + mode);
+      
+      $('#cm-select-mode-btn').html( $(event.target).html() );
+      
       if( ! mode ) {
         mode = id;
       }
