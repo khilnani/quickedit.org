@@ -1,5 +1,7 @@
 define([
-  'jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 'codemirror', 'cm.vim', 'cm.clike', 'cm.placeholder',
+  'jquery', 'underscore', 'views/base', 'globals/eventbus', 'bootbox', 'modules/cloudstore', 
+  //'codemirror', 'cm.vim', 'cm.clike', 'cm.placeholder',
+  'codemirror.all', 'css!libs/codemirror/codemirror.css',
   'add2home', 'css!libs/add2home/add2home.css', 'sha256', 'aes'], 
 function($, _, BaseView, EventBus, bootbox, CloudStore, CodeMirror) {
   "use strict";
