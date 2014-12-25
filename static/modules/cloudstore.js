@@ -10,8 +10,8 @@ define(['jquery', 'underscore', 'backbone', 'bootbox', 'views/dropbox', 'dropbox
     init: function () {
       console.log("CloudStore.init()");
       var Dropbox = window.Dropbox;
-      this.client = new Dropbox.Client({ key: "p9ina3ib2bv1rhc" });
-      this.client.authDriver(new Dropbox.AuthDriver.Popup({rememberUser: true, receiverUrl: "https://quickencrypt.org/oauth/dropbox.html"}));
+      this.client = new Dropbox.Client({ key: "e8u0xpa87ioumsw" });
+      this.client.authDriver(new Dropbox.AuthDriver.Popup({rememberUser: true, receiverUrl: "https://quickedit.org/oauth/dropbox.html"}));
       
       this.client.authenticate( {interactive: false}, _.bind(function( error, data ) {
         console.log("CloudStore.init/authenticate: error: " + error);
