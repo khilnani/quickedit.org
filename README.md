@@ -1,9 +1,9 @@
-quick encrypt
+QuickEdit
 ================
 
-> SHA1 and AES powered web based text encryption for mobile and desktop.
+> Web based text/code editor with Passphrase based 256bit text encryption and Dropbox support.
 
-To use, go to http://quickencrypt.org
+To use, go to http://QuickEdit.org
 
 
 ## Developer Notes
