@@ -6,13 +6,13 @@
         id        = "com.khilnani.encrypt"
         version   = "1.0.0">
 
-    <name>QuickEncrypt</name>
+    <name>QuickEdit</name>
 
     <description>
       A simple text encryption application.
     </description>
 
-    <author href="http://quickencrypt.org" email="nik@khilnani.org">
+    <author href="http://QuickEdit.org" email="nik@khilnani.org">
         Nik Khilnani
     </author>
 
