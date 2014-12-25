@@ -1,9 +1,9 @@
-quick encrypt
+QuickEdit
 ================
 
-> SHA1 and AES powered web based text encryption for mobile and desktop with Dropbox integration.
+> Web based text/code editor with Passphrase based 256bit text encryption and Dropbox support.
 
-To use, go to http://quickencrypt.org . Feel free to create defect/suggestion tickets in Github.
+To use, go to http://QuickEdit.org . Feel free to create defect/suggestion tickets in Github.
 
 ## Recent Changes
 
@@ -19,7 +19,7 @@ To use, go to http://quickencrypt.org . Feel free to create defect/suggestion ti
   - Directory creation support added.
   - Files larger than 1mb are disabled for reading for performance reasons.
 
-See [Github Issues](https://github.com/khilnani/quickencrypt/issues?q=is%3Aissue+is%3Aclosed) for more info.
+See [Github Issues](https://github.com/khilnani/QuickEdit/issues?q=is%3Aissue+is%3Aclosed) for more info.
 
 ## Developer Notes 
 
@@ -30,14 +30,14 @@ Please note that this branch includes both traditional web site code as well as 
 
 #### Cordova iOS Applicaton
 
-<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ios4-1.png" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ios4-2.png" width="40%" />
+<img src="https://raw.githubusercontent.com/khilnani/QuickEdit/gh-pages/docs/screenshots/ios4-1.png" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/QuickEdit/gh-pages/docs/screenshots/ios4-2.png" width="40%" />
 
-<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ios4-3.png" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/ipad-2.png" width="40%" />
+<img src="https://raw.githubusercontent.com/khilnani/QuickEdit/gh-pages/docs/screenshots/ios4-3.png" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/QuickEdit/gh-pages/docs/screenshots/ipad-2.png" width="40%" />
 
 #### Web Applicaton
 
-<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web1-ios.jpg" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web2-ios.jpg" width="40%" />
+<img src="https://raw.githubusercontent.com/khilnani/QuickEdit/gh-pages/docs/screenshots/web1-ios.jpg" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/QuickEdit/gh-pages/docs/screenshots/web2-ios.jpg" width="40%" />
 
-<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web3-desktop.jpg" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web4-dropbox.jpg" width="40%" />
+<img src="https://raw.githubusercontent.com/khilnani/QuickEdit/gh-pages/docs/screenshots/web3-desktop.jpg" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/QuickEdit/gh-pages/docs/screenshots/web4-dropbox.jpg" width="40%" />
 
-<img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web5-encrypted.jpg" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/quickencrypt/gh-pages/docs/screenshots/web6-about.jpg" width="40%" />
+<img src="https://raw.githubusercontent.com/khilnani/QuickEdit/gh-pages/docs/screenshots/web5-encrypted.jpg" width="40%" /> <img src="https://raw.githubusercontent.com/khilnani/QuickEdit/gh-pages/docs/screenshots/web6-about.jpg" width="40%" />
