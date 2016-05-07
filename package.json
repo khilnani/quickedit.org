@@ -5,7 +5,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/postpost/encrypt.git"
+    "url": "https://github.com/khilnani/quickedit.git"
   },
   "keywords": [
     "encryption",
@@ -18,7 +18,7 @@
   ],
   "author": "Nik Khilnani <nik@khilnani.org> (http://khilnani.org/)",
   "bugs": {
-    "url": "https://github.com/postpost/encrypt/issues"
+    "url": "https://github.com/khilnani/quickedit/issues"
   },
   "dependencies": {
     "ios-sim": "~1.9.0",
